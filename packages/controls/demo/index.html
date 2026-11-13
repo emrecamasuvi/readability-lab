@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading controls demo — publisher integration</title>
+<!-- Original text written for Readability Lab. License: CC BY 4.0. -->
+<style>
+  body { margin: 0; font-family: Georgia, serif; background: #fff; color: #1b1b1b; }
+  .layout { display: flex; flex-wrap: wrap; gap: 24px; padding: 24px; align-items: flex-start; }
+  article { flex: 1 1 32em; min-width: 0; }
+  aside { flex: 0 1 22em; min-width: 0; font-family: system-ui, sans-serif; }
+  h1 { line-height: 1.2; }
+</style>
+</head>
+<body>
+<div class="layout">
+  <article id="story" data-reading-region>
+    <h1>The publisher sets a recipe; the reader still decides</h1>
+    <p>This page ships a publisher recipe: 17px text, about 68 characters per line, and 1.45 line spacing. The settings panel beside it uses the same portable profile format as the Readability Lab browser extension and workbench, so a reader's choices travel with them.</p>
+    <p>Any setting you change wins over the publisher's recipe. If you mark a setting as something to keep, picking a starting point later will not overwrite it. Your settings are stored on this device only, and the share code contains settings but never the text you read.</p>
+    <p>Try the controls with only a keyboard: Tab moves between controls, arrow keys move sliders and radio buttons, and Space toggles checkboxes. Then enlarge the page text in your browser; the panel wraps instead of clipping.</p>
+    <p>Turning off "Use my reading settings" shows the original page so you can compare. Reset returns to the publisher's recipe.</p>
+  </article>
+  <aside>
+    <rl-reading-controls id="controls" target="#story" storage-key="rl-demo-profile"></rl-reading-controls>
+  </aside>
+</div>
+<script src="../dist/reading-controls.iife.js"></script>
+<script>
+  document.getElementById("controls").recipe = {
+    format: "readability-lab/recipe", formatVersion: 1, id: "demo-publisher", name: "Demo publisher",
+    settings: { fontSizePx: 17, lineHeight: 1.45, measure: { value: 68, unit: "cpl" }, paragraphGapEm: 0.75 },
+    rationale: [{ field: "measure", note: "Within the 50–75 starting range", claimIds: ["C-BASE-002"] }]
+  };
+</script>
+</body>
+</html>
