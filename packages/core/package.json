@@ -1,0 +1,44 @@
+{
+  "name": "@emrecamasuvi/readability-lab-core",
+  "version": "0.1.0",
+  "description": "Shared, DOM-free models for Readability Lab: evidence registry, observations, recipes, profiles, rules and reports.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./evidence": "./src/registry/index.ts"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      },
+      "./evidence": {
+        "types": "./dist/registry/index.d.ts",
+        "import": "./dist/registry.js"
+      }
+    },
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "node ../../scripts/build-lib.mjs src/index.ts src/registry/index.ts:registry && node ../../scripts/emit-types.mjs && node ../../scripts/licenses.mjs dist",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "zod": "^4.6.7"
+  },
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emrecamasuvi/readability-lab.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/emrecamasuvi/readability-lab#readme",
+  "bugs": "https://github.com/emrecamasuvi/readability-lab/issues",
+  "author": "Readability Lab contributors"
+}
