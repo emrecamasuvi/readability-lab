@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/Policy",
+  "$defs": {
+    "Policy": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "const": "readability-lab/policy"
+        },
+        "formatVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "conformanceTarget": {
+          "default": "AA",
+          "type": "string",
+          "enum": [
+            "AA",
+            "AAA"
+          ]
+        },
+        "failOn": {
+          "default": [
+            "accessibility-failure"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "accessibility-failure",
+              "needs-review",
+              "heuristic-deviation",
+              "experiment-idea",
+              "preference",
+              "unsupported-check",
+              "pass"
+            ]
+          }
+        },
+        "warnOn": {
+          "default": [
+            "needs-review",
+            "unsupported-check"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "accessibility-failure",
+              "needs-review",
+              "heuristic-deviation",
+              "experiment-idea",
+              "preference",
+              "unsupported-check",
+              "pass"
+            ]
+          }
+        },
+        "ranges": {
+          "default": {
+            "cpl": [
+              50,
+              75
+            ],
+            "fontSizePx": [
+              16,
+              22
+            ],
+            "lineHeight": [
+              1.4,
+              1.7
+            ],
+            "paragraphGapEm": [
+              0.5,
+              1
+            ]
+          },
+          "type": "object",
+          "properties": {
+            "cpl": {
+              "default": [
+                50,
+                75
+              ],
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "fontSizePx": {
+              "default": [
+                16,
+                22
+              ],
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "lineHeight": {
+              "default": [
+                1.4,
+                1.7
+              ],
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "paragraphGapEm": {
+              "default": [
+                0.5,
+                1
+              ],
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            }
+          }
+        },
+        "contrastTarget": {
+          "default": 7,
+          "type": "number"
+        },
+        "exceptions": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ruleId": {
+                "type": "string"
+              },
+              "selector": {
+                "default": null,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 3
+              },
+              "approvedBy": {
+                "default": null,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reviewBy": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              }
+            },
+            "required": [
+              "ruleId",
+              "reason",
+              "reviewBy"
+            ]
+          }
+        },
+        "disabledRules": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "format",
+        "formatVersion"
+      ],
+      "title": "Readability Lab project policy"
+    }
+  },
+  "$id": "urn:readability-lab:schema:policy-1"
+}

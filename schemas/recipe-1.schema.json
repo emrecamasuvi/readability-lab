@@ -1,0 +1,355 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/Recipe",
+  "$defs": {
+    "Recipe": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "const": "readability-lab/recipe"
+        },
+        "formatVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "default": "",
+          "type": "string"
+        },
+        "scope": {
+          "default": {
+            "selector": "main, article, [data-reading-region]"
+          },
+          "type": "object",
+          "properties": {
+            "selector": {
+              "default": "main, article, [data-reading-region]",
+              "type": "string"
+            }
+          }
+        },
+        "settings": {
+          "$ref": "#/$defs/TypographySettings"
+        },
+        "responsive": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "minWidthPx": {
+                "default": null,
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "maxWidthPx": {
+                "default": null,
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "settings": {
+                "$ref": "#/$defs/TypographySettings"
+              }
+            },
+            "required": [
+              "label",
+              "settings"
+            ]
+          }
+        },
+        "exceptions": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ruleId": {
+                "type": "string"
+              },
+              "selector": {
+                "default": null,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 3
+              },
+              "approvedBy": {
+                "default": null,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reviewBy": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              }
+            },
+            "required": [
+              "ruleId",
+              "reason",
+              "reviewBy"
+            ]
+          }
+        },
+        "rationale": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "field": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              },
+              "claimIds": {
+                "default": [],
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^C-[A-Z0-9]+-\\d{3}$"
+                }
+              }
+            },
+            "required": [
+              "field",
+              "note"
+            ]
+          }
+        },
+        "claimRevisions": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^C-[A-Z0-9]+-\\d{3}$"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "calibration": {
+          "default": null,
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "charsPerCh": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "description": "Measured rendered characters per `ch` unit for the font and sample text."
+                },
+                "fontFamily": {
+                  "type": "string"
+                },
+                "sampleId": {
+                  "default": null,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "measuredWith": {
+                  "type": "string",
+                  "description": "Browser and version used for calibration."
+                }
+              },
+              "required": [
+                "charsPerCh",
+                "fontFamily",
+                "measuredWith"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provenance": {
+          "default": null,
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tool": {
+                  "type": "string"
+                },
+                "toolVersion": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string"
+                },
+                "basedOn": {
+                  "default": null,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "tool",
+                "toolVersion",
+                "createdAt"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "format",
+        "formatVersion",
+        "id",
+        "name",
+        "settings"
+      ],
+      "title": "Readability Lab publisher recipe"
+    },
+    "TypographySettings": {
+      "type": "object",
+      "properties": {
+        "fontFamily": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 400,
+          "pattern": "^[\\p{L}\\p{N}\\s\"',._-]+$"
+        },
+        "fontSizePx": {
+          "type": "number",
+          "minimum": 8,
+          "maximum": 96
+        },
+        "lineHeight": {
+          "type": "number",
+          "minimum": 0.8,
+          "maximum": 3.5,
+          "description": "Baseline-to-baseline distance divided by nominal font size."
+        },
+        "fontWeight": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 900
+        },
+        "letterSpacingEm": {
+          "type": "number",
+          "minimum": -0.1,
+          "maximum": 0.5
+        },
+        "wordSpacingEm": {
+          "type": "number",
+          "minimum": -0.2,
+          "maximum": 1
+        },
+        "measure": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 400
+            },
+            "unit": {
+              "type": "string",
+              "enum": [
+                "cpl",
+                "ch",
+                "em",
+                "px",
+                "none"
+              ]
+            }
+          },
+          "required": [
+            "value",
+            "unit"
+          ]
+        },
+        "paragraphGapEm": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4,
+          "description": "Additional gap after a paragraph, in multiples of font size."
+        },
+        "textAlign": {
+          "type": "string",
+          "enum": [
+            "start",
+            "justify"
+          ]
+        },
+        "theme": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": [
+                "light",
+                "sepia",
+                "dark",
+                "high-contrast",
+                "custom"
+              ]
+            },
+            "foreground": {
+              "type": "string",
+              "maxLength": 80,
+              "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)\\([0-9a-zA-Z.,%\\s/+-]*\\)|[a-zA-Z]{3,30})$"
+            },
+            "background": {
+              "type": "string",
+              "maxLength": 80,
+              "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)\\([0-9a-zA-Z.,%\\s/+-]*\\)|[a-zA-Z]{3,30})$"
+            },
+            "link": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 80,
+                  "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)\\([0-9a-zA-Z.,%\\s/+-]*\\)|[a-zA-Z]{3,30})$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "foreground",
+            "background"
+          ]
+        }
+      }
+    }
+  },
+  "$id": "urn:readability-lab:schema:recipe-1"
+}

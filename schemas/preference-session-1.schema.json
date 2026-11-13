@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/PreferenceSession",
+  "$defs": {
+    "PreferenceSession": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "const": "readability-lab/preference-session"
+        },
+        "formatVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "id": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        },
+        "concealFontNames": {
+          "type": "boolean"
+        },
+        "sampleId": {
+          "type": "string"
+        },
+        "conditions": {
+          "minItems": 2,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "concealedLabel": {
+                "type": "string",
+                "description": "Neutral label shown during blind comparison, e.g. 'Option K'"
+              },
+              "settings": {
+                "$ref": "#/$defs/TypographySettings"
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "concealedLabel",
+              "settings"
+            ]
+          }
+        },
+        "comparisons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "left": {
+                "type": "string"
+              },
+              "right": {
+                "type": "string"
+              },
+              "choice": {
+                "type": "string",
+                "enum": [
+                  "left",
+                  "right",
+                  "no-preference"
+                ]
+              },
+              "at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "left",
+              "right",
+              "choice",
+              "at"
+            ]
+          }
+        }
+      },
+      "required": [
+        "format",
+        "formatVersion",
+        "id",
+        "createdAt",
+        "seed",
+        "concealFontNames",
+        "sampleId",
+        "conditions",
+        "comparisons"
+      ]
+    },
+    "TypographySettings": {
+      "type": "object",
+      "properties": {
+        "fontFamily": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 400,
+          "pattern": "^[\\p{L}\\p{N}\\s\"',._-]+$"
+        },
+        "fontSizePx": {
+          "type": "number",
+          "minimum": 8,
+          "maximum": 96
+        },
+        "lineHeight": {
+          "type": "number",
+          "minimum": 0.8,
+          "maximum": 3.5,
+          "description": "Baseline-to-baseline distance divided by nominal font size."
+        },
+        "fontWeight": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 900
+        },
+        "letterSpacingEm": {
+          "type": "number",
+          "minimum": -0.1,
+          "maximum": 0.5
+        },
+        "wordSpacingEm": {
+          "type": "number",
+          "minimum": -0.2,
+          "maximum": 1
+        },
+        "measure": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 400
+            },
+            "unit": {
+              "type": "string",
+              "enum": [
+                "cpl",
+                "ch",
+                "em",
+                "px",
+                "none"
+              ]
+            }
+          },
+          "required": [
+            "value",
+            "unit"
+          ]
+        },
+        "paragraphGapEm": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4,
+          "description": "Additional gap after a paragraph, in multiples of font size."
+        },
+        "textAlign": {
+          "type": "string",
+          "enum": [
+            "start",
+            "justify"
+          ]
+        },
+        "theme": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": [
+                "light",
+                "sepia",
+                "dark",
+                "high-contrast",
+                "custom"
+              ]
+            },
+            "foreground": {
+              "type": "string",
+              "maxLength": 80,
+              "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)\\([0-9a-zA-Z.,%\\s/+-]*\\)|[a-zA-Z]{3,30})$"
+            },
+            "background": {
+              "type": "string",
+              "maxLength": 80,
+              "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)\\([0-9a-zA-Z.,%\\s/+-]*\\)|[a-zA-Z]{3,30})$"
+            },
+            "link": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 80,
+                  "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)\\([0-9a-zA-Z.,%\\s/+-]*\\)|[a-zA-Z]{3,30})$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "foreground",
+            "background"
+          ]
+        }
+      }
+    }
+  },
+  "$id": "urn:readability-lab:schema:preference-session-1"
+}

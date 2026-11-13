@@ -1,0 +1,1382 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/Report",
+  "$defs": {
+    "Report": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "const": "readability-lab/report"
+        },
+        "formatVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "id": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "target": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "title": {
+              "default": null,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "regionSelector": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "regionMethod": {
+              "type": "string",
+              "enum": [
+                "explicit-selector",
+                "auto-detected",
+                "user-picked",
+                "whole-document"
+              ]
+            }
+          },
+          "required": [
+            "url",
+            "regionSelector",
+            "regionMethod"
+          ]
+        },
+        "environment": {
+          "type": "object",
+          "properties": {
+            "tool": {
+              "type": "string"
+            },
+            "toolVersion": {
+              "type": "string"
+            },
+            "browser": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "browserVersion": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "userAgent": {
+              "default": null,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "viewport": {
+              "type": "object",
+              "properties": {
+                "width": {
+                  "type": "number"
+                },
+                "height": {
+                  "type": "number"
+                },
+                "deviceScaleFactor": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "width",
+                "height",
+                "deviceScaleFactor"
+              ]
+            },
+            "colorScheme": {
+              "default": "light",
+              "type": "string",
+              "enum": [
+                "light",
+                "dark",
+                "no-preference"
+              ]
+            },
+            "fontsStatus": {
+              "default": null,
+              "description": "document.fonts.status at measurement time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "loadState": {
+              "default": null,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "tool",
+            "toolVersion",
+            "browser",
+            "browserVersion",
+            "viewport"
+          ]
+        },
+        "scenarios": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "baseline",
+                  "text-spacing",
+                  "reflow-320",
+                  "zoom-200",
+                  "recipe",
+                  "profile",
+                  "custom"
+                ]
+              },
+              "fidelity": {
+                "type": "string",
+                "enum": [
+                  "real-browser",
+                  "approximation"
+                ]
+              },
+              "description": {
+                "type": "string"
+              },
+              "viewport": {
+                "default": null,
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "width": {
+                        "type": "number"
+                      },
+                      "height": {
+                        "type": "number"
+                      },
+                      "deviceScaleFactor": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "width",
+                      "height",
+                      "deviceScaleFactor"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "appliedCss": {
+                "default": null,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "kind",
+              "fidelity",
+              "description"
+            ]
+          }
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Observation"
+          }
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Finding"
+          }
+        },
+        "proposed": {
+          "default": null,
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "recipe": {
+                  "default": null,
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Recipe"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "settings": {
+                  "default": null,
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/TypographySettings"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "preferences": {
+          "default": [],
+          "description": "Reader/profile preferences involved, as field names.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sourcesConsulted": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "claimRevisions": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^C-[A-Z0-9]+-\\d{3}$"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "performed": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "notPerformed": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "check": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "check",
+                  "reason"
+                ]
+              }
+            }
+          },
+          "required": [
+            "performed",
+            "notPerformed"
+          ]
+        },
+        "uncertainty": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "artifacts": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "description": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "path"
+            ]
+          }
+        },
+        "registryVersion": {
+          "type": "string"
+        },
+        "policy": {
+          "default": null,
+          "description": "The policy the findings were evaluated with.",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Policy"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "format",
+        "formatVersion",
+        "id",
+        "createdAt",
+        "target",
+        "environment",
+        "scenarios",
+        "observations",
+        "findings",
+        "coverage",
+        "registryVersion"
+      ],
+      "title": "Readability Lab inspection report"
+    },
+    "Observation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "metric": {
+          "type": "string",
+          "description": "Dotted metric name, e.g. layout.cpl.median"
+        },
+        "value": {
+          "type": [
+            "number",
+            "string",
+            "boolean",
+            "null"
+          ]
+        },
+        "unit": {
+          "default": null,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "measured",
+            "derived",
+            "user-reported",
+            "estimated",
+            "unknown"
+          ]
+        },
+        "method": {
+          "type": "string",
+          "description": "Method id from docs/measurement-method.md, e.g. 'rendered-line-rects@1'"
+        },
+        "scenarioId": {
+          "default": "baseline",
+          "type": "string"
+        },
+        "element": {
+          "default": null,
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "selector": {
+                  "type": "string"
+                },
+                "box": {
+                  "default": null,
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number"
+                        },
+                        "y": {
+                          "type": "number"
+                        },
+                        "width": {
+                          "type": "number"
+                        },
+                        "height": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y",
+                        "width",
+                        "height"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "textSample": {
+                  "default": null,
+                  "description": "At most 80 characters; omitted when privacy mode is on.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "matchedSelectors": {
+                  "default": [],
+                  "description": "Exception selectors that match this element or an ancestor, resolved in the browser.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "selector"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "distribution": {
+          "default": null,
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
+                },
+                "min": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "p10": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "median": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "mean": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "p90": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "max": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "histogram": {
+                  "default": [],
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "from": {
+                        "type": "number"
+                      },
+                      "to": {
+                        "type": "number"
+                      },
+                      "count": {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to",
+                      "count"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "count",
+                "min",
+                "p10",
+                "median",
+                "mean",
+                "p90",
+                "max"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "unknownReason": {
+          "default": null,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "details": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        }
+      },
+      "required": [
+        "id",
+        "metric",
+        "value",
+        "status",
+        "method"
+      ]
+    },
+    "Finding": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "ruleId": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "accessibility-failure",
+            "needs-review",
+            "heuristic-deviation",
+            "experiment-idea",
+            "preference",
+            "unsupported-check",
+            "pass"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "suggestion": {
+          "default": null,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scenarioId": {
+          "default": "baseline",
+          "type": "string"
+        },
+        "element": {
+          "default": null,
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "selector": {
+                  "type": "string"
+                },
+                "box": {
+                  "default": null,
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number"
+                        },
+                        "y": {
+                          "type": "number"
+                        },
+                        "width": {
+                          "type": "number"
+                        },
+                        "height": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y",
+                        "width",
+                        "height"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "textSample": {
+                  "default": null,
+                  "description": "At most 80 characters; omitted when privacy mode is on.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "matchedSelectors": {
+                  "default": [],
+                  "description": "Exception selectors that match this element or an ancestor, resolved in the browser.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "selector"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observationIds": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "claimIds": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^C-[A-Z0-9]+-\\d{3}$"
+          }
+        },
+        "wcag": {
+          "default": null,
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "criterion": {
+                  "type": "string"
+                },
+                "level": {
+                  "type": "string",
+                  "enum": [
+                    "A",
+                    "AA",
+                    "AAA"
+                  ]
+                }
+              },
+              "required": [
+                "criterion",
+                "level"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "verification": {
+          "type": "string",
+          "enum": [
+            "automated-browser-test",
+            "computed-from-rendered-styles",
+            "approximation",
+            "manual-review-required",
+            "not-tested"
+          ]
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "essential",
+            "recommended",
+            "experimental",
+            "informational"
+          ]
+        },
+        "exception": {
+          "default": null,
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "ruleId": {
+                  "type": "string"
+                },
+                "selector": {
+                  "default": null,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 3
+                },
+                "approvedBy": {
+                  "default": null,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "reviewBy": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                }
+              },
+              "required": [
+                "ruleId",
+                "reason",
+                "reviewBy"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "ruleId",
+        "kind",
+        "title",
+        "reason",
+        "verification",
+        "priority"
+      ]
+    },
+    "Recipe": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "const": "readability-lab/recipe"
+        },
+        "formatVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "default": "",
+          "type": "string"
+        },
+        "scope": {
+          "default": {
+            "selector": "main, article, [data-reading-region]"
+          },
+          "type": "object",
+          "properties": {
+            "selector": {
+              "default": "main, article, [data-reading-region]",
+              "type": "string"
+            }
+          }
+        },
+        "settings": {
+          "$ref": "#/$defs/TypographySettings"
+        },
+        "responsive": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "minWidthPx": {
+                "default": null,
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "maxWidthPx": {
+                "default": null,
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "settings": {
+                "$ref": "#/$defs/TypographySettings"
+              }
+            },
+            "required": [
+              "label",
+              "settings"
+            ]
+          }
+        },
+        "exceptions": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ruleId": {
+                "type": "string"
+              },
+              "selector": {
+                "default": null,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 3
+              },
+              "approvedBy": {
+                "default": null,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reviewBy": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              }
+            },
+            "required": [
+              "ruleId",
+              "reason",
+              "reviewBy"
+            ]
+          }
+        },
+        "rationale": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "field": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              },
+              "claimIds": {
+                "default": [],
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^C-[A-Z0-9]+-\\d{3}$"
+                }
+              }
+            },
+            "required": [
+              "field",
+              "note"
+            ]
+          }
+        },
+        "claimRevisions": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^C-[A-Z0-9]+-\\d{3}$"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "calibration": {
+          "default": null,
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "charsPerCh": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "description": "Measured rendered characters per `ch` unit for the font and sample text."
+                },
+                "fontFamily": {
+                  "type": "string"
+                },
+                "sampleId": {
+                  "default": null,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "measuredWith": {
+                  "type": "string",
+                  "description": "Browser and version used for calibration."
+                }
+              },
+              "required": [
+                "charsPerCh",
+                "fontFamily",
+                "measuredWith"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provenance": {
+          "default": null,
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tool": {
+                  "type": "string"
+                },
+                "toolVersion": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string"
+                },
+                "basedOn": {
+                  "default": null,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "tool",
+                "toolVersion",
+                "createdAt"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "format",
+        "formatVersion",
+        "id",
+        "name",
+        "settings"
+      ],
+      "title": "Readability Lab publisher recipe"
+    },
+    "TypographySettings": {
+      "type": "object",
+      "properties": {
+        "fontFamily": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 400,
+          "pattern": "^[\\p{L}\\p{N}\\s\"',._-]+$"
+        },
+        "fontSizePx": {
+          "type": "number",
+          "minimum": 8,
+          "maximum": 96
+        },
+        "lineHeight": {
+          "type": "number",
+          "minimum": 0.8,
+          "maximum": 3.5,
+          "description": "Baseline-to-baseline distance divided by nominal font size."
+        },
+        "fontWeight": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 900
+        },
+        "letterSpacingEm": {
+          "type": "number",
+          "minimum": -0.1,
+          "maximum": 0.5
+        },
+        "wordSpacingEm": {
+          "type": "number",
+          "minimum": -0.2,
+          "maximum": 1
+        },
+        "measure": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 400
+            },
+            "unit": {
+              "type": "string",
+              "enum": [
+                "cpl",
+                "ch",
+                "em",
+                "px",
+                "none"
+              ]
+            }
+          },
+          "required": [
+            "value",
+            "unit"
+          ]
+        },
+        "paragraphGapEm": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4,
+          "description": "Additional gap after a paragraph, in multiples of font size."
+        },
+        "textAlign": {
+          "type": "string",
+          "enum": [
+            "start",
+            "justify"
+          ]
+        },
+        "theme": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": [
+                "light",
+                "sepia",
+                "dark",
+                "high-contrast",
+                "custom"
+              ]
+            },
+            "foreground": {
+              "type": "string",
+              "maxLength": 80,
+              "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)\\([0-9a-zA-Z.,%\\s/+-]*\\)|[a-zA-Z]{3,30})$"
+            },
+            "background": {
+              "type": "string",
+              "maxLength": 80,
+              "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)\\([0-9a-zA-Z.,%\\s/+-]*\\)|[a-zA-Z]{3,30})$"
+            },
+            "link": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 80,
+                  "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)\\([0-9a-zA-Z.,%\\s/+-]*\\)|[a-zA-Z]{3,30})$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "foreground",
+            "background"
+          ]
+        }
+      }
+    },
+    "Policy": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "const": "readability-lab/policy"
+        },
+        "formatVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "conformanceTarget": {
+          "default": "AA",
+          "type": "string",
+          "enum": [
+            "AA",
+            "AAA"
+          ]
+        },
+        "failOn": {
+          "default": [
+            "accessibility-failure"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "accessibility-failure",
+              "needs-review",
+              "heuristic-deviation",
+              "experiment-idea",
+              "preference",
+              "unsupported-check",
+              "pass"
+            ]
+          }
+        },
+        "warnOn": {
+          "default": [
+            "needs-review",
+            "unsupported-check"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "accessibility-failure",
+              "needs-review",
+              "heuristic-deviation",
+              "experiment-idea",
+              "preference",
+              "unsupported-check",
+              "pass"
+            ]
+          }
+        },
+        "ranges": {
+          "default": {
+            "cpl": [
+              50,
+              75
+            ],
+            "fontSizePx": [
+              16,
+              22
+            ],
+            "lineHeight": [
+              1.4,
+              1.7
+            ],
+            "paragraphGapEm": [
+              0.5,
+              1
+            ]
+          },
+          "type": "object",
+          "properties": {
+            "cpl": {
+              "default": [
+                50,
+                75
+              ],
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "fontSizePx": {
+              "default": [
+                16,
+                22
+              ],
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "lineHeight": {
+              "default": [
+                1.4,
+                1.7
+              ],
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "paragraphGapEm": {
+              "default": [
+                0.5,
+                1
+              ],
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            }
+          }
+        },
+        "contrastTarget": {
+          "default": 7,
+          "type": "number"
+        },
+        "exceptions": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ruleId": {
+                "type": "string"
+              },
+              "selector": {
+                "default": null,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 3
+              },
+              "approvedBy": {
+                "default": null,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reviewBy": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              }
+            },
+            "required": [
+              "ruleId",
+              "reason",
+              "reviewBy"
+            ]
+          }
+        },
+        "disabledRules": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "format",
+        "formatVersion"
+      ],
+      "title": "Readability Lab project policy"
+    }
+  },
+  "$id": "urn:readability-lab:schema:report-1"
+}

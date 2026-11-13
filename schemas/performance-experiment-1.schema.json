@@ -1,0 +1,444 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/PerformanceExperiment",
+  "$defs": {
+    "PerformanceExperiment": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "const": "readability-lab/performance-experiment"
+        },
+        "formatVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "id": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        },
+        "design": {
+          "type": "string",
+          "enum": [
+            "latin-square",
+            "randomized"
+          ]
+        },
+        "conditions": {
+          "minItems": 2,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "concealedLabel": {
+                "type": "string",
+                "description": "Neutral label shown during blind comparison, e.g. 'Option K'"
+              },
+              "settings": {
+                "$ref": "#/$defs/TypographySettings"
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "concealedLabel",
+              "settings"
+            ]
+          }
+        },
+        "passages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "words": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991
+              },
+              "language": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string",
+                "description": "SPDX id or 'original-cc-by-4.0'"
+              },
+              "attribution": {
+                "type": "string"
+              },
+              "questions": {
+                "default": [],
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "prompt": {
+                      "type": "string"
+                    },
+                    "choices": {
+                      "minItems": 2,
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "answerIndex": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "factual",
+                        "inferential"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "prompt",
+                    "choices",
+                    "answerIndex",
+                    "type"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "words",
+              "language",
+              "license",
+              "attribution"
+            ]
+          }
+        },
+        "schedule": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "session": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              },
+              "conditionId": {
+                "type": "string"
+              },
+              "passageId": {
+                "type": "string"
+              },
+              "phase": {
+                "type": "string",
+                "enum": [
+                  "exploration",
+                  "confirmation"
+                ]
+              }
+            },
+            "required": [
+              "session",
+              "conditionId",
+              "passageId",
+              "phase"
+            ]
+          }
+        },
+        "trials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slot": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991,
+                "description": "Index into the assignment schedule."
+              },
+              "startedAt": {
+                "type": "string"
+              },
+              "activeReadingMs": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "comprehension": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "correct": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "total": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      }
+                    },
+                    "required": [
+                      "correct",
+                      "total"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "comfort": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 10
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Exploratory 0–10 rating; not a validated instrument."
+              },
+              "interruptions": {
+                "default": [],
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "atMs": {
+                      "type": "number"
+                    },
+                    "durationMs": {
+                      "type": "number"
+                    },
+                    "note": {
+                      "default": "",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "atMs",
+                    "durationMs"
+                  ]
+                }
+              },
+              "excluded": {
+                "default": null,
+                "description": "Reason this trial is excluded from analysis, if any.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "slot",
+              "startedAt",
+              "activeReadingMs",
+              "comprehension",
+              "comfort"
+            ]
+          }
+        },
+        "environment": {
+          "default": {
+            "device": null,
+            "viewport": null,
+            "viewingDistanceCm": null
+          },
+          "type": "object",
+          "properties": {
+            "device": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "viewport": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "viewingDistanceCm": {
+              "description": "User-reported; never inferred.",
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "device",
+            "viewport",
+            "viewingDistanceCm"
+          ]
+        }
+      },
+      "required": [
+        "format",
+        "formatVersion",
+        "id",
+        "createdAt",
+        "seed",
+        "design",
+        "conditions",
+        "passages",
+        "schedule",
+        "trials"
+      ]
+    },
+    "TypographySettings": {
+      "type": "object",
+      "properties": {
+        "fontFamily": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 400,
+          "pattern": "^[\\p{L}\\p{N}\\s\"',._-]+$"
+        },
+        "fontSizePx": {
+          "type": "number",
+          "minimum": 8,
+          "maximum": 96
+        },
+        "lineHeight": {
+          "type": "number",
+          "minimum": 0.8,
+          "maximum": 3.5,
+          "description": "Baseline-to-baseline distance divided by nominal font size."
+        },
+        "fontWeight": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 900
+        },
+        "letterSpacingEm": {
+          "type": "number",
+          "minimum": -0.1,
+          "maximum": 0.5
+        },
+        "wordSpacingEm": {
+          "type": "number",
+          "minimum": -0.2,
+          "maximum": 1
+        },
+        "measure": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 400
+            },
+            "unit": {
+              "type": "string",
+              "enum": [
+                "cpl",
+                "ch",
+                "em",
+                "px",
+                "none"
+              ]
+            }
+          },
+          "required": [
+            "value",
+            "unit"
+          ]
+        },
+        "paragraphGapEm": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4,
+          "description": "Additional gap after a paragraph, in multiples of font size."
+        },
+        "textAlign": {
+          "type": "string",
+          "enum": [
+            "start",
+            "justify"
+          ]
+        },
+        "theme": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": [
+                "light",
+                "sepia",
+                "dark",
+                "high-contrast",
+                "custom"
+              ]
+            },
+            "foreground": {
+              "type": "string",
+              "maxLength": 80,
+              "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)\\([0-9a-zA-Z.,%\\s/+-]*\\)|[a-zA-Z]{3,30})$"
+            },
+            "background": {
+              "type": "string",
+              "maxLength": 80,
+              "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)\\([0-9a-zA-Z.,%\\s/+-]*\\)|[a-zA-Z]{3,30})$"
+            },
+            "link": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 80,
+                  "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)\\([0-9a-zA-Z.,%\\s/+-]*\\)|[a-zA-Z]{3,30})$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "foreground",
+            "background"
+          ]
+        }
+      }
+    }
+  },
+  "$id": "urn:readability-lab:schema:performance-experiment-1"
+}
