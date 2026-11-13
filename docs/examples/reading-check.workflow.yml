@@ -1,0 +1,30 @@
+# Example: copy into your project's .github/workflows/ and adapt the build/serve steps and pages.
+# Note: @emrecamasuvi/readability-lab-cli is not yet published to npm (v0.1 is source-only); until then, vendor
+# this repository and call node <path>/packages/cli/bin/rlab.mjs instead of npx.
+name: Reading check
+on: [pull_request]
+permissions:
+  contents: read
+jobs:
+  reading:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - run: npm ci && npm run build
+      - run: npx serve -l 4173 dist &   # serve your built site
+      - run: npx playwright install --with-deps chromium
+      - name: Check pages
+        run: |
+          status=0
+          for page in /docs/getting-started /docs/exporting; do
+            name=$(echo "$page" | tr '/' '_')
+            npx @emrecamasuvi/readability-lab-cli check "http://localhost:4173$page" --selector "main .prose" \
+              --policy readability-lab.policy.json --scenarios all --screenshots --out "reports/$name" || status=$?
+            cat "reports/$name/report.md" >> "$GITHUB_STEP_SUMMARY"
+          done
+          exit $status
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: reading-reports, path: reports }
