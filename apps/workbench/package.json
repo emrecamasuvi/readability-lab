@@ -1,0 +1,32 @@
+{
+  "name": "@emrecamasuvi/readability-lab-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Live typography workbench and evidence atlas.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node ../../scripts/licenses.mjs dist dompurify marked preact zod",
+    "preview": "vite preview --port 4173",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "dompurify": "^3.4.17",
+    "marked": "^15.0.12",
+    "preact": "^10.29.8"
+  },
+  "devDependencies": {
+    "@emrecamasuvi/readability-lab-controls": "workspace:*",
+    "@emrecamasuvi/readability-lab-core": "workspace:*",
+    "@emrecamasuvi/readability-lab-inspector": "workspace:*",
+    "vite": "^6.4.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emrecamasuvi/readability-lab.git",
+    "directory": "apps/workbench"
+  },
+  "homepage": "https://github.com/emrecamasuvi/readability-lab#readme",
+  "bugs": "https://github.com/emrecamasuvi/readability-lab/issues"
+}
