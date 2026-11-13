@@ -1,5 +1,7 @@
 # Project website
 
+Live at **https://camasuvi.net/readability/**. Pushes to `main` that touch `apps/site/` deploy it through `.github/workflows/deploy-site.yml` (Cloudflare Workers static assets, configured in `wrangler.jsonc`). `pnpm -C apps/site deploy` does the same from a machine logged in to wrangler.
+
 `index.html` is a single self-contained page: inline CSS and JS, system fonts, no external requests. `pnpm build` (or `pnpm -C apps/site build`) writes a minified `dist/` with the responsive WebP/JPEG screenshots and a `_headers` file for long-lived asset caching and a strict CSP. `pnpm start` at the repo root serves it at http://localhost:4330 next to the workbench and demos (caching off, so a rebuild shows on reload). To preview with gzip and production cache headers:
 
 ```sh

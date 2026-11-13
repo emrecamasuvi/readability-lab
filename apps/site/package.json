@@ -7,13 +7,17 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "preview": "node ../../scripts/serve.mjs dist 4330"
+    "preview": "node ../../scripts/serve.mjs dist 4330",
+    "deploy": "node build.mjs && wrangler deploy"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/emrecamasuvi/readability-lab.git",
     "directory": "apps/site"
   },
-  "homepage": "https://github.com/emrecamasuvi/readability-lab#readme",
-  "bugs": "https://github.com/emrecamasuvi/readability-lab/issues"
+  "homepage": "https://camasuvi.net/readability/",
+  "bugs": "https://github.com/emrecamasuvi/readability-lab/issues",
+  "devDependencies": {
+    "wrangler": "^4.161.0"
+  }
 }
