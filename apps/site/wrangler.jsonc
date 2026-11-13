@@ -6,7 +6,8 @@
   "name": "readability-lab-site",
   "compatibility_date": "2026-11-13",
   "assets": { "directory": "./dist-deploy" },
-  "routes": [{ "pattern": "camasuvi.net/readability*", "zone_name": "camasuvi.net" }],
+  // zone_id (not zone_name) so the deploy token needs no permission to list zones.
+  "routes": [{ "pattern": "camasuvi.net/readability*", "zone_id": "c39ab22ed061f53a67cd4fbde88c7718" }],
   "workers_dev": false,
   "preview_urls": false
 }

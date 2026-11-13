@@ -32,3 +32,17 @@ Accessibility notes:
 - Supports forced-colors (Windows High Contrast) and `prefers-contrast: more`.
 - Respects reduced motion.
 - Below-the-fold sections use `content-visibility: auto` with remembered sizes.
+
+## Deploy credential
+
+The deploy uses one Cloudflare **account-owned** API token, `github-production-deploy`. It can edit only the `readability-lab-site` Worker and Workers routes on `camasuvi.net`. It is stored as the `CLOUDFLARE_API_TOKEN` secret of the GitHub `production` environment, which only the `main` branch may use.
+
+`.github/workflows/check-cloudflare-token.yml` runs daily. It fails and opens an issue titled "Rotate Cloudflare deployment token" when the token is invalid or expires within 30 days. GitHub pauses scheduled workflows after 60 days without repository activity, so keep a calendar reminder as well.
+
+To rotate:
+1. Cloudflare dashboard → Manage account → Account API tokens → Create Token, with the same two permissions (Individual Workers: Editor on `readability-lab-site`; Workers Routes: Write on `camasuvi.net`) and a 180-day expiry.
+2. GitHub → Settings → Environments → production → update `CLOUDFLARE_API_TOKEN`.
+3. Run the "Check Cloudflare token" and "Deploy website" workflows on `main`; both must pass.
+4. Delete the old token in Cloudflare.
+
+To deploy another Worker from this repository, add it to the same token's Workers list. Do not create a second secret.

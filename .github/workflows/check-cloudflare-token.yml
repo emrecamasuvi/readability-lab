@@ -1,0 +1,67 @@
+name: Check Cloudflare token
+# Fails, and opens an issue, when the deploy token is invalid or expires within 30 days,
+# so an expired token is noticed before a deploy breaks.
+on:
+  schedule:
+    - cron: "23 7 * * *"
+  workflow_dispatch:
+permissions: {}
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: production
+    outputs:
+      summary: ${{ steps.check.outputs.summary }}
+    steps:
+      - id: check
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          body=$(curl --silent --show-error --max-time 30 \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/tokens/verify") || body='{}'
+          # Only status and expiry leave this step; never the token.
+          summary=$(printf '%s' "$body" | python3 -c '
+          import json, sys, datetime
+          try:
+              d = json.load(sys.stdin)
+          except Exception:
+              d = {}
+          r = d.get("result") or {}
+          status, exp = r.get("status"), r.get("expires_on")
+          if not d.get("success") or status != "active":
+              print(f"FAIL: token is not active (status: {status})"); sys.exit()
+          if not exp:
+              print("FAIL: token has no expiry date; policy is a finite expiry"); sys.exit()
+          days = (datetime.datetime.fromisoformat(exp.replace("Z", "+00:00")) - datetime.datetime.now(datetime.timezone.utc)).days
+          label = "FAIL" if days < 30 else "OK"
+          print(f"{label}: token is active and expires on {exp[:10]} ({days} days left)")
+          ')
+          echo "summary=$summary" >> "$GITHUB_OUTPUT"
+          echo "$summary"
+          case "$summary" in OK*) ;; *) exit 1 ;; esac
+  notify:
+    needs: verify
+    if: failure() && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          SUMMARY: ${{ needs.verify.outputs.summary }}
+          REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="Rotate Cloudflare deployment token"
+          text="${SUMMARY:-FAIL: the token check did not complete}
+
+          Run: $RUN_URL
+          How to rotate: see apps/site/README.md."
+          number=$(gh issue list --repo "$REPO" --state open --search "in:title \"$title\"" --json number --jq '.[0].number')
+          if [ -n "$number" ]; then gh issue comment "$number" --repo "$REPO" --body "$text"
+          else gh issue create --repo "$REPO" --title "$title" --body "$text" --assignee "${REPO%%/*}"; fi
