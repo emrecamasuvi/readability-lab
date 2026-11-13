@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark">
+<title>Readability Lab</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main id="app">
+  <header class="top">
+    <h1>Readability Lab</h1>
+    <p id="site" class="hint"></p>
+  </header>
+  <div class="row"><label class="switch"><input type="checkbox" id="enabled"> Adjust this page</label></div>
+  <p id="region" class="hint"></p>
+  <section aria-labelledby="h-start">
+    <h2 id="h-start">Starting point</h2>
+    <div class="chips" id="presets"></div>
+    <p class="hint">Starting choices to adjust — not tested best settings.</p>
+  </section>
+  <section aria-labelledby="h-text">
+    <h2 id="h-text">Text</h2>
+    <div class="field"><label for="size">Size</label><input type="range" id="size" min="12" max="40" step="1"><output id="size-out" for="size"></output></div>
+    <div class="field"><label for="measure">Line length</label><input type="range" id="measure" min="35" max="100" step="1"><output id="measure-out" for="measure"></output></div>
+    <div class="field"><label for="lh">Line spacing</label><input type="range" id="lh" min="1.1" max="2.4" step="0.05"><output id="lh-out" for="lh"></output></div>
+    <div class="field"><label for="gap">Paragraph gap</label><input type="range" id="gap" min="0" max="2.5" step="0.05"><output id="gap-out" for="gap"></output></div>
+    <div class="field"><label for="font">Font</label><select id="font"></select></div>
+    <div class="field"><label for="weight">Weight</label><select id="weight"><option value="">Page weight</option><option value="300">Light</option><option value="400">Regular</option><option value="500">Medium</option><option value="600">Semibold</option></select></div>
+    <fieldset class="chips" id="themes"><legend>Colors</legend></fieldset>
+    <label class="check"><input type="checkbox" id="site-only"> Save changes for this site only</label>
+  </section>
+  <section class="actions" aria-label="Page actions">
+    <button type="button" id="reader">Reader view</button>
+    <button type="button" id="compare" aria-pressed="false">Show original</button>
+    <button type="button" id="pick">Pick region</button>
+    <button type="button" id="reset">Reset page</button>
+  </section>
+  <section aria-labelledby="h-site">
+    <h2 id="h-site">This site</h2>
+    <label class="check"><input type="checkbox" id="site-off"> Never adjust this site</label>
+    <label class="check"><input type="checkbox" id="auto"> Apply automatically when I visit</label>
+    <p class="hint">Automatic mode asks your browser for access to this site only.</p>
+  </section>
+  <details id="why"><summary>Why these options?</summary>
+    <p>No single setting is best for everyone. The defaults start near 65 characters per line, 18px text and 1.5 line spacing, and everything stays adjustable. <span class="ids">C-BASE-001 · C-BASE-002 · C-BASE-004 · C-ADAPT-001</span></p>
+    <p>A setting you prefer is worth keeping, but preference alone does not show faster reading or better understanding. <span class="ids">C-OUT-002</span> Light and dark themes suit different people. <span class="ids">C-THEME-005 · C-THEME-006</span></p>
+  </details>
+  <details id="inspect"><summary>Inspect this page</summary>
+    <div id="inspect-out"><p class="hint">Opens measurements of the reading region. Nothing leaves your browser.</p></div>
+  </details>
+  <section aria-labelledby="h-profile">
+    <h2 id="h-profile">Profile</h2>
+    <div class="actions">
+      <button type="button" id="export">Save profile file</button>
+      <label class="file">Load profile file <input type="file" id="import" accept=".json,application/json"></label>
+      <button type="button" id="share">Copy share code</button>
+    </div>
+    <div class="field"><label for="code">Share code</label><input type="text" id="code" spellcheck="false" placeholder="rl1.…"><button type="button" id="apply-code">Use</button></div>
+    <p class="hint">Profiles and share codes contain settings only — never pages or sites you visit. <a href="options.html" target="_blank">All options</a></p>
+  </section>
+  <p id="status" role="status" aria-live="polite" class="hint"></p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

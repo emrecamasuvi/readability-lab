@@ -1,0 +1,32 @@
+{
+  "name": "@emrecamasuvi/readability-lab-extension",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Readability Lab browser extension (Chromium and Firefox, Manifest V3).",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:test": "node build.mjs --test",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint:firefox": "web-ext lint --source-dir dist/firefox",
+    "package": "node build.mjs --zip"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "dompurify": "^3.4.17"
+  },
+  "devDependencies": {
+    "@emrecamasuvi/readability-lab-core": "workspace:*",
+    "@emrecamasuvi/readability-lab-inspector": "workspace:*",
+    "@types/chrome": "^0.3.7",
+    "web-ext": "^10.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emrecamasuvi/readability-lab.git",
+    "directory": "apps/extension"
+  },
+  "homepage": "https://github.com/emrecamasuvi/readability-lab#readme",
+  "bugs": "https://github.com/emrecamasuvi/readability-lab/issues"
+}
