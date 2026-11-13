@@ -1,0 +1,13 @@
+{
+  "format": "readability-lab/recipe",
+  "formatVersion": 1,
+  "id": "balanced-article",
+  "name": "Balanced (article body)",
+  "description": "The Balanced preset applied to the article region only.",
+  "scope": { "selector": "#postContent > article" },
+  "settings": { "fontSizePx": 18, "lineHeight": 1.5, "measure": { "value": 65, "unit": "cpl" }, "paragraphGapEm": 0.75, "fontWeight": 400, "letterSpacingEm": 0, "wordSpacingEm": 0, "textAlign": "start" },
+  "rationale": [
+    { "field": "measure", "note": "Starting range, not a proven optimum.", "claimIds": ["C-BASE-002", "C-CPL-006"] },
+    { "field": "lineHeight", "note": "Starting range for body text.", "claimIds": ["C-LH-003"] }
+  ]
+}

@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Fixture: decoration behind an opaque card</title>
+<!-- Original text written for Readability Lab fixtures. License: CC BY 4.0. -->
+<style>body{margin:0;background:#0b0d10;color:#ece8df;font:18px/1.5 Georgia,serif}main{max-width:36em;margin:24px auto;padding:0 16px}
+.wrap{position:relative;isolation:isolate;margin:40px 0}.glow{position:absolute;inset:-30px;z-index:-1;background:radial-gradient(closest-side,rgba(242,184,75,.4),transparent)}
+.card{background:#11151a;padding:16px}.bare{position:relative;margin-top:40px}.bare .glow{inset:-10px}</style></head>
+<body><main id="m">
+<div class="wrap"><span class="glow"></span><div class="card"><p id="in-card">Text on an opaque card. A glow is painted behind the card, but the card hides it completely, so contrast can be measured.</p></div></div>
+<div class="wrap bare"><span class="glow"></span><p id="on-glow">Text directly over the same glow, with no opaque layer in between, so its real contrast is unknown.</p></div>
+<div class="wrap bare"><span class="glow"></span><p id="own-bg" style="position:relative;display:inline-block;background:#11151a;padding:4px 8px">A label with its own opaque background over the glow.</p></div>
+<section style="content-visibility:auto;contain-intrinsic-size:auto 400px;margin-top:2400px"><p id="cv-text">Text in a section that is not rendered until it scrolls near the viewport.</p></section>
+</main></body></html>

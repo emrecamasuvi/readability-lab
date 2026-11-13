@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading at the edge of the screen — Fixture: balanced article</title>
+<!-- Original text written for Readability Lab fixtures. License: CC BY 4.0. -->
+<style>
+  body { margin: 0; background: #ffffff; color: #1b1b1b; font-family: Georgia, "Times New Roman", serif; }
+  header.site { padding: 12px 24px; border-bottom: 1px solid #ddd; font-family: system-ui, sans-serif; font-size: 15px; }
+  header.site a { color: #0b57d0; }
+  article { max-width: 34em; margin: 40px auto; padding: 0 24px; font-size: 18px; line-height: 1.5; }
+  article h1 { font-size: 2em; line-height: 1.2; margin: 0 0 0.4em; }
+  article p { margin: 0 0 0.75em; }
+  article a { color: #0b57d0; }
+  .byline { color: #4a4a4a; font-size: 0.9em; }
+  blockquote { margin: 1em 0; padding-left: 1em; border-left: 3px solid #bbb; }
+  figure { margin: 1.5em 0; }
+  figcaption { font-size: 0.85em; color: #4a4a4a; }
+  .footnotes { font-size: 0.85em; border-top: 1px solid #ddd; margin-top: 2em; }
+  sup a { text-decoration: none; }
+</style>
+</head>
+<body>
+<header class="site"><a href="#">The Margin</a> · <a href="#">Essays</a> · <a href="#">About</a></header>
+<main>
+<article>
+  <h1>Reading at the edge of the screen</h1>
+  <p class="byline">By Ada Fixture · 9 minute read</p>
+  <p>Most of what we read now arrives in a rectangle of light. The rectangle changes size from one moment to the next: a phone held in one hand on a train, a laptop balanced on a kitchen table, a large monitor at work. Text has to survive all of these, and the people reading it bring their own eyes, habits, and patience to each one.</p>
+  <p>Typographers have argued about line length for longer than screens have existed. A line that is too short forces the eye back to the left margin so often that the rhythm of a sentence breaks apart. A line that is too long makes the return journey difficult, and readers sometimes land on the wrong line and have to search for their place.<sup><a href="#fn1" id="r1">1</a></sup> Between those extremes there is a wide middle ground, and the honest answer about where exactly to stand inside it is that nobody has found a single best point.</p>
+  <p>That uncertainty is not a failure of research. Experiments measure different things. One study times how long people take to read a short news item; another asks questions afterwards to see what they understood; a third simply asks which version they liked. These outcomes do not always agree, and a layout that feels comfortable is not automatically the one that is read fastest or understood best.</p>
+  <blockquote><p>A preference is real information about a reader. It is just not the same information as a measurement of speed or understanding.</p></blockquote>
+  <p>Line spacing has a similar story. Extra space between lines can make each line easier to pick out, but it also spreads a paragraph over more of the screen, which means more scrolling and fewer lines visible at once. Whether that trade is worth making depends on the text, the reader, and the size of the type.</p>
+  <figure>
+    <svg role="img" aria-label="Three columns of grey bars of different widths" width="320" height="90" viewBox="0 0 320 90"><rect x="0" y="0" width="90" height="90" fill="#e5e5e5"/><rect x="110" y="0" width="100" height="90" fill="#d0d0d0"/><rect x="230" y="0" width="90" height="90" fill="#bbbbbb"/></svg>
+    <figcaption>Figure 1. Narrow, medium and wide text columns (schematic).</figcaption>
+  </figure>
+  <p>Size matters too, though not in the way a number in a style sheet suggests. Two fonts set at the same nominal size can look quite different, because one has tall lowercase letters and the other short ones. What the reader actually sees depends on the shape of the letters, the distance to the screen, and how well the display draws thin strokes.</p>
+  <p>All of this points toward a modest conclusion. Start from a sensible default, make it easy for each reader to change, and check the result in a real browser rather than trusting a specification. The goal is not to find the perfect page, but to make sure nobody is stuck with a page that does not work for them.</p>
+  <p>There are a few practical habits that follow from that. Keep body text large enough that nobody has to zoom just to begin. Give the column a comfortable width on large screens, and let it use the full width on small ones. Keep good contrast between text and background, and let people switch to a darker or warmer theme if they prefer. Above all, never break the page when someone enlarges the text or widens the spacing.</p>
+  <section class="footnotes" aria-label="Footnotes">
+    <ol><li id="fn1">Losing one's place at the start of a new line is sometimes called a return-sweep error. <a href="#r1" aria-label="Back to reference 1">↩</a></li></ol>
+  </section>
+</article>
+</main>
+</body>
+</html>

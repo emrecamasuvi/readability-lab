@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: clipping and reflow</title>
+<!-- Original text written for Readability Lab fixtures. License: CC BY 4.0. -->
+<style>
+body { margin: 0; background: #fff; color: #1b1b1b; font-family: Arial, sans-serif; }
+main { max-width: 40em; margin: 24px auto; padding: 0 16px; font-size: 17px; line-height: 1.45; }
+.card { height: 96px; overflow: hidden; border: 1px solid #ccc; padding: 8px; margin: 12px 0; }
+.spill { height: 72px; border: 1px dashed #999; padding: 6px; margin: 12px 0 40px; }
+.chip { display: inline-block; width: 90px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border: 1px solid #888; padding: 2px 6px; }
+.nowrap { white-space: nowrap; }
+.wide { width: 760px; background: #f2f2f2; }
+.imgbox { height: 40px; overflow: hidden; }
+</style>
+</head>
+<body>
+<main id="content">
+<h1>Clipping fixture</h1>
+<p>Most of what we read now arrives in a rectangle of light. The rectangle changes size from one moment to the next: a phone held in one hand on a train, a laptop balanced on a kitchen table, a large monitor at work. Text has to survive all of these, and the people reading it bring their own eyes, habits, and patience to each one.</p>
+<div class="card" id="card"><p>Line spacing has a similar story. Extra space between lines can make each line easier to pick out, but it also spreads a paragraph over more of the screen, which means more scrolling and fewer lines visible at once. Whether that trade is worth making depends on the text, the reader, and the size of the type.</p></div>
+<div class="spill" id="spill"><p>Size matters too, though not in the way a number in a style sheet suggests. Two fonts set at the same nominal size can look quite different, because one has tall lowercase letters and the other short </p></div>
+<p>Tags: <span class="chip" id="chip">Typography and reading research</span></p>
+<p class="nowrap" id="nowrap">This sentence is set with white-space nowrap so it can never wrap onto a second line on small screens.</p>
+<div class="wide" id="wide"><p>This box has a fixed width of 760 pixels, wider than a phone screen.</p></div>
+<div class="imgbox" id="imgbox"><p>Caption above a tall image.</p><svg width="40" height="200" aria-hidden="true"><rect width="40" height="200" fill="#ccc"/></svg></div>
+<p>All of this points toward a modest conclusion. Start from a sensible default, make it easy for each reader to change, and check the result in a real browser rather than trusting a specification. The goal is not to find the perfect page, but to make sure nobody is stuck with a page that does not work for them.</p>
+</main>
+</body>
+</html>

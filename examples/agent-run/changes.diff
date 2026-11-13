@@ -1,0 +1,42 @@
+diff -ru examples/agent-run/before-site/styles/docs.css examples/docs-site/styles/docs.css
+--- examples/agent-run/before-site/styles/docs.css	2026-11-12 14:24:33
++++ examples/docs-site/styles/docs.css	2026-11-12 14:24:57
+@@ -1,5 +1,5 @@
+ body { margin: 0; font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); }
+-.site-header { display: flex; gap: 16px; align-items: center; padding: 12px 24px; border-bottom: 1px solid #e5e5e5; }
++.site-header { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; padding: 12px 24px; border-bottom: 1px solid #e5e5e5; }
+ .site-header a { color: var(--color-link); text-decoration: none; }
+ .layout { display: flex; }
+ .sidebar { flex: 0 0 220px; padding: 16px 24px; font-size: 14px; border-right: 1px solid #eee; }
+@@ -9,6 +9,6 @@
+ .doc-content .meta, .doc-content .note { color: var(--color-muted); }
+ .doc-content a { color: var(--color-link); }
+ .doc-content code { font-family: var(--font-code); font-size: 0.9em; background: #f4f4f4; padding: 1px 4px; }
+-.doc-content pre { background: #f4f4f4; padding: 12px; white-space: pre; }
+-.callout { height: var(--callout-height); overflow: hidden; border-left: 4px solid var(--color-link); background: #f2f7fd; padding: 8px 12px; margin: 12px 0; }
++.doc-content pre { background: #f4f4f4; padding: 12px; white-space: pre; overflow-x: auto; } /* only the code block scrolls */
++.callout { min-height: var(--callout-min-height); border-left: 4px solid var(--color-link); background: #f2f7fd; padding: 8px 12px; margin: 12px 0; }
+ @media (max-width: 720px) { .sidebar { display: none; } .doc-content { padding: 16px; } }
+diff -ru examples/agent-run/before-site/styles/tokens.css examples/docs-site/styles/tokens.css
+--- examples/agent-run/before-site/styles/tokens.css	2026-11-12 14:24:33
++++ examples/docs-site/styles/tokens.css	2026-11-12 14:24:57
+@@ -2,13 +2,13 @@
+ :root {
+   --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   --font-code: Menlo, Consolas, monospace;
+-  --text-body: 15px;
+-  --leading-body: 1.3;
++  --text-body: 18px;          /* was 15px: below the 16–22px starting range (C-BASE-002, C-SIZE-002) */
++  --leading-body: 1.5;        /* was 1.3: outside 1.4–1.7 (C-BASE-002, C-LH-003) */
+   --color-text: #333333;
+-  --color-muted: #8c8c8c;
++  --color-muted: #595959;     /* was #8c8c8c = 3.36:1, failed WCAG 1.4.3; now 7.0:1 (C-CONTRAST-001, C-CONTRAST-002) */
+   --color-link: #2a7ae2;
+   --color-bg: #ffffff;
+-  --content-max: 960px;
+-  --space-paragraph: 4px;
+-  --callout-height: 64px;
++  --content-max: 36rem;       /* was 960px ≈ 135 characters per line; targets ≈ 65 (C-BASE-001, C-CPL-006) */
++  --space-paragraph: 0.75em;  /* was 4px; heuristic extra gap (C-PARA-001) */
++  --callout-min-height: 64px; /* was a fixed height that clipped text (WCAG 1.4.12/1.4.10) */
+ }

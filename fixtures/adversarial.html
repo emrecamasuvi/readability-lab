@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: adversarial cases from review</title>
+<!-- Original text written for Readability Lab fixtures. License: CC BY 4.0. -->
+<style>
+body { margin: 0; background: #fff; color: #1b1b1b; font: 18px/1.5 Georgia, serif; }
+main { max-width: 36em; margin: 24px auto; padding: 0 16px; }
+.low { color: #aaaaaa; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.overlay { position: fixed; left: 0; right: 0; top: 0; height: 120px; background: rgba(0,0,0,0.6); pointer-events: none; }
+.stack { position: relative; margin-top: 1400px; }
+.stack .bg { position: absolute; inset: 0; background: #000; }
+.stack p { position: relative; color: #fff; margin: 0; padding: 8px; }
+.btn { display: inline-block; height: 1.6em; width: 9em; overflow: hidden; border: 1px solid #555; }
+.inline-imp { }
+.reflow-clip { }
+@media (max-width: 400px) { .reflow-clip { height: 30px; overflow: hidden; } }
+</style>
+</head>
+<body>
+<div class="overlay" aria-hidden="true"></div>
+<main id="adv">
+<p id="under-overlay">This paragraph sits under a translucent fixed overlay at the top of the page, so its real contrast is unknown.</p>
+<p style="margin-top:140px">Ordinary paragraph text keeps the page readable. It wraps across several lines so the measurement has something to work with, and it is not covered by anything.</p>
+<details id="collapsed"><summary id="summary">Open for details</summary><p class="low" id="hidden-low">Collapsed low contrast text that nobody can see until the details element is opened.</p></details>
+<p>Visible text <span class="sr-only"><span class="low" id="sr-low">screen reader only low contrast</span></span> continues here.</p>
+<p class="low" id="twin-a">Twin paragraph with identical low contrast colors, number one.</p>
+<p class="low" id="twin-b">Twin paragraph with identical low contrast colors, number two.</p>
+<div id="inline-imp" style="line-height: 1.1 !important; letter-spacing: 0 !important">A text-bearing div that keeps inline important spacing.</div>
+<p><button class="btn" id="clip-btn">Subscribe to the newsletter</button></p>
+<shadow-card id="shadow-card"></shadow-card>
+<p class="reflow-clip" id="reflow-clip">This paragraph is given a fixed height with hidden overflow on narrow screens, so most of its text disappears when the page reflows to a phone width of three hundred and twenty pixels.</p>
+<div class="stack" id="stack"><div class="bg"></div><p id="white-on-sibling">White text over a black positioned sibling, far below the first screen.</p></div>
+</main>
+<script>
+customElements.define("shadow-card", class extends HTMLElement {
+  constructor() { super(); const r = this.attachShadow({ mode: "open" }); r.innerHTML = '<div style="height:2.2em;overflow:hidden;border:1px solid #999"><p style="margin:0">Open shadow root text that needs more room when spacing is increased for reading.</p></div>'; }
+});
+</script>
+</body>
+</html>

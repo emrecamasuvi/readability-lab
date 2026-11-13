@@ -1,0 +1,14 @@
+/* Design tokens for the "Fieldnotes Docs" example site. */
+:root {
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-code: Menlo, Consolas, monospace;
+  --text-body: 18px;          /* was 15px: below the 16–22px starting range (C-BASE-002, C-SIZE-002) */
+  --leading-body: 1.5;        /* was 1.3: outside 1.4–1.7 (C-BASE-002, C-LH-003) */
+  --color-text: #333333;
+  --color-muted: #595959;     /* was #8c8c8c = 3.36:1, failed WCAG 1.4.3; now 7.0:1 (C-CONTRAST-001, C-CONTRAST-002) */
+  --color-link: #2a7ae2;
+  --color-bg: #ffffff;
+  --content-max: 36rem;       /* was 960px ≈ 135 characters per line; targets ≈ 65 (C-BASE-001, C-CPL-006) */
+  --space-paragraph: 0.75em;  /* was 4px; heuristic extra gap (C-PARA-001) */
+  --callout-min-height: 64px; /* was a fixed height that clipped text (WCAG 1.4.12/1.4.10) */
+}

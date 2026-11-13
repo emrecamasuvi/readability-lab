@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: documentation page</title>
+<!-- Original text written for Readability Lab fixtures. License: CC BY 4.0. -->
+<style>
+body { margin: 0; background: #fafafa; color: #222; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+.layout { display: grid; grid-template-columns: 240px 1fr; }
+nav.sidebar { padding: 16px; font-size: 14px; border-right: 1px solid #e3e3e3; }
+nav.sidebar a { display: block; color: #0b57d0; padding: 4px 0; }
+.doc-content { padding: 24px 48px; font-size: 15px; line-height: 1.6; }
+.doc-content code { font-family: ui-monospace, Menlo, monospace; font-size: 0.9em; background: #eee; padding: 1px 4px; }
+.doc-content pre { background: #1e1e1e; color: #e6e6e6; padding: 12px; overflow-x: auto; }
+.doc-content pre code { background: none; color: inherit; }
+.doc-content table { border-collapse: collapse; }
+.doc-content td, .doc-content th { border: 1px solid #ccc; padding: 4px 8px; }
+@media (max-width: 700px) { .layout { grid-template-columns: 1fr; } nav.sidebar { display: none; } .doc-content { padding: 16px; } }
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar" aria-label="Docs"><a href="#">Getting started</a><a href="#">Configuration</a><a href="#">Recipes</a><a href="#">CLI reference</a></nav>
+<main class="doc-content" id="doc">
+<h1>Configuring reading styles</h1>
+<p>Reading styles are applied to a region of the page that you choose with a CSS selector such as <code>main article</code>. Each style is stored in a recipe file, so the same settings can be reviewed in a pull request and reproduced later on another machine.</p>
+<p>To create a recipe, start from one of the starting presets and adjust it. The command below writes the generated CSS to standard output so you can inspect it before adding it to your stylesheet. Nothing is uploaded; the command runs entirely on your machine.</p>
+<pre><code>rlab recipe css recipes/docs.json --scope ".doc-content"</code></pre>
+<p>The table lists the fields that a recipe can contain. Every field is optional: leaving a field out keeps whatever the page already does, which makes it easy to change one thing at a time and measure the result.</p>
+<table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody><tr><td><code>fontSizePx</code></td><td>Nominal body size in CSS pixels</td></tr><tr><td><code>lineHeight</code></td><td>Baseline distance divided by font size</td></tr><tr><td><code>measure</code></td><td>Target characters per line, calibrated in a browser</td></tr></tbody></table>
+<p>When you change a recipe, run the inspector again and compare the two reports. The comparison lists which measurements changed and which findings were resolved, so reviewers can see the effect of the change without reading the CSS line by line.<sup><a href="#fn-docs">1</a></sup></p>
+<p id="fn-docs"><small>1. Comparisons are only meaningful when the content, viewport and browser are the same in both reports.</small></p>
+</main>
+</div>
+</body>
+</html>

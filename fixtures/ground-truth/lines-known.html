@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Ground truth: known line lengths</title>
+<!-- Each paragraph's lines are forced with <br>, so rendered characters per line are known exactly. -->
+<style>body{margin:0;font:18px/1.5 Georgia,serif}main{width:900px;padding:20px}p{margin:0 0 1em}</style></head>
+<body><main id="gt">
+<p id="p1">aaaaaaaaaa bbbbbbbbbb<br>cccccccccc dddddddddd eeeeeeeeee<br>ff</p>
+<p id="p2">Caf<span>é</span> naïve coöperate déjà vu, x<br>Cafe&#x301; with a combining accent, x<br>end</p>
+<p id="p3">Family 👨‍👩‍👧 emoji and flag 🇹🇷 count once<br>end</p>
+<p id="p4">Inline <em>emphasis</em> <strong>and</strong> <code>code()</code> count<br>end</p>
+<p id="p5">Collapsed     whitespace     counts      once<br>end</p>
+<p id="p6">a<br>b<br>c<br>d</p>
+<div style="columns:2;column-gap:40px;width:600px"><p id="p7">one one<br>two two<br>three three<br>four four<br>five five<br>six six</p></div>
+</main></body></html>

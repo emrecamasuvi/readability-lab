@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exporting data — Fieldnotes Docs (example)</title>
+<!-- Example documentation site for Readability Lab. Original text, CC BY 4.0. -->
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/docs.css">
+</head>
+<body>
+<header class="site-header"><strong>Fieldnotes Docs</strong><a href="#">Guides</a><a href="#">API</a><a href="#">Changelog</a></header>
+<div class="layout">
+<nav class="sidebar" aria-label="Guides"><a href="#">Installing</a><a href="#">Collecting notes</a><a href="#">Exporting data</a><a href="#">Sharing</a><a href="#">Troubleshooting</a></nav>
+<main class="doc-content" id="doc">
+<h1>Exporting data</h1>
+<p class="meta">Last updated 3 November 2026 · 6 minute read</p>
+<p>Fieldnotes keeps every note on your own device until you choose to export it. An export creates a single archive that contains your notes, their attachments, and a manifest describing how the notes relate to each other. You can open the archive in another copy of Fieldnotes, keep it as a backup, or convert it into a format that other tools understand.</p>
+<p>Exports run in the background, so you can keep working while the archive is prepared. Large collections with many photos can take several minutes. The progress indicator in the status bar shows how many notes have been written so far, and you can cancel the export at any time without changing the notes themselves.</p>
+<div class="callout" id="callout"><p><strong>Before you export:</strong> make sure attachments have finished syncing. Attachments that are still downloading are skipped and listed in the export log so that you can add them later.</p></div>
+<h2>Choosing a format</h2>
+<p>The default format is a compressed archive that preserves everything, including note history and tags. If you only need the text, choose Markdown: each note becomes a separate file, and attachments are copied into a folder next to it. The JSON format is intended for developers who want to process notes with their own scripts; its structure is described in the API reference.</p>
+<pre><code>fieldnotes export --format markdown --include-attachments --destination ~/Documents/fieldnotes-export-2026-11 --log ~/Documents/fieldnotes-export.log</code></pre>
+<p class="note">Note: exports never include your account password or encryption keys. If you export an encrypted notebook, the archive stays encrypted with the same key.</p>
+<p>After the export finishes, Fieldnotes shows a summary with the number of notes and attachments that were written, together with any items that were skipped. Keep the export log with the archive: it records the version of Fieldnotes that created it, which helps when you import the archive into a newer version later.</p>
+</main>
+</div>
+</body>
+</html>

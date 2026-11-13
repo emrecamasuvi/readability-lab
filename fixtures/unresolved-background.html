@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: unresolved backgrounds</title>
+<!-- Original text written for Readability Lab fixtures. License: CC BY 4.0. -->
+<style>
+body { margin: 0; background: #fff; color: #1b1b1b; font-family: Georgia, serif; }
+main { max-width: 36em; margin: 24px auto; padding: 0 20px; font-size: 18px; line-height: 1.5; }
+.hero { background: #ffffff linear-gradient(90deg, #111 0%, #eee 100%); color: #000; padding: 16px; }
+.faded { opacity: 0.7; }
+.stack { position: relative; height: 120px; }
+.stack .photo { position: absolute; inset: 0; background: #222; }
+.stack p { position: relative; color: #333; margin: 0; padding: 12px; }
+</style>
+</head>
+<body>
+<main id="content">
+<h1>Unresolved backgrounds</h1>
+<p>Most of what we read now arrives in a rectangle of light. The rectangle changes size from one moment to the next: a phone held in one hand on a train, a laptop balanced on a kitchen table, a large monitor at work. Text has to survive all of these, and the people reading it bring their own eyes, habits, and patience to each one.</p>
+<div class="hero" id="hero"><p>Black text over a dark-to-light gradient: the contrast varies along the line.</p></div>
+<div class="faded" id="faded"><p>Text inside a container with opacity 0.7.</p></div>
+<div class="stack" id="stack"><div class="photo"></div><p id="overlay-text">Dark grey text positioned over a dark sibling layer that is not its ancestor.</p></div>
+<p>Typographers have argued about line length for longer than screens have existed. A line that is too short forces the eye back to the left margin so often that the rhythm of a sentence breaks apart. A line that is too long makes the return journey difficult, and readers sometimes land on the wrong line and have to search for their place.</p>
+</main>
+</body>
+</html>

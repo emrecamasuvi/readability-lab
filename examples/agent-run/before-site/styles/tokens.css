@@ -1,0 +1,14 @@
+/* Design tokens for the "Fieldnotes Docs" example site. */
+:root {
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-code: Menlo, Consolas, monospace;
+  --text-body: 15px;
+  --leading-body: 1.3;
+  --color-text: #333333;
+  --color-muted: #8c8c8c;
+  --color-link: #2a7ae2;
+  --color-bg: #ffffff;
+  --content-max: 960px;
+  --space-paragraph: 4px;
+  --callout-height: 64px;
+}

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: blog post with div markup</title>
+<!-- Original text written for Readability Lab fixtures. License: CC BY 4.0. -->
+<style>
+body { margin: 0; background: #fdfdfd; color: #262626; font-family: Verdana, Geneva, sans-serif; }
+.topbar { background: #263238; color: #fff; padding: 10px 20px; font-size: 14px; }
+.topbar a { color: #cfe3ff; }
+.wrap { display: flex; gap: 32px; padding: 24px; }
+.post-content { flex: 1; font-size: 15px; line-height: 1.35; }
+.sidebar { width: 220px; font-size: 13px; color: #444; }
+</style>
+</head>
+<body>
+<div class="topbar"><a href="#">Field notes</a></div>
+<div class="wrap">
+<div class="post-content" id="post">
+<h1>Paper, screens and patience</h1>
+<p>Typographers have argued about line length for longer than screens have existed. A line that is too short forces the eye back to the left margin so often that the rhythm of a sentence breaks apart. A line that is too long makes the return journey difficult, and readers sometimes land on the wrong line and have to search for their place.</p>
+<p>That uncertainty is not a failure of research. Experiments measure different things. One study times how long people take to read a short news item; another asks questions afterwards to see what they understood; a third simply asks which version they liked. These outcomes do not always agree.</p>
+<p>Line spacing has a similar story. Extra space between lines can make each line easier to pick out, but it also spreads a paragraph over more of the screen, which means more scrolling and fewer lines visible at once. Whether that trade is worth making depends on the text, the reader, and the size of the type.</p>
+<p>Size matters too, though not in the way a number in a style sheet suggests. Two fonts set at the same nominal size can look quite different, because one has tall lowercase letters and the other short ones. What the reader actually sees depends on the shape of the letters, the distance to the screen, and how well the display draws thin strokes.</p>
+<p>All of this points toward a modest conclusion. Start from a sensible default, make it easy for each reader to change, and check the result in a real browser rather than trusting a specification. The goal is not to find the perfect page, but to make sure nobody is stuck with a page that does not work for them.</p>
+<ul><li>Keep the start edge stable.</li><li>Let readers enlarge text without breaking the page.</li><li>Check the result in a browser.</li></ul>
+</div>
+<aside class="sidebar"><h2>Related</h2><p><a href="#">On margins</a></p><p><a href="#">On contrast</a></p></aside>
+</div>
+</body>
+</html>

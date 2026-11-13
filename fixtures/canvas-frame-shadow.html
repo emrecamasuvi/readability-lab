@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: canvas, frames and closed shadow roots</title>
+<!-- Original text written for Readability Lab fixtures. License: CC BY 4.0. -->
+<style>
+body { margin: 0; font-family: Arial, sans-serif; color: #1b1b1b; background: #fff; }
+main { max-width: 38em; margin: 24px auto; padding: 0 16px; font-size: 18px; line-height: 1.5; }
+canvas, iframe { display: block; margin: 12px 0; border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+<main id="content">
+<h1>Unmeasurable content</h1>
+<p>Most of what we read now arrives in a rectangle of light. The rectangle changes size from one moment to the next: a phone held in one hand on a train, a laptop balanced on a kitchen table, a large monitor at work. Text has to survive all of these, and the people reading it bring their own eyes, habits, and patience to each one.</p>
+<canvas id="cv" width="480" height="80"></canvas>
+<iframe id="xframe" title="Opaque-origin frame" src="data:text/html,<p>Text inside an opaque-origin frame.</p>" width="480" height="80"></iframe>
+<closed-note id="closed"></closed-note>
+<p>That uncertainty is not a failure of research. Experiments measure different things. One study times how long people take to read a short news item; another asks questions afterwards to see what they understood; a third simply asks which version they liked. These outcomes do not always agree.</p>
+</main>
+<script>
+const c = document.getElementById("cv").getContext("2d");
+c.font = "18px Arial"; c.fillText("This sentence is drawn on a canvas.", 10, 45);
+customElements.define("closed-note", class extends HTMLElement {
+  constructor() { super(); const r = this.attachShadow({ mode: "closed" }); r.innerHTML = '<p style="margin:0;padding:8px;background:#eee">Text in a closed shadow root.</p>'; }
+});
+</script>
+</body>
+</html>

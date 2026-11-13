@@ -1,0 +1,3933 @@
+{
+  "format": "readability-lab/report",
+  "formatVersion": 1,
+  "id": "report-mwdofj6b",
+  "createdAt": "2026-11-12T15:02:20.627Z",
+  "target": {
+    "url": "https://tip.org.tr/raporlar-belgeler/habas-toplu-isci-katliami-duzenin-aynasidir",
+    "title": "HABAŞ Toplu İşçi Katliamı Düzenin Aynasıdır!",
+    "regionSelector": "#postContent > article",
+    "regionMethod": "explicit-selector"
+  },
+  "environment": {
+    "tool": "readability-lab-cli",
+    "toolVersion": "0.1.0",
+    "browser": "chromium",
+    "browserVersion": "158.0.8127.18",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.8127.18 Safari/537.36",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "deviceScaleFactor": 3
+    },
+    "colorScheme": "light",
+    "fontsStatus": "loaded",
+    "loadState": "networkidle"
+  },
+  "scenarios": [
+    {
+      "id": "baseline",
+      "label": "Baseline",
+      "kind": "baseline",
+      "fidelity": "real-browser",
+      "description": "Page as published",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "deviceScaleFactor": 3
+      },
+      "appliedCss": null
+    },
+    {
+      "id": "text-spacing",
+      "label": "WCAG 1.4.12 text spacing",
+      "kind": "text-spacing",
+      "fidelity": "real-browser",
+      "description": "applying line-height 1.5, paragraph spacing 2em, letter spacing 0.12em and word spacing 0.16em (document and open shadow roots)",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "deviceScaleFactor": 3
+      },
+      "appliedCss": null
+    },
+    {
+      "id": "reflow-320",
+      "label": "320 CSS px reflow",
+      "kind": "reflow-320",
+      "fidelity": "real-browser",
+      "description": "rendering at a 320×256 CSS px viewport",
+      "viewport": {
+        "width": 320,
+        "height": 256,
+        "deviceScaleFactor": 3
+      },
+      "appliedCss": null
+    },
+    {
+      "id": "zoom-200",
+      "label": "200% zoom (approximation)",
+      "kind": "zoom-200",
+      "fidelity": "approximation",
+      "description": "emulating 200% page zoom as a 195×422 CSS px viewport at 6x; browser text-only zoom is not tested",
+      "viewport": {
+        "width": 195,
+        "height": 422,
+        "deviceScaleFactor": 6
+      },
+      "appliedCss": null
+    }
+  ],
+  "observations": [
+    {
+      "id": "baseline:layout.cpl:1",
+      "metric": "layout.cpl",
+      "value": 40,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article",
+        "box": {
+          "x": 31,
+          "y": 476,
+          "width": 328,
+          "height": 7091
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": {
+        "count": 176,
+        "min": 26,
+        "p10": 34,
+        "median": 40,
+        "mean": 39.76,
+        "p90": 45,
+        "max": 49,
+        "histogram": [
+          {
+            "from": 25,
+            "to": 30,
+            "count": 4
+          },
+          {
+            "from": 30,
+            "to": 35,
+            "count": 22
+          },
+          {
+            "from": 35,
+            "to": 40,
+            "count": 56
+          },
+          {
+            "from": 40,
+            "to": 45,
+            "count": 68
+          },
+          {
+            "from": 45,
+            "to": 50,
+            "count": 26
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {
+        "linesMeasured": 176,
+        "mixedLines": 0,
+        "truncated": false,
+        "segmenter": "Intl.Segmenter",
+        "blocks": 22
+      }
+    },
+    {
+      "id": "baseline:layout.cpl.paragraphFinalLines:2",
+      "metric": "layout.cpl.paragraphFinalLines",
+      "value": 22,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "excludedFromDistribution": true
+      }
+    },
+    {
+      "id": "baseline:layout.lineCount:3",
+      "metric": "layout.lineCount",
+      "value": 198,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "truncated": false
+      }
+    },
+    {
+      "id": "baseline:region.characterCount:4",
+      "metric": "region.characterCount",
+      "value": 7577,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:region.contentFingerprint:5",
+      "metric": "region.contentFingerprint",
+      "value": "fnv1a32:f019c656:7753",
+      "unit": null,
+      "status": "measured",
+      "method": "fnv1a32-normalized-text@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Hash of whitespace-normalized NFC prose text; layout independent."
+      }
+    },
+    {
+      "id": "baseline:text.script:6",
+      "metric": "text.script",
+      "value": "Latin",
+      "unit": null,
+      "status": "measured",
+      "method": "unicode-script-tally@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "tally": {
+          "Latin": 6554
+        },
+        "share": 1,
+        "lang": "tr",
+        "direction": "ltr"
+      }
+    },
+    {
+      "id": "baseline:layout.lineWidthPx:7",
+      "metric": "layout.lineWidthPx",
+      "value": 291.2,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": {
+        "count": 176,
+        "min": 192.3,
+        "p10": 245.8,
+        "median": 291.2,
+        "mean": 286.92,
+        "p90": 321.1,
+        "max": 327.5,
+        "histogram": [
+          {
+            "from": 150,
+            "to": 200,
+            "count": 2
+          },
+          {
+            "from": 200,
+            "to": 250,
+            "count": 18
+          },
+          {
+            "from": 250,
+            "to": 300,
+            "count": 76
+          },
+          {
+            "from": 300,
+            "to": 350,
+            "count": 80
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:layout.linePitchPx:8",
+      "metric": "layout.linePitchPx",
+      "value": 28.546875,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:text.fontSizePx:9",
+      "metric": "text.fontSizePx",
+      "value": 16.32,
+      "unit": "px",
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 551,
+          "width": 328,
+          "height": 200
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Nominal computed font-size; apparent size is not measured."
+      }
+    },
+    {
+      "id": "baseline:text.lineHeightRatio:10",
+      "metric": "text.lineHeightRatio",
+      "value": 1.75,
+      "unit": "ratio",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 551,
+          "width": 328,
+          "height": 200
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "computedLineHeight": "28.56px",
+        "measuredLinePitchPx": 28.546875
+      }
+    },
+    {
+      "id": "baseline:text.fontWeight:11",
+      "metric": "text.fontWeight",
+      "value": 400,
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:text.letterSpacingEm:12",
+      "metric": "text.letterSpacingEm",
+      "value": 0,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:text.wordSpacingEm:13",
+      "metric": "text.wordSpacingEm",
+      "value": 0,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:text.align:14",
+      "metric": "text.align",
+      "value": "start",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 551,
+          "width": 328,
+          "height": 200
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "left/right/start/end are reported as start"
+      }
+    },
+    {
+      "id": "baseline:font.declaredFamily:15",
+      "metric": "font.declaredFamily",
+      "value": "Gabarito, sans-serif",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:font.xHeightPx:16",
+      "metric": "font.xHeightPx",
+      "value": 8.54,
+      "unit": "px",
+      "status": "measured",
+      "method": "canvas-text-metrics@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "xHeightRatio": 0.523,
+        "note": "Rendered lowercase x height at the nominal size. Apparent size also depends on viewing distance, which is not measured."
+      }
+    },
+    {
+      "id": "baseline:font.firstAvailableFamily:17",
+      "metric": "font.firstAvailableFamily",
+      "value": "sans-serif",
+      "unit": null,
+      "status": "estimated",
+      "method": "width-comparison-and-fontfaceset@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "firstDeclaredAvailable": false,
+        "checked": [
+          {
+            "family": "Gabarito",
+            "availability": "unavailable"
+          },
+          {
+            "family": "sans-serif",
+            "availability": "generic"
+          }
+        ],
+        "fontsStatus": "loaded"
+      }
+    },
+    {
+      "id": "baseline:layout.paragraphGapEm:18",
+      "metric": "layout.paragraphGapEm",
+      "value": 0.98,
+      "unit": "em",
+      "status": "derived",
+      "method": "line-top-gap-minus-pitch@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "pairs": 10
+      }
+    },
+    {
+      "id": "baseline:layout.columnWidthPx:19",
+      "metric": "layout.columnWidthPx",
+      "value": 328,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article",
+        "box": {
+          "x": 31,
+          "y": 476,
+          "width": 328,
+          "height": 7091
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "maxWidth": "none"
+      }
+    },
+    {
+      "id": "baseline:layout.contentHeightPx:20",
+      "metric": "layout.contentHeightPx",
+      "value": 7091,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article",
+        "box": {
+          "x": 31,
+          "y": 476,
+          "width": 328,
+          "height": 7091
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:contrast.sample:21",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(1) > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 1586,
+          "width": 328,
+          "height": 343
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(17, 17, 17)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "baseline:contrast.sample:22",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(1) > p:nth-of-type(2)",
+        "box": {
+          "x": 31,
+          "y": 1944,
+          "width": 328,
+          "height": 428
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(17, 17, 17)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "baseline:contrast.sample:23",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(3) > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 4900,
+          "width": 328,
+          "height": 343
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(17, 17, 17)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "baseline:contrast.sample:24",
+      "metric": "contrast.sample",
+      "value": 21,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > h1",
+        "box": {
+          "x": 31,
+          "y": 476,
+          "width": 328,
+          "height": 67
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "large": true,
+        "fontSizePx": 27.85,
+        "fontWeight": 500,
+        "elementCount": 6,
+        "otherSelectors": [
+          "#postContent > article > h3",
+          "#postContent > article > section:nth-of-type(1) > h2",
+          "#postContent > article > section:nth-of-type(2) > h2",
+          "#postContent > article > section:nth-of-type(3) > h2"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "baseline:contrast.sample:25",
+      "metric": "contrast.sample",
+      "value": 18.883060964594996,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 551,
+          "width": 328,
+          "height": 200
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#111111",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 14,
+        "otherSelectors": [
+          "#postContent > article > p:nth-of-type(2)",
+          "#postContent > article > section:nth-of-type(1) > p:nth-of-type(3)",
+          "#postContent > article > section:nth-of-type(1) > p:nth-of-type(4)",
+          "#postContent > article > section:nth-of-type(2) > p:nth-of-type(1)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "baseline:contrast.sample:26",
+      "metric": "contrast.sample",
+      "value": 21,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > ul > li:nth-of-type(1)",
+        "box": {
+          "x": 63,
+          "y": 965,
+          "width": 296,
+          "height": 73
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 41,
+        "otherSelectors": [
+          "#postContent > article > ul > li:nth-of-type(2)",
+          "#postContent > article > ul > li:nth-of-type(3)",
+          "#postContent > article > ul > li:nth-of-type(4)",
+          "#postContent > article > ul > li:nth-of-type(5)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "baseline:overflow.pageHorizontal:27",
+      "metric": "overflow.pageHorizontal",
+      "value": false,
+      "unit": null,
+      "status": "measured",
+      "method": "scroll-vs-client-box@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      }
+    },
+    {
+      "id": "baseline:controls.readingSettings:28",
+      "metric": "controls.readingSettings",
+      "value": null,
+      "unit": null,
+      "status": "unknown",
+      "method": "dom-scan@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": "Reader-adjustment controls other than Readability Lab markers are not automatically detectable.",
+      "details": {}
+    },
+    {
+      "id": "baseline:scenario.completed:29",
+      "metric": "scenario.completed",
+      "value": true,
+      "unit": null,
+      "status": "measured",
+      "method": "inspector@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "timingMs": 27
+      }
+    },
+    {
+      "id": "text-spacing:layout.cpl:1",
+      "metric": "layout.cpl",
+      "value": 30,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#postContent > article",
+        "box": {
+          "x": 31,
+          "y": 529,
+          "width": 328,
+          "height": 8468
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": {
+        "count": 237,
+        "min": 13,
+        "p10": 25,
+        "median": 30,
+        "mean": 29.72,
+        "p90": 34,
+        "max": 38,
+        "histogram": [
+          {
+            "from": 10,
+            "to": 15,
+            "count": 1
+          },
+          {
+            "from": 15,
+            "to": 20,
+            "count": 3
+          },
+          {
+            "from": 20,
+            "to": 25,
+            "count": 18
+          },
+          {
+            "from": 25,
+            "to": 30,
+            "count": 78
+          },
+          {
+            "from": 30,
+            "to": 35,
+            "count": 118
+          },
+          {
+            "from": 35,
+            "to": 40,
+            "count": 19
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {
+        "linesMeasured": 237,
+        "mixedLines": 0,
+        "truncated": false,
+        "segmenter": "Intl.Segmenter",
+        "blocks": 22
+      }
+    },
+    {
+      "id": "text-spacing:layout.cpl.paragraphFinalLines:2",
+      "metric": "layout.cpl.paragraphFinalLines",
+      "value": 22,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "excludedFromDistribution": true
+      }
+    },
+    {
+      "id": "text-spacing:layout.lineCount:3",
+      "metric": "layout.lineCount",
+      "value": 259,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "truncated": false
+      }
+    },
+    {
+      "id": "text-spacing:region.characterCount:4",
+      "metric": "region.characterCount",
+      "value": 7516,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:region.contentFingerprint:5",
+      "metric": "region.contentFingerprint",
+      "value": "fnv1a32:f019c656:7753",
+      "unit": null,
+      "status": "measured",
+      "method": "fnv1a32-normalized-text@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Hash of whitespace-normalized NFC prose text; layout independent."
+      }
+    },
+    {
+      "id": "text-spacing:text.script:6",
+      "metric": "text.script",
+      "value": "Latin",
+      "unit": null,
+      "status": "measured",
+      "method": "unicode-script-tally@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "tally": {
+          "Latin": 6554
+        },
+        "share": 1,
+        "lang": "tr",
+        "direction": "ltr"
+      }
+    },
+    {
+      "id": "text-spacing:layout.lineWidthPx:7",
+      "metric": "layout.lineWidthPx",
+      "value": 287.3,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": {
+        "count": 237,
+        "min": 126,
+        "p10": 234.56,
+        "median": 287.3,
+        "mean": 280.96,
+        "p90": 318.3,
+        "max": 327.6,
+        "histogram": [
+          {
+            "from": 100,
+            "to": 150,
+            "count": 4
+          },
+          {
+            "from": 150,
+            "to": 200,
+            "count": 2
+          },
+          {
+            "from": 200,
+            "to": 250,
+            "count": 35
+          },
+          {
+            "from": 250,
+            "to": 300,
+            "count": 107
+          },
+          {
+            "from": 300,
+            "to": 350,
+            "count": 89
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:layout.linePitchPx:8",
+      "metric": "layout.linePitchPx",
+      "value": 24.46875,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:text.fontSizePx:9",
+      "metric": "text.fontSizePx",
+      "value": 16.32,
+      "unit": "px",
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 662,
+          "width": 328,
+          "height": 220
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Nominal computed font-size; apparent size is not measured."
+      }
+    },
+    {
+      "id": "text-spacing:text.lineHeightRatio:10",
+      "metric": "text.lineHeightRatio",
+      "value": 1.5,
+      "unit": "ratio",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 662,
+          "width": 328,
+          "height": 220
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "computedLineHeight": "24.48px",
+        "measuredLinePitchPx": 24.46875
+      }
+    },
+    {
+      "id": "text-spacing:text.fontWeight:11",
+      "metric": "text.fontWeight",
+      "value": 400,
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:text.letterSpacingEm:12",
+      "metric": "text.letterSpacingEm",
+      "value": 0.12,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:text.wordSpacingEm:13",
+      "metric": "text.wordSpacingEm",
+      "value": 0.16,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:text.align:14",
+      "metric": "text.align",
+      "value": "start",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 662,
+          "width": 328,
+          "height": 220
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "left/right/start/end are reported as start"
+      }
+    },
+    {
+      "id": "text-spacing:font.declaredFamily:15",
+      "metric": "font.declaredFamily",
+      "value": "Gabarito, sans-serif",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:font.xHeightPx:16",
+      "metric": "font.xHeightPx",
+      "value": 8.54,
+      "unit": "px",
+      "status": "measured",
+      "method": "canvas-text-metrics@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "xHeightRatio": 0.523,
+        "note": "Rendered lowercase x height at the nominal size. Apparent size also depends on viewing distance, which is not measured."
+      }
+    },
+    {
+      "id": "text-spacing:font.firstAvailableFamily:17",
+      "metric": "font.firstAvailableFamily",
+      "value": "sans-serif",
+      "unit": null,
+      "status": "estimated",
+      "method": "width-comparison-and-fontfaceset@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "firstDeclaredAvailable": false,
+        "checked": [
+          {
+            "family": "Gabarito",
+            "availability": "unavailable"
+          },
+          {
+            "family": "sans-serif",
+            "availability": "generic"
+          }
+        ],
+        "fontsStatus": "loaded"
+      }
+    },
+    {
+      "id": "text-spacing:layout.paragraphGapEm:18",
+      "metric": "layout.paragraphGapEm",
+      "value": 2,
+      "unit": "em",
+      "status": "derived",
+      "method": "line-top-gap-minus-pitch@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "pairs": 10
+      }
+    },
+    {
+      "id": "text-spacing:layout.columnWidthPx:19",
+      "metric": "layout.columnWidthPx",
+      "value": 328,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#postContent > article",
+        "box": {
+          "x": 31,
+          "y": 529,
+          "width": 328,
+          "height": 8468
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "maxWidth": "none"
+      }
+    },
+    {
+      "id": "text-spacing:layout.contentHeightPx:20",
+      "metric": "layout.contentHeightPx",
+      "value": 8468,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#postContent > article",
+        "box": {
+          "x": 31,
+          "y": 529,
+          "width": 328,
+          "height": 8468
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:contrast.sample:21",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(1) > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 1936,
+          "width": 328,
+          "height": 392
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(17, 17, 17)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "text-spacing:contrast.sample:22",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(1) > p:nth-of-type(4)",
+        "box": {
+          "x": 31,
+          "y": 3160,
+          "width": 328,
+          "height": 392
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(17, 17, 17)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "text-spacing:contrast.sample:23",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > p:nth-of-type(4)",
+        "box": {
+          "x": 31,
+          "y": 4712,
+          "width": 328,
+          "height": 294
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(17, 17, 17)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "text-spacing:contrast.sample:24",
+      "metric": "contrast.sample",
+      "value": 21,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#postContent > article > h1",
+        "box": {
+          "x": 31,
+          "y": 529,
+          "width": 328,
+          "height": 125
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "large": true,
+        "fontSizePx": 27.85,
+        "fontWeight": 500,
+        "elementCount": 6,
+        "otherSelectors": [
+          "#postContent > article > h3",
+          "#postContent > article > section:nth-of-type(1) > h2",
+          "#postContent > article > section:nth-of-type(2) > h2",
+          "#postContent > article > section:nth-of-type(3) > h2"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "text-spacing:contrast.sample:25",
+      "metric": "contrast.sample",
+      "value": 18.883060964594996,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 662,
+          "width": 328,
+          "height": 220
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#111111",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 14,
+        "otherSelectors": [
+          "#postContent > article > p:nth-of-type(2)",
+          "#postContent > article > section:nth-of-type(1) > p:nth-of-type(2)",
+          "#postContent > article > section:nth-of-type(1) > p:nth-of-type(3)",
+          "#postContent > article > section:nth-of-type(2) > p:nth-of-type(1)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "text-spacing:contrast.sample:26",
+      "metric": "contrast.sample",
+      "value": 21,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#postContent > article > ul > li:nth-of-type(1)",
+        "box": {
+          "x": 63,
+          "y": 1162,
+          "width": 296,
+          "height": 73
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 41,
+        "otherSelectors": [
+          "#postContent > article > ul > li:nth-of-type(2)",
+          "#postContent > article > ul > li:nth-of-type(3)",
+          "#postContent > article > ul > li:nth-of-type(4)",
+          "#postContent > article > ul > li:nth-of-type(5)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "text-spacing:controls.readingSettings:27",
+      "metric": "controls.readingSettings",
+      "value": null,
+      "unit": null,
+      "status": "unknown",
+      "method": "dom-scan@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": "Reader-adjustment controls other than Readability Lab markers are not automatically detectable.",
+      "details": {}
+    },
+    {
+      "id": "text-spacing:scenario.completed:28",
+      "metric": "scenario.completed",
+      "value": true,
+      "unit": null,
+      "status": "measured",
+      "method": "inspector@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "timingMs": 25
+      }
+    },
+    {
+      "id": "text-spacing:scenario.overridesNotApplied:0",
+      "metric": "scenario.overridesNotApplied",
+      "value": 0,
+      "unit": "elements",
+      "status": "measured",
+      "method": "computed-style-verification@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "checked": 64,
+        "unverifiable": 0,
+        "shadowRootsPatched": 0,
+        "examples": []
+      }
+    },
+    {
+      "id": "reflow-320:layout.cpl:1",
+      "metric": "layout.cpl",
+      "value": 31,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article",
+        "box": {
+          "x": 31,
+          "y": 468,
+          "width": 258,
+          "height": 8745
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": {
+        "count": 229,
+        "min": 13,
+        "p10": 26,
+        "median": 31,
+        "mean": 30.71,
+        "p90": 35,
+        "max": 40,
+        "histogram": [
+          {
+            "from": 10,
+            "to": 15,
+            "count": 1
+          },
+          {
+            "from": 15,
+            "to": 20,
+            "count": 1
+          },
+          {
+            "from": 20,
+            "to": 25,
+            "count": 10
+          },
+          {
+            "from": 25,
+            "to": 30,
+            "count": 68
+          },
+          {
+            "from": 30,
+            "to": 35,
+            "count": 107
+          },
+          {
+            "from": 35,
+            "to": 40,
+            "count": 41
+          },
+          {
+            "from": 40,
+            "to": 45,
+            "count": 1
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {
+        "linesMeasured": 229,
+        "mixedLines": 0,
+        "truncated": false,
+        "segmenter": "Intl.Segmenter",
+        "blocks": 22
+      }
+    },
+    {
+      "id": "reflow-320:layout.cpl.paragraphFinalLines:2",
+      "metric": "layout.cpl.paragraphFinalLines",
+      "value": 22,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "excludedFromDistribution": true
+      }
+    },
+    {
+      "id": "reflow-320:layout.lineCount:3",
+      "metric": "layout.lineCount",
+      "value": 251,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "truncated": false
+      }
+    },
+    {
+      "id": "reflow-320:region.characterCount:4",
+      "metric": "region.characterCount",
+      "value": 7524,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:region.contentFingerprint:5",
+      "metric": "region.contentFingerprint",
+      "value": "fnv1a32:f019c656:7753",
+      "unit": null,
+      "status": "measured",
+      "method": "fnv1a32-normalized-text@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Hash of whitespace-normalized NFC prose text; layout independent."
+      }
+    },
+    {
+      "id": "reflow-320:text.script:6",
+      "metric": "text.script",
+      "value": "Latin",
+      "unit": null,
+      "status": "measured",
+      "method": "unicode-script-tally@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "tally": {
+          "Latin": 6554
+        },
+        "share": 1,
+        "lang": "tr",
+        "direction": "ltr"
+      }
+    },
+    {
+      "id": "reflow-320:layout.lineWidthPx:7",
+      "metric": "layout.lineWidthPx",
+      "value": 228.6,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": {
+        "count": 229,
+        "min": 98,
+        "p10": 187.8,
+        "median": 228.6,
+        "mean": 222.3,
+        "p90": 252.2,
+        "max": 257.6,
+        "histogram": [
+          {
+            "from": 50,
+            "to": 100,
+            "count": 1
+          },
+          {
+            "from": 100,
+            "to": 150,
+            "count": 1
+          },
+          {
+            "from": 150,
+            "to": 200,
+            "count": 43
+          },
+          {
+            "from": 200,
+            "to": 250,
+            "count": 153
+          },
+          {
+            "from": 250,
+            "to": 300,
+            "count": 31
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:layout.linePitchPx:8",
+      "metric": "layout.linePitchPx",
+      "value": 28.546875,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:text.fontSizePx:9",
+      "metric": "text.fontSizePx",
+      "value": 16.32,
+      "unit": "px",
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 573,
+          "width": 258,
+          "height": 257
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Nominal computed font-size; apparent size is not measured."
+      }
+    },
+    {
+      "id": "reflow-320:text.lineHeightRatio:10",
+      "metric": "text.lineHeightRatio",
+      "value": 1.75,
+      "unit": "ratio",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 573,
+          "width": 258,
+          "height": 257
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "computedLineHeight": "28.56px",
+        "measuredLinePitchPx": 28.546875
+      }
+    },
+    {
+      "id": "reflow-320:text.fontWeight:11",
+      "metric": "text.fontWeight",
+      "value": 400,
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:text.letterSpacingEm:12",
+      "metric": "text.letterSpacingEm",
+      "value": 0,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:text.wordSpacingEm:13",
+      "metric": "text.wordSpacingEm",
+      "value": 0,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:text.align:14",
+      "metric": "text.align",
+      "value": "start",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 573,
+          "width": 258,
+          "height": 257
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "left/right/start/end are reported as start"
+      }
+    },
+    {
+      "id": "reflow-320:font.declaredFamily:15",
+      "metric": "font.declaredFamily",
+      "value": "Gabarito, sans-serif",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:font.xHeightPx:16",
+      "metric": "font.xHeightPx",
+      "value": 8.54,
+      "unit": "px",
+      "status": "measured",
+      "method": "canvas-text-metrics@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "xHeightRatio": 0.523,
+        "note": "Rendered lowercase x height at the nominal size. Apparent size also depends on viewing distance, which is not measured."
+      }
+    },
+    {
+      "id": "reflow-320:font.firstAvailableFamily:17",
+      "metric": "font.firstAvailableFamily",
+      "value": "sans-serif",
+      "unit": null,
+      "status": "estimated",
+      "method": "width-comparison-and-fontfaceset@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "firstDeclaredAvailable": false,
+        "checked": [
+          {
+            "family": "Gabarito",
+            "availability": "unavailable"
+          },
+          {
+            "family": "sans-serif",
+            "availability": "generic"
+          }
+        ],
+        "fontsStatus": "loaded"
+      }
+    },
+    {
+      "id": "reflow-320:layout.paragraphGapEm:18",
+      "metric": "layout.paragraphGapEm",
+      "value": 0.98,
+      "unit": "em",
+      "status": "derived",
+      "method": "line-top-gap-minus-pitch@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "pairs": 10
+      }
+    },
+    {
+      "id": "reflow-320:layout.columnWidthPx:19",
+      "metric": "layout.columnWidthPx",
+      "value": 258,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article",
+        "box": {
+          "x": 31,
+          "y": 468,
+          "width": 258,
+          "height": 8745
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "maxWidth": "none"
+      }
+    },
+    {
+      "id": "reflow-320:layout.contentHeightPx:20",
+      "metric": "layout.contentHeightPx",
+      "value": 8745,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article",
+        "box": {
+          "x": 31,
+          "y": 468,
+          "width": 258,
+          "height": 8745
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:contrast.sample:21",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > h1",
+        "box": {
+          "x": 31,
+          "y": 468,
+          "width": 258,
+          "height": 96
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": true,
+        "fontSizePx": 26.8,
+        "fontWeight": 500,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:22",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > ul > li:nth-of-type(1)",
+        "box": {
+          "x": 63,
+          "y": 1101,
+          "width": 226,
+          "height": 73
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:23",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > ul > li:nth-of-type(3)",
+        "box": {
+          "x": 63,
+          "y": 1321,
+          "width": 226,
+          "height": 73
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:24",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > h2",
+        "box": {
+          "x": 31,
+          "y": 3562,
+          "width": 258,
+          "height": 58
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": true,
+        "fontSizePx": 24.08,
+        "fontWeight": 800,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:25",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 3628,
+          "width": 258,
+          "height": 143
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(17, 17, 17)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:26",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(3)",
+        "box": {
+          "x": 105,
+          "y": 3882,
+          "width": 113,
+          "height": 100
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:27",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3)",
+        "box": {
+          "x": 105,
+          "y": 4057,
+          "width": 113,
+          "height": 100
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:28",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(4) > td:nth-of-type(3)",
+        "box": {
+          "x": 105,
+          "y": 4157,
+          "width": 113,
+          "height": 100
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:29",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(5) > td:nth-of-type(3)",
+        "box": {
+          "x": 105,
+          "y": 4257,
+          "width": 113,
+          "height": 100
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:30",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(6) > td:nth-of-type(3)",
+        "box": {
+          "x": 105,
+          "y": 4357,
+          "width": 113,
+          "height": 100
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:31",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(7) > td:nth-of-type(3)",
+        "box": {
+          "x": 105,
+          "y": 4457,
+          "width": 113,
+          "height": 100
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:32",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(3) > h2",
+        "box": {
+          "x": 31,
+          "y": 5797,
+          "width": 258,
+          "height": 58
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": true,
+        "fontSizePx": 24.08,
+        "fontWeight": 800,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:33",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(4) > h2",
+        "box": {
+          "x": 31,
+          "y": 7815,
+          "width": 258,
+          "height": 58
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": true,
+        "fontSizePx": 24.08,
+        "fontWeight": 800,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:34",
+      "metric": "contrast.sample",
+      "value": 18.883060964594996,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 573,
+          "width": 258,
+          "height": 257
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#111111",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 16,
+        "otherSelectors": [
+          "#postContent > article > p:nth-of-type(2)",
+          "#postContent > article > section:nth-of-type(1) > p:nth-of-type(1)",
+          "#postContent > article > section:nth-of-type(1) > p:nth-of-type(2)",
+          "#postContent > article > section:nth-of-type(1) > p:nth-of-type(3)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:35",
+      "metric": "contrast.sample",
+      "value": 21,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > h3",
+        "box": {
+          "x": 31,
+          "y": 1065,
+          "width": 258,
+          "height": 27
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "large": true,
+        "fontSizePx": 22.72,
+        "fontWeight": 800,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#postContent > article > section:nth-of-type(1) > h2"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:36",
+      "metric": "contrast.sample",
+      "value": 21,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#postContent > article > ul > li:nth-of-type(2)",
+        "box": {
+          "x": 63,
+          "y": 1174,
+          "width": 226,
+          "height": 147
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 33,
+        "otherSelectors": [
+          "#postContent > article > ul > li:nth-of-type(4)",
+          "#postContent > article > ul > li:nth-of-type(5)",
+          "#postContent > article > section:nth-of-type(2) > div > table > thead > tr > th:nth-of-type(1)",
+          "#postContent > article > section:nth-of-type(2) > div > table > thead > tr > th:nth-of-type(2)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:overflow.pageHorizontal:37",
+      "metric": "overflow.pageHorizontal",
+      "value": false,
+      "unit": null,
+      "status": "measured",
+      "method": "scroll-vs-client-box@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "scrollWidth": 320,
+        "viewportWidth": 320
+      }
+    },
+    {
+      "id": "reflow-320:controls.readingSettings:38",
+      "metric": "controls.readingSettings",
+      "value": null,
+      "unit": null,
+      "status": "unknown",
+      "method": "dom-scan@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": "Reader-adjustment controls other than Readability Lab markers are not automatically detectable.",
+      "details": {}
+    },
+    {
+      "id": "reflow-320:scenario.completed:39",
+      "metric": "scenario.completed",
+      "value": true,
+      "unit": null,
+      "status": "measured",
+      "method": "inspector@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "timingMs": 27
+      }
+    },
+    {
+      "id": "zoom-200:layout.cpl:1",
+      "metric": "layout.cpl",
+      "value": 13,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article",
+        "box": {
+          "x": 31,
+          "y": 484,
+          "width": 133,
+          "height": 17598
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": {
+        "count": 536,
+        "min": 1,
+        "p10": 8,
+        "median": 13,
+        "mean": 13.04,
+        "p90": 18,
+        "max": 20,
+        "histogram": [
+          {
+            "from": 0,
+            "to": 5,
+            "count": 5
+          },
+          {
+            "from": 5,
+            "to": 10,
+            "count": 94
+          },
+          {
+            "from": 10,
+            "to": 15,
+            "count": 230
+          },
+          {
+            "from": 15,
+            "to": 20,
+            "count": 199
+          },
+          {
+            "from": 20,
+            "to": 25,
+            "count": 8
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {
+        "linesMeasured": 536,
+        "mixedLines": 0,
+        "truncated": false,
+        "segmenter": "Intl.Segmenter",
+        "blocks": 22
+      }
+    },
+    {
+      "id": "zoom-200:layout.cpl.paragraphFinalLines:2",
+      "metric": "layout.cpl.paragraphFinalLines",
+      "value": 22,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "excludedFromDistribution": true
+      }
+    },
+    {
+      "id": "zoom-200:layout.lineCount:3",
+      "metric": "layout.lineCount",
+      "value": 558,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "truncated": false
+      }
+    },
+    {
+      "id": "zoom-200:region.characterCount:4",
+      "metric": "region.characterCount",
+      "value": 7229,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:region.contentFingerprint:5",
+      "metric": "region.contentFingerprint",
+      "value": "fnv1a32:f019c656:7753",
+      "unit": null,
+      "status": "measured",
+      "method": "fnv1a32-normalized-text@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Hash of whitespace-normalized NFC prose text; layout independent."
+      }
+    },
+    {
+      "id": "zoom-200:text.script:6",
+      "metric": "text.script",
+      "value": "Latin",
+      "unit": null,
+      "status": "measured",
+      "method": "unicode-script-tally@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "tally": {
+          "Latin": 6554
+        },
+        "share": 1,
+        "lang": "tr",
+        "direction": "ltr"
+      }
+    },
+    {
+      "id": "zoom-200:layout.lineWidthPx:7",
+      "metric": "layout.lineWidthPx",
+      "value": 98.9,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": {
+        "count": 536,
+        "min": 9.1,
+        "p10": 59.9,
+        "median": 98.9,
+        "mean": 95.87,
+        "p90": 127,
+        "max": 132.5,
+        "histogram": [
+          {
+            "from": 0,
+            "to": 50,
+            "count": 24
+          },
+          {
+            "from": 50,
+            "to": 100,
+            "count": 254
+          },
+          {
+            "from": 100,
+            "to": 150,
+            "count": 258
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:layout.linePitchPx:8",
+      "metric": "layout.linePitchPx",
+      "value": 28.546875,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:text.fontSizePx:9",
+      "metric": "text.fontSizePx",
+      "value": 16.32,
+      "unit": "px",
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 642,
+          "width": 133,
+          "height": 571
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Nominal computed font-size; apparent size is not measured."
+      }
+    },
+    {
+      "id": "zoom-200:text.lineHeightRatio:10",
+      "metric": "text.lineHeightRatio",
+      "value": 1.75,
+      "unit": "ratio",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 642,
+          "width": 133,
+          "height": 571
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "computedLineHeight": "28.56px",
+        "measuredLinePitchPx": 28.546875
+      }
+    },
+    {
+      "id": "zoom-200:text.fontWeight:11",
+      "metric": "text.fontWeight",
+      "value": 400,
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:text.letterSpacingEm:12",
+      "metric": "text.letterSpacingEm",
+      "value": 0,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:text.wordSpacingEm:13",
+      "metric": "text.wordSpacingEm",
+      "value": 0,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:text.align:14",
+      "metric": "text.align",
+      "value": "start",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 642,
+          "width": 133,
+          "height": 571
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "left/right/start/end are reported as start"
+      }
+    },
+    {
+      "id": "zoom-200:font.declaredFamily:15",
+      "metric": "font.declaredFamily",
+      "value": "Gabarito, sans-serif",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:font.xHeightPx:16",
+      "metric": "font.xHeightPx",
+      "value": 8.54,
+      "unit": "px",
+      "status": "measured",
+      "method": "canvas-text-metrics@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "xHeightRatio": 0.523,
+        "note": "Rendered lowercase x height at the nominal size. Apparent size also depends on viewing distance, which is not measured."
+      }
+    },
+    {
+      "id": "zoom-200:font.firstAvailableFamily:17",
+      "metric": "font.firstAvailableFamily",
+      "value": "sans-serif",
+      "unit": null,
+      "status": "estimated",
+      "method": "width-comparison-and-fontfaceset@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "firstDeclaredAvailable": false,
+        "checked": [
+          {
+            "family": "Gabarito",
+            "availability": "unavailable"
+          },
+          {
+            "family": "sans-serif",
+            "availability": "generic"
+          }
+        ],
+        "fontsStatus": "loaded"
+      }
+    },
+    {
+      "id": "zoom-200:layout.paragraphGapEm:18",
+      "metric": "layout.paragraphGapEm",
+      "value": 0.98,
+      "unit": "em",
+      "status": "derived",
+      "method": "line-top-gap-minus-pitch@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "pairs": 10
+      }
+    },
+    {
+      "id": "zoom-200:layout.columnWidthPx:19",
+      "metric": "layout.columnWidthPx",
+      "value": 133,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article",
+        "box": {
+          "x": 31,
+          "y": 484,
+          "width": 133,
+          "height": 17598
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "maxWidth": "none"
+      }
+    },
+    {
+      "id": "zoom-200:layout.contentHeightPx:20",
+      "metric": "layout.contentHeightPx",
+      "value": 17598,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article",
+        "box": {
+          "x": 31,
+          "y": 484,
+          "width": 133,
+          "height": 17598
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:contrast.sample:21",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > h1",
+        "box": {
+          "x": 31,
+          "y": 484,
+          "width": 133,
+          "height": 150
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "svg is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": true,
+        "fontSizePx": 24.925,
+        "fontWeight": 500,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:22",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > ul > li:nth-of-type(3)",
+        "box": {
+          "x": 63,
+          "y": 2274,
+          "width": 101,
+          "height": 220
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:23",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > h2",
+        "box": {
+          "x": 31,
+          "y": 7270,
+          "width": 133,
+          "height": 110
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": true,
+        "fontSizePx": 22.955,
+        "fontWeight": 800,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:24",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > thead > tr > th:nth-of-type(4)",
+        "box": {
+          "x": 193,
+          "y": 7762,
+          "width": 49,
+          "height": 51
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "text is not hit-testable at its own position",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 700,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:25",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(4)",
+        "box": {
+          "x": 193,
+          "y": 7813,
+          "width": 49,
+          "height": 124
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "text is not hit-testable at its own position",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:26",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(2) > td:nth-of-type(4)",
+        "box": {
+          "x": 193,
+          "y": 7938,
+          "width": 49,
+          "height": 100
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "text is not hit-testable at its own position",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:27",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(3) > td:nth-of-type(4)",
+        "box": {
+          "x": 193,
+          "y": 8038,
+          "width": 49,
+          "height": 100
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "text is not hit-testable at its own position",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:28",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(4) > td:nth-of-type(4)",
+        "box": {
+          "x": 193,
+          "y": 8137,
+          "width": 49,
+          "height": 100
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "text is not hit-testable at its own position",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:29",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(5) > td:nth-of-type(4)",
+        "box": {
+          "x": 193,
+          "y": 8237,
+          "width": 49,
+          "height": 100
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "text is not hit-testable at its own position",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:30",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(6) > td:nth-of-type(4)",
+        "box": {
+          "x": 193,
+          "y": 8337,
+          "width": 49,
+          "height": 100
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "text is not hit-testable at its own position",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:31",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(7) > td:nth-of-type(4)",
+        "box": {
+          "x": 193,
+          "y": 8437,
+          "width": 49,
+          "height": 124
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "text is not hit-testable at its own position",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:32",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(2) > div > table > tbody > tr:nth-of-type(8) > td:nth-of-type(4)",
+        "box": {
+          "x": 193,
+          "y": 8561,
+          "width": 49,
+          "height": 100
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "text is not hit-testable at its own position",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:33",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(3) > h2",
+        "box": {
+          "x": 31,
+          "y": 10935,
+          "width": 133,
+          "height": 110
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": true,
+        "fontSizePx": 22.955,
+        "fontWeight": 800,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:34",
+      "metric": "contrast.sample",
+      "value": null,
+      "unit": "ratio",
+      "status": "unknown",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(4) > h2",
+        "box": {
+          "x": 31,
+          "y": 15118,
+          "width": 133,
+          "height": 110
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": "div is painted over the text",
+      "details": {
+        "fg": "rgb(0, 0, 0)",
+        "bg": null,
+        "large": true,
+        "fontSizePx": 22.955,
+        "fontWeight": 800,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:35",
+      "metric": "contrast.sample",
+      "value": 18.883060964594996,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 642,
+          "width": 133,
+          "height": 571
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#111111",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 17,
+        "otherSelectors": [
+          "#postContent > article > p:nth-of-type(2)",
+          "#postContent > article > section:nth-of-type(1) > p:nth-of-type(1)",
+          "#postContent > article > section:nth-of-type(1) > p:nth-of-type(2)",
+          "#postContent > article > section:nth-of-type(1) > p:nth-of-type(3)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:36",
+      "metric": "contrast.sample",
+      "value": 21,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > h3",
+        "box": {
+          "x": 31,
+          "y": 1677,
+          "width": 133,
+          "height": 26
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "large": true,
+        "fontSizePx": 21.97,
+        "fontWeight": 800,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#postContent > article > section:nth-of-type(1) > h2"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:37",
+      "metric": "contrast.sample",
+      "value": 21,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#postContent > article > ul > li:nth-of-type(1)",
+        "box": {
+          "x": 63,
+          "y": 1711,
+          "width": 101,
+          "height": 196
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#000000",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 16.32,
+        "fontWeight": 400,
+        "elementCount": 31,
+        "otherSelectors": [
+          "#postContent > article > ul > li:nth-of-type(2)",
+          "#postContent > article > ul > li:nth-of-type(4)",
+          "#postContent > article > ul > li:nth-of-type(5)",
+          "#postContent > article > section:nth-of-type(2) > div > table > thead > tr > th:nth-of-type(1)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:overflow.pageHorizontal:38",
+      "metric": "overflow.pageHorizontal",
+      "value": true,
+      "unit": null,
+      "status": "measured",
+      "method": "scroll-vs-client-box@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "scrollWidth": 200,
+        "viewportWidth": 195
+      }
+    },
+    {
+      "id": "zoom-200:overflow.horizontalElement:39",
+      "metric": "overflow.horizontalElement",
+      "value": 5,
+      "unit": "px",
+      "status": "measured",
+      "method": "scroll-vs-client-box@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "body > footer > div > div:nth-of-type(2) > div > div",
+        "box": {
+          "x": -4,
+          "y": 18663,
+          "width": 204,
+          "height": 36
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "overflowPx": 5,
+        "possibleException": false,
+        "cause": "box"
+      }
+    },
+    {
+      "id": "zoom-200:controls.readingSettings:40",
+      "metric": "controls.readingSettings",
+      "value": null,
+      "unit": null,
+      "status": "unknown",
+      "method": "dom-scan@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": "Reader-adjustment controls other than Readability Lab markers are not automatically detectable.",
+      "details": {}
+    },
+    {
+      "id": "zoom-200:scenario.completed:41",
+      "metric": "scenario.completed",
+      "value": true,
+      "unit": null,
+      "status": "measured",
+      "method": "inspector@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "timingMs": 30
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "F001",
+      "ruleId": "contrast-aa",
+      "kind": "needs-review",
+      "title": "Contrast could not be resolved",
+      "reason": "Background could not be determined: div is painted over the text. This is not treated as a pass.",
+      "suggestion": "Check this text manually with a colour picker against the actual rendered background.",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(1) > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 1586,
+          "width": 328,
+          "height": 343
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "observationIds": [
+        "baseline:contrast.sample:21"
+      ],
+      "claimIds": [
+        "C-CONTRAST-001",
+        "C-CONTRAST-004"
+      ],
+      "wcag": {
+        "criterion": "1.4.3",
+        "level": "AA"
+      },
+      "verification": "manual-review-required",
+      "priority": "essential",
+      "exception": null
+    },
+    {
+      "id": "F002",
+      "ruleId": "contrast-aa",
+      "kind": "needs-review",
+      "title": "Contrast could not be resolved",
+      "reason": "Background could not be determined: div is painted over the text. This is not treated as a pass.",
+      "suggestion": "Check this text manually with a colour picker against the actual rendered background.",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(1) > p:nth-of-type(2)",
+        "box": {
+          "x": 31,
+          "y": 1944,
+          "width": 328,
+          "height": 428
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "observationIds": [
+        "baseline:contrast.sample:22"
+      ],
+      "claimIds": [
+        "C-CONTRAST-001",
+        "C-CONTRAST-004"
+      ],
+      "wcag": {
+        "criterion": "1.4.3",
+        "level": "AA"
+      },
+      "verification": "manual-review-required",
+      "priority": "essential",
+      "exception": null
+    },
+    {
+      "id": "F003",
+      "ruleId": "contrast-aa",
+      "kind": "needs-review",
+      "title": "Contrast could not be resolved",
+      "reason": "Background could not be determined: div is painted over the text. This is not treated as a pass.",
+      "suggestion": "Check this text manually with a colour picker against the actual rendered background.",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > section:nth-of-type(3) > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 4900,
+          "width": 328,
+          "height": 343
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "observationIds": [
+        "baseline:contrast.sample:23"
+      ],
+      "claimIds": [
+        "C-CONTRAST-001",
+        "C-CONTRAST-004"
+      ],
+      "wcag": {
+        "criterion": "1.4.3",
+        "level": "AA"
+      },
+      "verification": "manual-review-required",
+      "priority": "essential",
+      "exception": null
+    },
+    {
+      "id": "F004",
+      "ruleId": "contrast-aa",
+      "kind": "pass",
+      "title": "3 measured text colour pair(s) meet 1.4.3 AA",
+      "reason": "Computed from rendered styles for the sampled text in the region. Unresolved samples are reported separately.",
+      "suggestion": null,
+      "scenarioId": "baseline",
+      "element": null,
+      "observationIds": [],
+      "claimIds": [
+        "C-CONTRAST-001",
+        "C-CONTRAST-004"
+      ],
+      "wcag": {
+        "criterion": "1.4.3",
+        "level": "AA"
+      },
+      "verification": "computed-from-rendered-styles",
+      "priority": "informational",
+      "exception": null
+    },
+    {
+      "id": "F005",
+      "ruleId": "cpl-range",
+      "kind": "pass",
+      "title": "Median 40 characters per line on a 390px viewport",
+      "reason": "Phones should keep a useful text size and use the available width rather than force a desktop line length (10th–90th percentile 34–45, 176 lines).",
+      "suggestion": null,
+      "scenarioId": "baseline",
+      "element": null,
+      "observationIds": [
+        "baseline:layout.cpl:1"
+      ],
+      "claimIds": [
+        "C-CPL-007"
+      ],
+      "wcag": null,
+      "verification": "computed-from-rendered-styles",
+      "priority": "informational",
+      "exception": null
+    },
+    {
+      "id": "F006",
+      "ruleId": "line-height-range",
+      "kind": "heuristic-deviation",
+      "title": "Line height 1.75 is outside 1.4–1.7",
+      "reason": "Ratio of measured baseline distance to font size. This is a starting range, not a requirement. No reliable quantitative improvement established.",
+      "suggestion": "Very open spacing increases vertical travel; consider 1.5–1.7 unless readers chose it.",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#postContent > article > p:nth-of-type(1)",
+        "box": {
+          "x": 31,
+          "y": 551,
+          "width": 328,
+          "height": 200
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "observationIds": [
+        "baseline:text.lineHeightRatio:10"
+      ],
+      "claimIds": [
+        "C-BASE-002",
+        "C-LH-001",
+        "C-LH-002",
+        "C-LH-003"
+      ],
+      "wcag": null,
+      "verification": "computed-from-rendered-styles",
+      "priority": "recommended",
+      "exception": null
+    },
+    {
+      "id": "F007",
+      "ruleId": "font-fallback",
+      "kind": "needs-review",
+      "title": "First declared font appears unavailable; likely rendering sans-serif",
+      "reason": "Declared: Gabarito, sans-serif. Detection compares rendered widths and is an estimate. Fallback fonts change apparent size and wrapping.",
+      "suggestion": "Load the intended font or choose a stack whose fallbacks have similar proportions.",
+      "scenarioId": "baseline",
+      "element": null,
+      "observationIds": [
+        "baseline:font.firstAvailableFamily:17",
+        "baseline:font.declaredFamily:15"
+      ],
+      "claimIds": [
+        "C-SIZE-001",
+        "C-FONT-004"
+      ],
+      "wcag": null,
+      "verification": "approximation",
+      "priority": "informational",
+      "exception": null
+    },
+    {
+      "id": "F008",
+      "ruleId": "text-spacing",
+      "kind": "pass",
+      "title": "No content loss detected under WCAG 1.4.12 text spacing",
+      "reason": "Checked hidden text, spilled text and horizontal scrolling after applying line-height 1.5, paragraph spacing 2em, letter spacing 0.12em and word spacing 0.16em (document and open shadow roots). Loss of functionality other than hidden text (e.g. broken interactions) is not detected automatically.",
+      "suggestion": null,
+      "scenarioId": "text-spacing",
+      "element": null,
+      "observationIds": [
+        "text-spacing:scenario.completed:28"
+      ],
+      "claimIds": [
+        "C-WCAG-001"
+      ],
+      "wcag": {
+        "criterion": "1.4.12",
+        "level": "AA"
+      },
+      "verification": "automated-browser-test",
+      "priority": "informational",
+      "exception": null
+    },
+    {
+      "id": "F009",
+      "ruleId": "reflow",
+      "kind": "pass",
+      "title": "No content loss detected under 320 CSS px reflow",
+      "reason": "Checked hidden text, spilled text and horizontal scrolling after rendering at a 320×256 CSS px viewport. Loss of functionality other than hidden text (e.g. broken interactions) is not detected automatically.",
+      "suggestion": null,
+      "scenarioId": "reflow-320",
+      "element": null,
+      "observationIds": [
+        "reflow-320:scenario.completed:39"
+      ],
+      "claimIds": [
+        "C-WCAG-002"
+      ],
+      "wcag": {
+        "criterion": "1.4.10",
+        "level": "AA"
+      },
+      "verification": "automated-browser-test",
+      "priority": "informational",
+      "exception": null
+    },
+    {
+      "id": "F010",
+      "ruleId": "zoom-200",
+      "kind": "needs-review",
+      "title": "Content forces horizontal page scrolling",
+      "reason": "This element extends 5px beyond the viewport, so reading requires scrolling in two directions. (Approximation scenario.)",
+      "suggestion": "Remove fixed widths/min-widths and white-space: nowrap; use max-width: 100% and overflow-wrap: anywhere for long strings.",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "body > footer > div > div:nth-of-type(2) > div > div",
+        "box": {
+          "x": -4,
+          "y": 18663,
+          "width": 204,
+          "height": 36
+        },
+        "textSample": null,
+        "matchedSelectors": []
+      },
+      "observationIds": [
+        "zoom-200:overflow.horizontalElement:39"
+      ],
+      "claimIds": [
+        "C-WCAG-003"
+      ],
+      "wcag": {
+        "criterion": "1.4.4",
+        "level": "AA"
+      },
+      "verification": "approximation",
+      "priority": "essential",
+      "exception": null
+    },
+    {
+      "id": "F011",
+      "ruleId": "experiment-font",
+      "kind": "experiment-idea",
+      "title": "Compare a short list of text faces at matched apparent size",
+      "reason": "No typeface is established as universally fastest; individual results vary. For superiority of any named font: No reliable quantitative improvement established.",
+      "suggestion": null,
+      "scenarioId": "baseline",
+      "element": null,
+      "observationIds": [],
+      "claimIds": [
+        "C-FONT-001",
+        "C-FONT-004",
+        "C-SIZE-001",
+        "C-METH-002"
+      ],
+      "wcag": null,
+      "verification": "not-tested",
+      "priority": "experimental",
+      "exception": null
+    }
+  ],
+  "proposed": null,
+  "preferences": [],
+  "sourcesConsulted": [
+    "S-wcag22",
+    "S-wcag22-u-contrast-minimum",
+    "S-wcag22-u-contrast-enhanced",
+    "S-synthesis-2026",
+    "S-wcag22-u-reflow",
+    "S-rello-2016",
+    "S-chiu-drieghe-2023",
+    "S-legge-bigelow-2011",
+    "S-wallace-2022",
+    "S-rudnay-2026",
+    "S-wcag22-u-text-spacing",
+    "S-wcag22-u-resize-text"
+  ],
+  "claimRevisions": {
+    "C-CONTRAST-001": 1,
+    "C-CONTRAST-004": 1,
+    "C-CPL-007": 1,
+    "C-BASE-002": 1,
+    "C-LH-001": 1,
+    "C-LH-002": 1,
+    "C-LH-003": 1,
+    "C-SIZE-001": 1,
+    "C-FONT-004": 1,
+    "C-WCAG-001": 1,
+    "C-WCAG-002": 1,
+    "C-WCAG-003": 1,
+    "C-FONT-001": 1,
+    "C-METH-002": 1
+  },
+  "coverage": {
+    "performed": [
+      "Rendered line lengths, computed typography, contrast of sampled text, clipping at baseline",
+      "WCAG 1.4.12 text-spacing overrides in a real browser",
+      "WCAG 1.4.10 reflow at 320×256 CSS px in a real browser",
+      "200% page zoom (approximation) — approximation"
+    ],
+    "notPerformed": [
+      {
+        "check": "Assistive technology (screen readers, voice control)",
+        "reason": "Not automated by this tool."
+      },
+      {
+        "check": "Keyboard operability and focus visibility of page controls",
+        "reason": "Not automated for arbitrary pages; Readability Lab's own controls are tested separately."
+      },
+      {
+        "check": "Browser text-only zoom",
+        "reason": "Automation cannot set the user text-size preference; page zoom is approximated instead."
+      },
+      {
+        "check": "Apparent size (x-height at viewing distance), display luminance, ambient light, glare",
+        "reason": "Cannot be inferred from page styles."
+      },
+      {
+        "check": "Reading speed, comprehension, comfort",
+        "reason": "Require experiments with readers; no score is computed."
+      },
+      {
+        "check": "Complete WCAG conformance",
+        "reason": "Only the checks listed under 'performed' were run."
+      }
+    ]
+  },
+  "uncertainty": [
+    "37 observation(s) are unknown and were not treated as passing.",
+    "4 observation(s) are estimates (e.g. font availability).",
+    "Nominal font size is reported; apparent size depends on the font's x-height and viewing distance, which are not measured."
+  ],
+  "artifacts": [],
+  "registryVersion": "2026.11.0",
+  "policy": {
+    "format": "readability-lab/policy",
+    "formatVersion": 1,
+    "conformanceTarget": "AA",
+    "failOn": [
+      "accessibility-failure"
+    ],
+    "warnOn": [
+      "needs-review",
+      "unsupported-check"
+    ],
+    "ranges": {
+      "cpl": [
+        50,
+        75
+      ],
+      "fontSizePx": [
+        16,
+        22
+      ],
+      "lineHeight": [
+        1.4,
+        1.7
+      ],
+      "paragraphGapEm": [
+        0.5,
+        1
+      ]
+    },
+    "contrastTarget": 7,
+    "exceptions": [],
+    "disabledRules": []
+  }
+}

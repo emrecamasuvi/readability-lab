@@ -1,0 +1,2931 @@
+{
+  "format": "readability-lab/report",
+  "formatVersion": 1,
+  "id": "report-mwdgouph",
+  "createdAt": "2026-11-12T11:25:38.549Z",
+  "target": {
+    "url": "http://localhost:4321/index.html",
+    "title": "Exporting data — Fieldnotes Docs (example)",
+    "regionSelector": ".doc-content",
+    "regionMethod": "explicit-selector"
+  },
+  "environment": {
+    "tool": "readability-lab-cli",
+    "toolVersion": "0.1.0",
+    "browser": "chromium",
+    "browserVersion": "158.0.8127.18",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.8127.18 Safari/537.36",
+    "viewport": {
+      "width": 1280,
+      "height": 800,
+      "deviceScaleFactor": 1
+    },
+    "colorScheme": "light",
+    "fontsStatus": "loaded",
+    "loadState": "networkidle"
+  },
+  "scenarios": [
+    {
+      "id": "baseline",
+      "label": "Baseline",
+      "kind": "baseline",
+      "fidelity": "real-browser",
+      "description": "Page as published",
+      "viewport": {
+        "width": 1280,
+        "height": 800,
+        "deviceScaleFactor": 1
+      },
+      "appliedCss": null
+    },
+    {
+      "id": "text-spacing",
+      "label": "WCAG 1.4.12 text spacing",
+      "kind": "text-spacing",
+      "fidelity": "real-browser",
+      "description": "applying line-height 1.5, paragraph spacing 2em, letter spacing 0.12em and word spacing 0.16em (document and open shadow roots)",
+      "viewport": {
+        "width": 1280,
+        "height": 800,
+        "deviceScaleFactor": 1
+      },
+      "appliedCss": null
+    },
+    {
+      "id": "reflow-320",
+      "label": "320 CSS px reflow",
+      "kind": "reflow-320",
+      "fidelity": "real-browser",
+      "description": "rendering at a 320×256 CSS px viewport",
+      "viewport": {
+        "width": 320,
+        "height": 256,
+        "deviceScaleFactor": 1
+      },
+      "appliedCss": null
+    },
+    {
+      "id": "zoom-200",
+      "label": "200% zoom (approximation)",
+      "kind": "zoom-200",
+      "fidelity": "approximation",
+      "description": "emulating 200% page zoom as a 640×400 CSS px viewport at 2x; browser text-only zoom is not tested",
+      "viewport": {
+        "width": 640,
+        "height": 400,
+        "deviceScaleFactor": 2
+      },
+      "appliedCss": null
+    }
+  ],
+  "observations": [
+    {
+      "id": "baseline:layout.cpl:1",
+      "metric": "layout.cpl",
+      "value": 67,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#doc",
+        "box": {
+          "x": 269,
+          "y": 44,
+          "width": 656,
+          "height": 1203
+        },
+        "textSample": "Exporting data Last updated 3 November 2026 · 6 minute read Fieldnotes keeps eve",
+        "matchedSelectors": []
+      },
+      "distribution": {
+        "count": 22,
+        "min": 63,
+        "p10": 64,
+        "median": 67,
+        "mean": 67,
+        "p90": 69.9,
+        "max": 71,
+        "histogram": [
+          {
+            "from": 60,
+            "to": 65,
+            "count": 6
+          },
+          {
+            "from": 65,
+            "to": 70,
+            "count": 13
+          },
+          {
+            "from": 70,
+            "to": 75,
+            "count": 3
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {
+        "linesMeasured": 22,
+        "mixedLines": 0,
+        "truncated": false,
+        "segmenter": "Intl.Segmenter",
+        "blocks": 7
+      }
+    },
+    {
+      "id": "baseline:layout.cpl.paragraphFinalLines:2",
+      "metric": "layout.cpl.paragraphFinalLines",
+      "value": 7,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "excludedFromDistribution": true
+      }
+    },
+    {
+      "id": "baseline:layout.lineCount:3",
+      "metric": "layout.lineCount",
+      "value": 29,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "truncated": false
+      }
+    },
+    {
+      "id": "baseline:region.characterCount:4",
+      "metric": "region.characterCount",
+      "value": 1710,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:region.contentFingerprint:5",
+      "metric": "region.contentFingerprint",
+      "value": "fnv1a32:e2f8c5d9:1732",
+      "unit": null,
+      "status": "measured",
+      "method": "fnv1a32-normalized-text@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Hash of whitespace-normalized NFC prose text; layout independent."
+      }
+    },
+    {
+      "id": "baseline:text.script:6",
+      "metric": "text.script",
+      "value": "Latin",
+      "unit": null,
+      "status": "measured",
+      "method": "unicode-script-tally@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "tally": {
+          "Latin": 1405
+        },
+        "share": 1,
+        "lang": "en",
+        "direction": "ltr"
+      }
+    },
+    {
+      "id": "baseline:layout.lineWidthPx:7",
+      "metric": "layout.lineWidthPx",
+      "value": 546.45,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": {
+        "count": 22,
+        "min": 497.8,
+        "p10": 517.01,
+        "median": 546.45,
+        "mean": 542.69,
+        "p90": 564.33,
+        "max": 574.1,
+        "histogram": [
+          {
+            "from": 450,
+            "to": 500,
+            "count": 1
+          },
+          {
+            "from": 500,
+            "to": 550,
+            "count": 13
+          },
+          {
+            "from": 550,
+            "to": 600,
+            "count": 8
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:layout.linePitchPx:8",
+      "metric": "layout.linePitchPx",
+      "value": 27,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:text.fontSizePx:9",
+      "metric": "text.fontSizePx",
+      "value": 18,
+      "unit": "px",
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 309,
+          "y": 170,
+          "width": 576,
+          "height": 27
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Nominal computed font-size; apparent size is not measured."
+      }
+    },
+    {
+      "id": "baseline:text.lineHeightRatio:10",
+      "metric": "text.lineHeightRatio",
+      "value": 1.5,
+      "unit": "ratio",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 309,
+          "y": 170,
+          "width": 576,
+          "height": 27
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "computedLineHeight": "27px",
+        "measuredLinePitchPx": 27
+      }
+    },
+    {
+      "id": "baseline:text.fontWeight:11",
+      "metric": "text.fontWeight",
+      "value": 400,
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:text.letterSpacingEm:12",
+      "metric": "text.letterSpacingEm",
+      "value": 0,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:text.wordSpacingEm:13",
+      "metric": "text.wordSpacingEm",
+      "value": 0,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:text.align:14",
+      "metric": "text.align",
+      "value": "start",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 309,
+          "y": 170,
+          "width": 576,
+          "height": 27
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "left/right/start/end are reported as start"
+      }
+    },
+    {
+      "id": "baseline:font.declaredFamily:15",
+      "metric": "font.declaredFamily",
+      "value": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:font.xHeightPx:16",
+      "metric": "font.xHeightPx",
+      "value": 9.31,
+      "unit": "px",
+      "status": "measured",
+      "method": "canvas-text-metrics@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "xHeightRatio": 0.517,
+        "note": "Rendered lowercase x height at the nominal size. Apparent size also depends on viewing distance, which is not measured."
+      }
+    },
+    {
+      "id": "baseline:font.firstAvailableFamily:17",
+      "metric": "font.firstAvailableFamily",
+      "value": "Helvetica Neue",
+      "unit": null,
+      "status": "estimated",
+      "method": "width-comparison-and-fontfaceset@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "firstDeclaredAvailable": true,
+        "checked": [
+          {
+            "family": "Helvetica Neue",
+            "availability": "available"
+          },
+          {
+            "family": "Helvetica",
+            "availability": "available"
+          },
+          {
+            "family": "Arial",
+            "availability": "available"
+          },
+          {
+            "family": "sans-serif",
+            "availability": "generic"
+          }
+        ],
+        "fontsStatus": "loaded"
+      }
+    },
+    {
+      "id": "baseline:layout.paragraphGapEm:18",
+      "metric": "layout.paragraphGapEm",
+      "value": 0.75,
+      "unit": "em",
+      "status": "derived",
+      "method": "line-top-gap-minus-pitch@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "pairs": 3
+      }
+    },
+    {
+      "id": "baseline:layout.columnWidthPx:19",
+      "metric": "layout.columnWidthPx",
+      "value": 576,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#doc",
+        "box": {
+          "x": 269,
+          "y": 44,
+          "width": 656,
+          "height": 1203
+        },
+        "textSample": "Exporting data Last updated 3 November 2026 · 6 minute read Fieldnotes keeps eve",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "maxWidth": "576px"
+      }
+    },
+    {
+      "id": "baseline:layout.contentHeightPx:20",
+      "metric": "layout.contentHeightPx",
+      "value": 1203,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#doc",
+        "box": {
+          "x": 269,
+          "y": 44,
+          "width": 656,
+          "height": 1203
+        },
+        "textSample": "Exporting data Last updated 3 November 2026 · 6 minute read Fieldnotes keeps eve",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "baseline:contrast.sample:21",
+      "metric": "contrast.sample",
+      "value": 12.63465434445799,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#doc > h1",
+        "box": {
+          "x": 309,
+          "y": 92,
+          "width": 576,
+          "height": 54
+        },
+        "textSample": "Exporting data",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "large": true,
+        "fontSizePx": 36,
+        "fontWeight": 700,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#doc > h2"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "baseline:contrast.sample:22",
+      "metric": "contrast.sample",
+      "value": 7.004729208035935,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 309,
+          "y": 170,
+          "width": 576,
+          "height": 27
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#595959",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 18,
+        "fontWeight": 400,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#doc > p:nth-of-type(5)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "baseline:contrast.sample:23",
+      "metric": "contrast.sample",
+      "value": 12.63465434445799,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#doc > p:nth-of-type(2)",
+        "box": {
+          "x": 309,
+          "y": 211,
+          "width": 576,
+          "height": 162
+        },
+        "textSample": "Fieldnotes keeps every note on your own device until you choose to export it. An",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 18,
+        "fontWeight": 400,
+        "elementCount": 4,
+        "otherSelectors": [
+          "#doc > p:nth-of-type(3)",
+          "#doc > p:nth-of-type(4)",
+          "#doc > p:nth-of-type(6)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "baseline:contrast.sample:24",
+      "metric": "contrast.sample",
+      "value": 11.731050705428597,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#callout > p > strong",
+        "box": {
+          "x": 325,
+          "y": 545,
+          "width": 158,
+          "height": 22
+        },
+        "textSample": "Before you export:",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#f2f7fd",
+        "large": false,
+        "fontSizePx": 18,
+        "fontWeight": 700,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#callout > p"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "baseline:contrast.sample:25",
+      "metric": "contrast.sample",
+      "value": 11.487441861434766,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "baseline",
+      "element": {
+        "selector": "#doc > pre > code",
+        "box": {
+          "x": 321,
+          "y": 927,
+          "width": 1461,
+          "height": 21
+        },
+        "textSample": "fieldnotes export --format markdown --include-attachments --destination ~/Docume",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#f4f4f4",
+        "large": false,
+        "fontSizePx": 16.2,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "baseline:overflow.pageHorizontal:26",
+      "metric": "overflow.pageHorizontal",
+      "value": false,
+      "unit": null,
+      "status": "measured",
+      "method": "scroll-vs-client-box@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      }
+    },
+    {
+      "id": "baseline:controls.readingSettings:27",
+      "metric": "controls.readingSettings",
+      "value": null,
+      "unit": null,
+      "status": "unknown",
+      "method": "dom-scan@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": "Reader-adjustment controls other than Readability Lab markers are not automatically detectable.",
+      "details": {}
+    },
+    {
+      "id": "baseline:scenario.completed:28",
+      "metric": "scenario.completed",
+      "value": true,
+      "unit": null,
+      "status": "measured",
+      "method": "inspector@1",
+      "scenarioId": "baseline",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "timingMs": 10
+      }
+    },
+    {
+      "id": "text-spacing:layout.cpl:1",
+      "metric": "layout.cpl",
+      "value": 50,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#doc",
+        "box": {
+          "x": 269,
+          "y": 49,
+          "width": 656,
+          "height": 1572
+        },
+        "textSample": "Exporting data Last updated 3 November 2026 · 6 minute read Fieldnotes keeps eve",
+        "matchedSelectors": []
+      },
+      "distribution": {
+        "count": 30,
+        "min": 44,
+        "p10": 45,
+        "median": 50,
+        "mean": 49.53,
+        "p90": 53,
+        "max": 54,
+        "histogram": [
+          {
+            "from": 40,
+            "to": 45,
+            "count": 2
+          },
+          {
+            "from": 45,
+            "to": 50,
+            "count": 12
+          },
+          {
+            "from": 50,
+            "to": 55,
+            "count": 16
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {
+        "linesMeasured": 30,
+        "mixedLines": 0,
+        "truncated": false,
+        "segmenter": "Intl.Segmenter",
+        "blocks": 7
+      }
+    },
+    {
+      "id": "text-spacing:layout.cpl.paragraphFinalLines:2",
+      "metric": "layout.cpl.paragraphFinalLines",
+      "value": 7,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "excludedFromDistribution": true
+      }
+    },
+    {
+      "id": "text-spacing:layout.lineCount:3",
+      "metric": "layout.lineCount",
+      "value": 37,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "truncated": false
+      }
+    },
+    {
+      "id": "text-spacing:region.characterCount:4",
+      "metric": "region.characterCount",
+      "value": 1702,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:region.contentFingerprint:5",
+      "metric": "region.contentFingerprint",
+      "value": "fnv1a32:e2f8c5d9:1732",
+      "unit": null,
+      "status": "measured",
+      "method": "fnv1a32-normalized-text@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Hash of whitespace-normalized NFC prose text; layout independent."
+      }
+    },
+    {
+      "id": "text-spacing:text.script:6",
+      "metric": "text.script",
+      "value": "Latin",
+      "unit": null,
+      "status": "measured",
+      "method": "unicode-script-tally@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "tally": {
+          "Latin": 1405
+        },
+        "share": 1,
+        "lang": "en",
+        "direction": "ltr"
+      }
+    },
+    {
+      "id": "text-spacing:layout.lineWidthPx:7",
+      "metric": "layout.lineWidthPx",
+      "value": 536.45,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": {
+        "count": 30,
+        "min": 448.9,
+        "p10": 486.52,
+        "median": 536.45,
+        "mean": 530.51,
+        "p90": 565.81,
+        "max": 570.4,
+        "histogram": [
+          {
+            "from": 400,
+            "to": 450,
+            "count": 1
+          },
+          {
+            "from": 450,
+            "to": 500,
+            "count": 3
+          },
+          {
+            "from": 500,
+            "to": 550,
+            "count": 17
+          },
+          {
+            "from": 550,
+            "to": 600,
+            "count": 9
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:layout.linePitchPx:8",
+      "metric": "layout.linePitchPx",
+      "value": 27,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:text.fontSizePx:9",
+      "metric": "text.fontSizePx",
+      "value": 18,
+      "unit": "px",
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 309,
+          "y": 175,
+          "width": 576,
+          "height": 27
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Nominal computed font-size; apparent size is not measured."
+      }
+    },
+    {
+      "id": "text-spacing:text.lineHeightRatio:10",
+      "metric": "text.lineHeightRatio",
+      "value": 1.5,
+      "unit": "ratio",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 309,
+          "y": 175,
+          "width": 576,
+          "height": 27
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "computedLineHeight": "27px",
+        "measuredLinePitchPx": 27
+      }
+    },
+    {
+      "id": "text-spacing:text.fontWeight:11",
+      "metric": "text.fontWeight",
+      "value": 400,
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:text.letterSpacingEm:12",
+      "metric": "text.letterSpacingEm",
+      "value": 0.12,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:text.wordSpacingEm:13",
+      "metric": "text.wordSpacingEm",
+      "value": 0.16,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:text.align:14",
+      "metric": "text.align",
+      "value": "start",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 309,
+          "y": 175,
+          "width": 576,
+          "height": 27
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "left/right/start/end are reported as start"
+      }
+    },
+    {
+      "id": "text-spacing:font.declaredFamily:15",
+      "metric": "font.declaredFamily",
+      "value": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:font.xHeightPx:16",
+      "metric": "font.xHeightPx",
+      "value": 9.31,
+      "unit": "px",
+      "status": "measured",
+      "method": "canvas-text-metrics@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "xHeightRatio": 0.517,
+        "note": "Rendered lowercase x height at the nominal size. Apparent size also depends on viewing distance, which is not measured."
+      }
+    },
+    {
+      "id": "text-spacing:font.firstAvailableFamily:17",
+      "metric": "font.firstAvailableFamily",
+      "value": "Helvetica Neue",
+      "unit": null,
+      "status": "estimated",
+      "method": "width-comparison-and-fontfaceset@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "firstDeclaredAvailable": true,
+        "checked": [
+          {
+            "family": "Helvetica Neue",
+            "availability": "available"
+          },
+          {
+            "family": "Helvetica",
+            "availability": "available"
+          },
+          {
+            "family": "Arial",
+            "availability": "available"
+          },
+          {
+            "family": "sans-serif",
+            "availability": "generic"
+          }
+        ],
+        "fontsStatus": "loaded"
+      }
+    },
+    {
+      "id": "text-spacing:layout.paragraphGapEm:18",
+      "metric": "layout.paragraphGapEm",
+      "value": 2,
+      "unit": "em",
+      "status": "derived",
+      "method": "line-top-gap-minus-pitch@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "pairs": 3
+      }
+    },
+    {
+      "id": "text-spacing:layout.columnWidthPx:19",
+      "metric": "layout.columnWidthPx",
+      "value": 576,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#doc",
+        "box": {
+          "x": 269,
+          "y": 49,
+          "width": 656,
+          "height": 1572
+        },
+        "textSample": "Exporting data Last updated 3 November 2026 · 6 minute read Fieldnotes keeps eve",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "maxWidth": "576px"
+      }
+    },
+    {
+      "id": "text-spacing:layout.contentHeightPx:20",
+      "metric": "layout.contentHeightPx",
+      "value": 1572,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#doc",
+        "box": {
+          "x": 269,
+          "y": 49,
+          "width": 656,
+          "height": 1572
+        },
+        "textSample": "Exporting data Last updated 3 November 2026 · 6 minute read Fieldnotes keeps eve",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "text-spacing:contrast.sample:21",
+      "metric": "contrast.sample",
+      "value": 12.63465434445799,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#doc > h1",
+        "box": {
+          "x": 309,
+          "y": 97,
+          "width": 576,
+          "height": 54
+        },
+        "textSample": "Exporting data",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "large": true,
+        "fontSizePx": 36,
+        "fontWeight": 700,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#doc > h2"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "text-spacing:contrast.sample:22",
+      "metric": "contrast.sample",
+      "value": 7.004729208035935,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 309,
+          "y": 175,
+          "width": 576,
+          "height": 27
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#595959",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 18,
+        "fontWeight": 400,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#doc > p:nth-of-type(5)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "text-spacing:contrast.sample:23",
+      "metric": "contrast.sample",
+      "value": 12.63465434445799,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#doc > p:nth-of-type(2)",
+        "box": {
+          "x": 309,
+          "y": 238,
+          "width": 576,
+          "height": 189
+        },
+        "textSample": "Fieldnotes keeps every note on your own device until you choose to export it. An",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 18,
+        "fontWeight": 400,
+        "elementCount": 4,
+        "otherSelectors": [
+          "#doc > p:nth-of-type(3)",
+          "#doc > p:nth-of-type(4)",
+          "#doc > p:nth-of-type(6)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "text-spacing:contrast.sample:24",
+      "metric": "contrast.sample",
+      "value": 11.731050705428597,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#callout > p > strong",
+        "box": {
+          "x": 325,
+          "y": 698,
+          "width": 203,
+          "height": 22
+        },
+        "textSample": "Before you export:",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#f2f7fd",
+        "large": false,
+        "fontSizePx": 18,
+        "fontWeight": 700,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#callout > p"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "text-spacing:contrast.sample:25",
+      "metric": "contrast.sample",
+      "value": 11.487441861434766,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "text-spacing",
+      "element": {
+        "selector": "#doc > pre > code",
+        "box": {
+          "x": 321,
+          "y": 1202,
+          "width": 1772,
+          "height": 21
+        },
+        "textSample": "fieldnotes export --format markdown --include-attachments --destination ~/Docume",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#f4f4f4",
+        "large": false,
+        "fontSizePx": 16.2,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "text-spacing:controls.readingSettings:26",
+      "metric": "controls.readingSettings",
+      "value": null,
+      "unit": null,
+      "status": "unknown",
+      "method": "dom-scan@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": "Reader-adjustment controls other than Readability Lab markers are not automatically detectable.",
+      "details": {}
+    },
+    {
+      "id": "text-spacing:scenario.completed:27",
+      "metric": "scenario.completed",
+      "value": true,
+      "unit": null,
+      "status": "measured",
+      "method": "inspector@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "timingMs": 10
+      }
+    },
+    {
+      "id": "text-spacing:scenario.overridesNotApplied:0",
+      "metric": "scenario.overridesNotApplied",
+      "value": 0,
+      "unit": "elements",
+      "status": "measured",
+      "method": "computed-style-verification@1",
+      "scenarioId": "text-spacing",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "checked": 11,
+        "unverifiable": 0,
+        "shadowRootsPatched": 0,
+        "examples": []
+      }
+    },
+    {
+      "id": "reflow-320:layout.cpl:1",
+      "metric": "layout.cpl",
+      "value": 32,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#doc",
+        "box": {
+          "x": 0,
+          "y": 70,
+          "width": 320,
+          "height": 1889
+        },
+        "textSample": "Exporting data Last updated 3 November 2026 · 6 minute read Fieldnotes keeps eve",
+        "matchedSelectors": []
+      },
+      "distribution": {
+        "count": 48,
+        "min": 25,
+        "p10": 27.7,
+        "median": 32,
+        "mean": 31.77,
+        "p90": 35,
+        "max": 37,
+        "histogram": [
+          {
+            "from": 25,
+            "to": 30,
+            "count": 9
+          },
+          {
+            "from": 30,
+            "to": 35,
+            "count": 32
+          },
+          {
+            "from": 35,
+            "to": 40,
+            "count": 7
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {
+        "linesMeasured": 48,
+        "mixedLines": 0,
+        "truncated": false,
+        "segmenter": "Intl.Segmenter",
+        "blocks": 7
+      }
+    },
+    {
+      "id": "reflow-320:layout.cpl.paragraphFinalLines:2",
+      "metric": "layout.cpl.paragraphFinalLines",
+      "value": 7,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "excludedFromDistribution": true
+      }
+    },
+    {
+      "id": "reflow-320:layout.lineCount:3",
+      "metric": "layout.lineCount",
+      "value": 55,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "truncated": false
+      }
+    },
+    {
+      "id": "reflow-320:region.characterCount:4",
+      "metric": "region.characterCount",
+      "value": 1684,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:region.contentFingerprint:5",
+      "metric": "region.contentFingerprint",
+      "value": "fnv1a32:e2f8c5d9:1732",
+      "unit": null,
+      "status": "measured",
+      "method": "fnv1a32-normalized-text@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Hash of whitespace-normalized NFC prose text; layout independent."
+      }
+    },
+    {
+      "id": "reflow-320:text.script:6",
+      "metric": "text.script",
+      "value": "Latin",
+      "unit": null,
+      "status": "measured",
+      "method": "unicode-script-tally@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "tally": {
+          "Latin": 1405
+        },
+        "share": 1,
+        "lang": "en",
+        "direction": "ltr"
+      }
+    },
+    {
+      "id": "reflow-320:layout.lineWidthPx:7",
+      "metric": "layout.lineWidthPx",
+      "value": 261.85,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": {
+        "count": 48,
+        "min": 208.2,
+        "p10": 231.61,
+        "median": 261.85,
+        "mean": 259.07,
+        "p90": 281.79,
+        "max": 285.4,
+        "histogram": [
+          {
+            "from": 200,
+            "to": 250,
+            "count": 12
+          },
+          {
+            "from": 250,
+            "to": 300,
+            "count": 36
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:layout.linePitchPx:8",
+      "metric": "layout.linePitchPx",
+      "value": 27,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:text.fontSizePx:9",
+      "metric": "text.fontSizePx",
+      "value": 18,
+      "unit": "px",
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 16,
+          "y": 188,
+          "width": 288,
+          "height": 54
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Nominal computed font-size; apparent size is not measured."
+      }
+    },
+    {
+      "id": "reflow-320:text.lineHeightRatio:10",
+      "metric": "text.lineHeightRatio",
+      "value": 1.5,
+      "unit": "ratio",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 16,
+          "y": 188,
+          "width": 288,
+          "height": 54
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "computedLineHeight": "27px",
+        "measuredLinePitchPx": 27
+      }
+    },
+    {
+      "id": "reflow-320:text.fontWeight:11",
+      "metric": "text.fontWeight",
+      "value": 400,
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:text.letterSpacingEm:12",
+      "metric": "text.letterSpacingEm",
+      "value": 0,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:text.wordSpacingEm:13",
+      "metric": "text.wordSpacingEm",
+      "value": 0,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:text.align:14",
+      "metric": "text.align",
+      "value": "start",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 16,
+          "y": 188,
+          "width": 288,
+          "height": 54
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "left/right/start/end are reported as start"
+      }
+    },
+    {
+      "id": "reflow-320:font.declaredFamily:15",
+      "metric": "font.declaredFamily",
+      "value": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:font.xHeightPx:16",
+      "metric": "font.xHeightPx",
+      "value": 9.31,
+      "unit": "px",
+      "status": "measured",
+      "method": "canvas-text-metrics@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "xHeightRatio": 0.517,
+        "note": "Rendered lowercase x height at the nominal size. Apparent size also depends on viewing distance, which is not measured."
+      }
+    },
+    {
+      "id": "reflow-320:font.firstAvailableFamily:17",
+      "metric": "font.firstAvailableFamily",
+      "value": "Helvetica Neue",
+      "unit": null,
+      "status": "estimated",
+      "method": "width-comparison-and-fontfaceset@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "firstDeclaredAvailable": true,
+        "checked": [
+          {
+            "family": "Helvetica Neue",
+            "availability": "available"
+          },
+          {
+            "family": "Helvetica",
+            "availability": "available"
+          },
+          {
+            "family": "Arial",
+            "availability": "available"
+          },
+          {
+            "family": "sans-serif",
+            "availability": "generic"
+          }
+        ],
+        "fontsStatus": "loaded"
+      }
+    },
+    {
+      "id": "reflow-320:layout.paragraphGapEm:18",
+      "metric": "layout.paragraphGapEm",
+      "value": 0.75,
+      "unit": "em",
+      "status": "derived",
+      "method": "line-top-gap-minus-pitch@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "pairs": 3
+      }
+    },
+    {
+      "id": "reflow-320:layout.columnWidthPx:19",
+      "metric": "layout.columnWidthPx",
+      "value": 288,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#doc",
+        "box": {
+          "x": 0,
+          "y": 70,
+          "width": 320,
+          "height": 1889
+        },
+        "textSample": "Exporting data Last updated 3 November 2026 · 6 minute read Fieldnotes keeps eve",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "maxWidth": "576px"
+      }
+    },
+    {
+      "id": "reflow-320:layout.contentHeightPx:20",
+      "metric": "layout.contentHeightPx",
+      "value": 1889,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#doc",
+        "box": {
+          "x": 0,
+          "y": 70,
+          "width": 320,
+          "height": 1889
+        },
+        "textSample": "Exporting data Last updated 3 November 2026 · 6 minute read Fieldnotes keeps eve",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "reflow-320:contrast.sample:21",
+      "metric": "contrast.sample",
+      "value": 12.63465434445799,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#doc > h1",
+        "box": {
+          "x": 16,
+          "y": 110,
+          "width": 288,
+          "height": 54
+        },
+        "textSample": "Exporting data",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "large": true,
+        "fontSizePx": 36,
+        "fontWeight": 700,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#doc > h2"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:22",
+      "metric": "contrast.sample",
+      "value": 7.004729208035935,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 16,
+          "y": 188,
+          "width": 288,
+          "height": 54
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#595959",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 18,
+        "fontWeight": 400,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#doc > p:nth-of-type(5)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:23",
+      "metric": "contrast.sample",
+      "value": 12.63465434445799,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#doc > p:nth-of-type(2)",
+        "box": {
+          "x": 16,
+          "y": 256,
+          "width": 288,
+          "height": 297
+        },
+        "textSample": "Fieldnotes keeps every note on your own device until you choose to export it. An",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 18,
+        "fontWeight": 400,
+        "elementCount": 4,
+        "otherSelectors": [
+          "#doc > p:nth-of-type(3)",
+          "#doc > p:nth-of-type(4)",
+          "#doc > p:nth-of-type(6)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:24",
+      "metric": "contrast.sample",
+      "value": 11.731050705428597,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#callout > p > strong",
+        "box": {
+          "x": 32,
+          "y": 860,
+          "width": 158,
+          "height": 22
+        },
+        "textSample": "Before you export:",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#f2f7fd",
+        "large": false,
+        "fontSizePx": 18,
+        "fontWeight": 700,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#callout > p"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:contrast.sample:25",
+      "metric": "contrast.sample",
+      "value": 11.487441861434766,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "reflow-320",
+      "element": {
+        "selector": "#doc > pre > code",
+        "box": {
+          "x": 28,
+          "y": 1485,
+          "width": 1461,
+          "height": 21
+        },
+        "textSample": "fieldnotes export --format markdown --include-attachments --destination ~/Docume",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#f4f4f4",
+        "large": false,
+        "fontSizePx": 16.2,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "reflow-320:overflow.pageHorizontal:26",
+      "metric": "overflow.pageHorizontal",
+      "value": false,
+      "unit": null,
+      "status": "measured",
+      "method": "scroll-vs-client-box@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "scrollWidth": 320,
+        "viewportWidth": 320
+      }
+    },
+    {
+      "id": "reflow-320:controls.readingSettings:27",
+      "metric": "controls.readingSettings",
+      "value": null,
+      "unit": null,
+      "status": "unknown",
+      "method": "dom-scan@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": "Reader-adjustment controls other than Readability Lab markers are not automatically detectable.",
+      "details": {}
+    },
+    {
+      "id": "reflow-320:scenario.completed:28",
+      "metric": "scenario.completed",
+      "value": true,
+      "unit": null,
+      "status": "measured",
+      "method": "inspector@1",
+      "scenarioId": "reflow-320",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "timingMs": 10
+      }
+    },
+    {
+      "id": "zoom-200:layout.cpl:1",
+      "metric": "layout.cpl",
+      "value": 67,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#doc",
+        "box": {
+          "x": 0,
+          "y": 44,
+          "width": 608,
+          "height": 1187
+        },
+        "textSample": "Exporting data Last updated 3 November 2026 · 6 minute read Fieldnotes keeps eve",
+        "matchedSelectors": []
+      },
+      "distribution": {
+        "count": 22,
+        "min": 63,
+        "p10": 64,
+        "median": 67,
+        "mean": 67,
+        "p90": 69.9,
+        "max": 71,
+        "histogram": [
+          {
+            "from": 60,
+            "to": 65,
+            "count": 6
+          },
+          {
+            "from": 65,
+            "to": 70,
+            "count": 13
+          },
+          {
+            "from": 70,
+            "to": 75,
+            "count": 3
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {
+        "linesMeasured": 22,
+        "mixedLines": 0,
+        "truncated": false,
+        "segmenter": "Intl.Segmenter",
+        "blocks": 7
+      }
+    },
+    {
+      "id": "zoom-200:layout.cpl.paragraphFinalLines:2",
+      "metric": "layout.cpl.paragraphFinalLines",
+      "value": 7,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "excludedFromDistribution": true
+      }
+    },
+    {
+      "id": "zoom-200:layout.lineCount:3",
+      "metric": "layout.lineCount",
+      "value": 29,
+      "unit": "lines",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "truncated": false
+      }
+    },
+    {
+      "id": "zoom-200:region.characterCount:4",
+      "metric": "region.characterCount",
+      "value": 1710,
+      "unit": "characters",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:region.contentFingerprint:5",
+      "metric": "region.contentFingerprint",
+      "value": "fnv1a32:e2f8c5d9:1732",
+      "unit": null,
+      "status": "measured",
+      "method": "fnv1a32-normalized-text@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Hash of whitespace-normalized NFC prose text; layout independent."
+      }
+    },
+    {
+      "id": "zoom-200:text.script:6",
+      "metric": "text.script",
+      "value": "Latin",
+      "unit": null,
+      "status": "measured",
+      "method": "unicode-script-tally@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "tally": {
+          "Latin": 1405
+        },
+        "share": 1,
+        "lang": "en",
+        "direction": "ltr"
+      }
+    },
+    {
+      "id": "zoom-200:layout.lineWidthPx:7",
+      "metric": "layout.lineWidthPx",
+      "value": 546.45,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": {
+        "count": 22,
+        "min": 497.8,
+        "p10": 517.01,
+        "median": 546.45,
+        "mean": 542.69,
+        "p90": 564.33,
+        "max": 574.1,
+        "histogram": [
+          {
+            "from": 450,
+            "to": 500,
+            "count": 1
+          },
+          {
+            "from": 500,
+            "to": 550,
+            "count": 13
+          },
+          {
+            "from": 550,
+            "to": 600,
+            "count": 8
+          }
+        ]
+      },
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:layout.linePitchPx:8",
+      "metric": "layout.linePitchPx",
+      "value": 27,
+      "unit": "px",
+      "status": "measured",
+      "method": "rendered-line-rects@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:text.fontSizePx:9",
+      "metric": "text.fontSizePx",
+      "value": 18,
+      "unit": "px",
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 16,
+          "y": 162,
+          "width": 576,
+          "height": 27
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "Nominal computed font-size; apparent size is not measured."
+      }
+    },
+    {
+      "id": "zoom-200:text.lineHeightRatio:10",
+      "metric": "text.lineHeightRatio",
+      "value": 1.5,
+      "unit": "ratio",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 16,
+          "y": 162,
+          "width": 576,
+          "height": 27
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "computedLineHeight": "27px",
+        "measuredLinePitchPx": 27
+      }
+    },
+    {
+      "id": "zoom-200:text.fontWeight:11",
+      "metric": "text.fontWeight",
+      "value": 400,
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:text.letterSpacingEm:12",
+      "metric": "text.letterSpacingEm",
+      "value": 0,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:text.wordSpacingEm:13",
+      "metric": "text.wordSpacingEm",
+      "value": 0,
+      "unit": "em",
+      "status": "derived",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:text.align:14",
+      "metric": "text.align",
+      "value": "start",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 16,
+          "y": 162,
+          "width": 576,
+          "height": 27
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "note": "left/right/start/end are reported as start"
+      }
+    },
+    {
+      "id": "zoom-200:font.declaredFamily:15",
+      "metric": "font.declaredFamily",
+      "value": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "unit": null,
+      "status": "measured",
+      "method": "computed-style@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:font.xHeightPx:16",
+      "metric": "font.xHeightPx",
+      "value": 9.31,
+      "unit": "px",
+      "status": "measured",
+      "method": "canvas-text-metrics@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "xHeightRatio": 0.517,
+        "note": "Rendered lowercase x height at the nominal size. Apparent size also depends on viewing distance, which is not measured."
+      }
+    },
+    {
+      "id": "zoom-200:font.firstAvailableFamily:17",
+      "metric": "font.firstAvailableFamily",
+      "value": "Helvetica Neue",
+      "unit": null,
+      "status": "estimated",
+      "method": "width-comparison-and-fontfaceset@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "firstDeclaredAvailable": true,
+        "checked": [
+          {
+            "family": "Helvetica Neue",
+            "availability": "available"
+          },
+          {
+            "family": "Helvetica",
+            "availability": "available"
+          },
+          {
+            "family": "Arial",
+            "availability": "available"
+          },
+          {
+            "family": "sans-serif",
+            "availability": "generic"
+          }
+        ],
+        "fontsStatus": "loaded"
+      }
+    },
+    {
+      "id": "zoom-200:layout.paragraphGapEm:18",
+      "metric": "layout.paragraphGapEm",
+      "value": 0.75,
+      "unit": "em",
+      "status": "derived",
+      "method": "line-top-gap-minus-pitch@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "pairs": 3
+      }
+    },
+    {
+      "id": "zoom-200:layout.columnWidthPx:19",
+      "metric": "layout.columnWidthPx",
+      "value": 576,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#doc",
+        "box": {
+          "x": 0,
+          "y": 44,
+          "width": 608,
+          "height": 1187
+        },
+        "textSample": "Exporting data Last updated 3 November 2026 · 6 minute read Fieldnotes keeps eve",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "maxWidth": "576px"
+      }
+    },
+    {
+      "id": "zoom-200:layout.contentHeightPx:20",
+      "metric": "layout.contentHeightPx",
+      "value": 1187,
+      "unit": "px",
+      "status": "measured",
+      "method": "bounding-box@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#doc",
+        "box": {
+          "x": 0,
+          "y": 44,
+          "width": 608,
+          "height": 1187
+        },
+        "textSample": "Exporting data Last updated 3 November 2026 · 6 minute read Fieldnotes keeps eve",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {}
+    },
+    {
+      "id": "zoom-200:contrast.sample:21",
+      "metric": "contrast.sample",
+      "value": 12.63465434445799,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#doc > h1",
+        "box": {
+          "x": 16,
+          "y": 84,
+          "width": 576,
+          "height": 54
+        },
+        "textSample": "Exporting data",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "large": true,
+        "fontSizePx": 36,
+        "fontWeight": 700,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#doc > h2"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:22",
+      "metric": "contrast.sample",
+      "value": 7.004729208035935,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#doc > p:nth-of-type(1)",
+        "box": {
+          "x": 16,
+          "y": 162,
+          "width": 576,
+          "height": 27
+        },
+        "textSample": "Last updated 3 November 2026 · 6 minute read",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#595959",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 18,
+        "fontWeight": 400,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#doc > p:nth-of-type(5)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:23",
+      "metric": "contrast.sample",
+      "value": 12.63465434445799,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#doc > p:nth-of-type(2)",
+        "box": {
+          "x": 16,
+          "y": 203,
+          "width": 576,
+          "height": 162
+        },
+        "textSample": "Fieldnotes keeps every note on your own device until you choose to export it. An",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#ffffff",
+        "large": false,
+        "fontSizePx": 18,
+        "fontWeight": 400,
+        "elementCount": 4,
+        "otherSelectors": [
+          "#doc > p:nth-of-type(3)",
+          "#doc > p:nth-of-type(4)",
+          "#doc > p:nth-of-type(6)"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:24",
+      "metric": "contrast.sample",
+      "value": 11.731050705428597,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#callout > p > strong",
+        "box": {
+          "x": 32,
+          "y": 537,
+          "width": 158,
+          "height": 22
+        },
+        "textSample": "Before you export:",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#f2f7fd",
+        "large": false,
+        "fontSizePx": 18,
+        "fontWeight": 700,
+        "elementCount": 2,
+        "otherSelectors": [
+          "#callout > p"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:contrast.sample:25",
+      "metric": "contrast.sample",
+      "value": 11.487441861434766,
+      "unit": "ratio",
+      "status": "measured",
+      "method": "computed-colors-ancestor-composite@1",
+      "scenarioId": "zoom-200",
+      "element": {
+        "selector": "#doc > pre > code",
+        "box": {
+          "x": 28,
+          "y": 919,
+          "width": 1461,
+          "height": 21
+        },
+        "textSample": "fieldnotes export --format markdown --include-attachments --destination ~/Docume",
+        "matchedSelectors": []
+      },
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "fg": "#333333",
+        "bg": "#f4f4f4",
+        "large": false,
+        "fontSizePx": 16.2,
+        "fontWeight": 400,
+        "elementCount": 1,
+        "otherSelectors": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "zoom-200:overflow.pageHorizontal:26",
+      "metric": "overflow.pageHorizontal",
+      "value": false,
+      "unit": null,
+      "status": "measured",
+      "method": "scroll-vs-client-box@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "scrollWidth": 640,
+        "viewportWidth": 640
+      }
+    },
+    {
+      "id": "zoom-200:controls.readingSettings:27",
+      "metric": "controls.readingSettings",
+      "value": null,
+      "unit": null,
+      "status": "unknown",
+      "method": "dom-scan@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": "Reader-adjustment controls other than Readability Lab markers are not automatically detectable.",
+      "details": {}
+    },
+    {
+      "id": "zoom-200:scenario.completed:28",
+      "metric": "scenario.completed",
+      "value": true,
+      "unit": null,
+      "status": "measured",
+      "method": "inspector@1",
+      "scenarioId": "zoom-200",
+      "element": null,
+      "distribution": null,
+      "unknownReason": null,
+      "details": {
+        "timingMs": 10
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "F001",
+      "ruleId": "contrast-aa",
+      "kind": "pass",
+      "title": "5 measured text colour pair(s) meet 1.4.3 AA",
+      "reason": "Computed from rendered styles for the sampled text in the region. Unresolved samples are reported separately.",
+      "suggestion": null,
+      "scenarioId": "baseline",
+      "element": null,
+      "observationIds": [],
+      "claimIds": [
+        "C-CONTRAST-001",
+        "C-CONTRAST-004"
+      ],
+      "wcag": {
+        "criterion": "1.4.3",
+        "level": "AA"
+      },
+      "verification": "computed-from-rendered-styles",
+      "priority": "informational",
+      "exception": null
+    },
+    {
+      "id": "F002",
+      "ruleId": "cpl-range",
+      "kind": "pass",
+      "title": "Median 67 characters per line is within 50–75",
+      "reason": "Measured from rendered line boxes (10th–90th percentile 64–69.9, 22 lines).",
+      "suggestion": null,
+      "scenarioId": "baseline",
+      "element": null,
+      "observationIds": [
+        "baseline:layout.cpl:1"
+      ],
+      "claimIds": [
+        "C-BASE-002",
+        "C-CPL-001",
+        "C-CPL-002",
+        "C-CPL-004",
+        "C-CPL-005",
+        "C-CPL-006",
+        "C-CPL-007"
+      ],
+      "wcag": null,
+      "verification": "computed-from-rendered-styles",
+      "priority": "informational",
+      "exception": null
+    },
+    {
+      "id": "F003",
+      "ruleId": "experiment-line-height",
+      "kind": "experiment-idea",
+      "title": "If you are considering 1.5 vs 1.6 line height, test it",
+      "reason": "Current ratio 1.5 is inside the starting range. For changing 1.5→1.6: No reliable quantitative improvement established. Compare with fresh passages and separate speed, comprehension and comfort.",
+      "suggestion": null,
+      "scenarioId": "baseline",
+      "element": null,
+      "observationIds": [
+        "baseline:text.lineHeightRatio:10"
+      ],
+      "claimIds": [
+        "C-LH-003",
+        "C-METH-002"
+      ],
+      "wcag": null,
+      "verification": "not-tested",
+      "priority": "experimental",
+      "exception": null
+    },
+    {
+      "id": "F004",
+      "ruleId": "text-spacing",
+      "kind": "pass",
+      "title": "No content loss detected under WCAG 1.4.12 text spacing",
+      "reason": "Checked hidden text, spilled text and horizontal scrolling after applying line-height 1.5, paragraph spacing 2em, letter spacing 0.12em and word spacing 0.16em (document and open shadow roots). Loss of functionality other than hidden text (e.g. broken interactions) is not detected automatically.",
+      "suggestion": null,
+      "scenarioId": "text-spacing",
+      "element": null,
+      "observationIds": [
+        "text-spacing:scenario.completed:27"
+      ],
+      "claimIds": [
+        "C-WCAG-001"
+      ],
+      "wcag": {
+        "criterion": "1.4.12",
+        "level": "AA"
+      },
+      "verification": "automated-browser-test",
+      "priority": "informational",
+      "exception": null
+    },
+    {
+      "id": "F005",
+      "ruleId": "reflow",
+      "kind": "pass",
+      "title": "No content loss detected under 320 CSS px reflow",
+      "reason": "Checked hidden text, spilled text and horizontal scrolling after rendering at a 320×256 CSS px viewport. Loss of functionality other than hidden text (e.g. broken interactions) is not detected automatically.",
+      "suggestion": null,
+      "scenarioId": "reflow-320",
+      "element": null,
+      "observationIds": [
+        "reflow-320:scenario.completed:28"
+      ],
+      "claimIds": [
+        "C-WCAG-002"
+      ],
+      "wcag": {
+        "criterion": "1.4.10",
+        "level": "AA"
+      },
+      "verification": "automated-browser-test",
+      "priority": "informational",
+      "exception": null
+    },
+    {
+      "id": "F006",
+      "ruleId": "zoom-200",
+      "kind": "pass",
+      "title": "No content loss detected under 200% zoom (approximation)",
+      "reason": "Checked hidden text, spilled text and horizontal scrolling after emulating 200% page zoom as a 640×400 CSS px viewport at 2x; browser text-only zoom is not tested. Loss of functionality other than hidden text (e.g. broken interactions) is not detected automatically.",
+      "suggestion": null,
+      "scenarioId": "zoom-200",
+      "element": null,
+      "observationIds": [
+        "zoom-200:scenario.completed:28"
+      ],
+      "claimIds": [
+        "C-WCAG-003"
+      ],
+      "wcag": {
+        "criterion": "1.4.4",
+        "level": "AA"
+      },
+      "verification": "approximation",
+      "priority": "informational",
+      "exception": null
+    },
+    {
+      "id": "F007",
+      "ruleId": "experiment-font",
+      "kind": "experiment-idea",
+      "title": "Compare a short list of text faces at matched apparent size",
+      "reason": "No typeface is established as universally fastest; individual results vary. For superiority of any named font: No reliable quantitative improvement established.",
+      "suggestion": null,
+      "scenarioId": "baseline",
+      "element": null,
+      "observationIds": [],
+      "claimIds": [
+        "C-FONT-001",
+        "C-FONT-004",
+        "C-SIZE-001",
+        "C-METH-002"
+      ],
+      "wcag": null,
+      "verification": "not-tested",
+      "priority": "experimental",
+      "exception": null
+    }
+  ],
+  "proposed": null,
+  "preferences": [],
+  "sourcesConsulted": [
+    "S-wcag22",
+    "S-wcag22-u-contrast-minimum",
+    "S-wcag22-u-contrast-enhanced",
+    "S-synthesis-2026",
+    "S-shaikh-chaparro-2005",
+    "S-shaikh-2005-usability-news",
+    "S-dyson-haselgrove-2001",
+    "S-bernard-2002",
+    "S-baymard-2022",
+    "S-wcag22-u-reflow",
+    "S-wcag22-u-text-spacing",
+    "S-wcag22-u-resize-text",
+    "S-wallace-2022",
+    "S-rudnay-2026",
+    "S-legge-bigelow-2011"
+  ],
+  "claimRevisions": {
+    "C-CONTRAST-001": 1,
+    "C-CONTRAST-004": 1,
+    "C-BASE-002": 1,
+    "C-CPL-001": 1,
+    "C-CPL-002": 1,
+    "C-CPL-004": 1,
+    "C-CPL-005": 1,
+    "C-CPL-006": 1,
+    "C-CPL-007": 1,
+    "C-LH-003": 1,
+    "C-METH-002": 1,
+    "C-WCAG-001": 1,
+    "C-WCAG-002": 1,
+    "C-WCAG-003": 1,
+    "C-FONT-001": 1,
+    "C-FONT-004": 1,
+    "C-SIZE-001": 1
+  },
+  "coverage": {
+    "performed": [
+      "Rendered line lengths, computed typography, contrast of sampled text, clipping at baseline",
+      "WCAG 1.4.12 text-spacing overrides in a real browser",
+      "WCAG 1.4.10 reflow at 320×256 CSS px in a real browser",
+      "200% page zoom (approximation) — approximation"
+    ],
+    "notPerformed": [
+      {
+        "check": "Assistive technology (screen readers, voice control)",
+        "reason": "Not automated by this tool."
+      },
+      {
+        "check": "Keyboard operability and focus visibility of page controls",
+        "reason": "Not automated for arbitrary pages; Readability Lab's own controls are tested separately."
+      },
+      {
+        "check": "Browser text-only zoom",
+        "reason": "Automation cannot set the user text-size preference; page zoom is approximated instead."
+      },
+      {
+        "check": "Apparent size (x-height at viewing distance), display luminance, ambient light, glare",
+        "reason": "Cannot be inferred from page styles."
+      },
+      {
+        "check": "Reading speed, comprehension, comfort",
+        "reason": "Require experiments with readers; no score is computed."
+      },
+      {
+        "check": "Complete WCAG conformance",
+        "reason": "Only the checks listed under 'performed' were run."
+      }
+    ]
+  },
+  "uncertainty": [
+    "4 observation(s) are unknown and were not treated as passing.",
+    "4 observation(s) are estimates (e.g. font availability).",
+    "Nominal font size is reported; apparent size depends on the font's x-height and viewing distance, which are not measured."
+  ],
+  "artifacts": [
+    {
+      "kind": "screenshot",
+      "path": "screenshots/baseline.png",
+      "description": "Full-page screenshot"
+    },
+    {
+      "kind": "screenshot",
+      "path": "screenshots/text-spacing.png",
+      "description": "Full-page screenshot"
+    },
+    {
+      "kind": "screenshot",
+      "path": "screenshots/reflow-320.png",
+      "description": "Full-page screenshot"
+    },
+    {
+      "kind": "screenshot",
+      "path": "screenshots/zoom-200.png",
+      "description": "Full-page screenshot"
+    }
+  ],
+  "registryVersion": "2026.11.0",
+  "policy": {
+    "format": "readability-lab/policy",
+    "formatVersion": 1,
+    "conformanceTarget": "AA",
+    "failOn": [
+      "accessibility-failure"
+    ],
+    "warnOn": [
+      "needs-review",
+      "unsupported-check"
+    ],
+    "ranges": {
+      "cpl": [
+        50,
+        75
+      ],
+      "fontSizePx": [
+        16,
+        22
+      ],
+      "lineHeight": [
+        1.4,
+        1.7
+      ],
+      "paragraphGapEm": [
+        0.5,
+        1
+      ]
+    },
+    "contrastTarget": 7,
+    "exceptions": [],
+    "disabledRules": []
+  }
+}

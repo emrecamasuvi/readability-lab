@@ -1,0 +1,144 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Readability Lab report</title>
+<style>
+:root{color-scheme:light dark;--fg:#1b1b1b;--bg:#fff;--muted:#525252;--line:#ddd;--code:#f2f2f2}
+@media (prefers-color-scheme:dark){:root{--fg:#e6e3de;--bg:#16181b;--muted:#aaa;--line:#333;--code:#24272b}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:60rem;margin:0 auto;padding:24px 16px}
+.table-wrap{overflow-x:auto;max-inline-size:100%}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:start;vertical-align:top}
+code{background:var(--code);padding:0 4px;border-radius:3px;font-size:.9em;overflow-wrap:anywhere}
+blockquote{border-inline-start:4px solid var(--line);margin:1em 0;padding:4px 12px;color:var(--muted)}
+li{margin:2px 0}
+</style></head><body><main><h1>Readability Lab report</h1>
+<ul>
+<li><strong>Target:</strong> https://tip.org.tr/raporlar-belgeler/habas-toplu-isci-katliami-duzenin-aynasidir — HABAŞ Toplu İşçi Katliamı Düzenin Aynasıdır!</li>
+<li><strong>Reading region:</strong> <code>#postContent &gt; article</code> (explicit-selector)</li>
+<li><strong>Conditions:</strong> chromium 158.0.8127.18, viewport 390×844 @3x, fonts loaded</li>
+<li><strong>Tool:</strong> readability-lab-cli 0.1.0, evidence registry 2026.11.0</li>
+<li><strong>Created:</strong> 2026-11-12T15:02:20.627Z</li>
+<li><strong>Policy result:</strong> <strong>WARN</strong> (0 failing, 5 warnings, 0 excepted)</li>
+</ul>
+<blockquote>Automated checks describe what was tested, not complete accessibility conformance. No readability score is computed.</blockquote>
+<h2>Measurements (baseline)</h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Measurements (baseline)"><table><thead><tr><th>Metric</th><th>Value</th><th>Status</th><th>Method</th></tr></thead><tbody><tr><td>layout.cpl</td><td>40 characters (p10 34, p90 45, n=176)</td><td>measured</td><td>rendered-line-rects@1</td></tr><tr><td>layout.lineCount</td><td>198 lines</td><td>measured</td><td>rendered-line-rects@1</td></tr><tr><td>layout.columnWidthPx</td><td>328 px</td><td>measured</td><td>bounding-box@1</td></tr><tr><td>layout.contentHeightPx</td><td>7091 px</td><td>measured</td><td>bounding-box@1</td></tr><tr><td>text.fontSizePx</td><td>16.32 px</td><td>measured</td><td>computed-style@1</td></tr><tr><td>text.lineHeightRatio</td><td>1.75</td><td>derived</td><td>computed-style@1</td></tr><tr><td>layout.paragraphGapEm</td><td>0.98 em</td><td>derived</td><td>line-top-gap-minus-pitch@1</td></tr><tr><td>text.fontWeight</td><td>400</td><td>measured</td><td>computed-style@1</td></tr><tr><td>text.align</td><td>start</td><td>measured</td><td>computed-style@1</td></tr><tr><td>font.declaredFamily</td><td>Gabarito, sans-serif</td><td>measured</td><td>computed-style@1</td></tr><tr><td>font.firstAvailableFamily</td><td>sans-serif</td><td>estimated</td><td>width-comparison-and-fontfaceset@1</td></tr></tbody></table></div>
+<h3>Contrast samples</h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Contrast samples"><table><thead><tr><th>Element</th><th>Colors</th><th>Ratio</th><th>Large text</th><th>Status</th></tr></thead><tbody><tr><td><code>#postContent &gt; article &gt; section:nth-of-type(1) &gt; p:nth-of-type(1)</code></td><td>rgb(17, 17, 17) on ?</td><td>unknown</td><td>no</td><td>unknown: div is painted over the text</td></tr><tr><td><code>#postContent &gt; article &gt; section:nth-of-type(1) &gt; p:nth-of-type(2)</code></td><td>rgb(17, 17, 17) on ?</td><td>unknown</td><td>no</td><td>unknown: div is painted over the text</td></tr><tr><td><code>#postContent &gt; article &gt; section:nth-of-type(3) &gt; p:nth-of-type(1)</code></td><td>rgb(17, 17, 17) on ?</td><td>unknown</td><td>no</td><td>unknown: div is painted over the text</td></tr><tr><td><code>#postContent &gt; article &gt; h1</code></td><td>#000000 on #ffffff</td><td>21.00:1</td><td>yes</td><td>measured</td></tr><tr><td><code>#postContent &gt; article &gt; p:nth-of-type(1)</code></td><td>#111111 on #ffffff</td><td>18.88:1</td><td>no</td><td>measured</td></tr><tr><td><code>#postContent &gt; article &gt; ul &gt; li:nth-of-type(1)</code></td><td>#000000 on #ffffff</td><td>21.00:1</td><td>no</td><td>measured</td></tr></tbody></table></div>
+<h2>Findings</h2>
+<h3>Needs review (5)</h3>
+<ul>
+<li><strong>Contrast could not be resolved</strong> — rule <code>contrast-aa</code>, WCAG 1.4.3 (AA), scenario <code>baseline</code>, verification: manual-review-required</li>
+<ul>
+<li>Region: <code>#postContent &gt; article &gt; section:nth-of-type(1) &gt; p:nth-of-type(1)</code></li>
+<li>Why: Background could not be determined: div is painted over the text. This is not treated as a pass.</li>
+<li>Suggested action: Check this text manually with a colour picker against the actual rendered background.</li>
+<li>Evidence: <code>C-CONTRAST-001</code>, <code>C-CONTRAST-004</code></li>
+</ul>
+<li><strong>Contrast could not be resolved</strong> — rule <code>contrast-aa</code>, WCAG 1.4.3 (AA), scenario <code>baseline</code>, verification: manual-review-required</li>
+<ul>
+<li>Region: <code>#postContent &gt; article &gt; section:nth-of-type(1) &gt; p:nth-of-type(2)</code></li>
+<li>Why: Background could not be determined: div is painted over the text. This is not treated as a pass.</li>
+<li>Suggested action: Check this text manually with a colour picker against the actual rendered background.</li>
+<li>Evidence: <code>C-CONTRAST-001</code>, <code>C-CONTRAST-004</code></li>
+</ul>
+<li><strong>Contrast could not be resolved</strong> — rule <code>contrast-aa</code>, WCAG 1.4.3 (AA), scenario <code>baseline</code>, verification: manual-review-required</li>
+<ul>
+<li>Region: <code>#postContent &gt; article &gt; section:nth-of-type(3) &gt; p:nth-of-type(1)</code></li>
+<li>Why: Background could not be determined: div is painted over the text. This is not treated as a pass.</li>
+<li>Suggested action: Check this text manually with a colour picker against the actual rendered background.</li>
+<li>Evidence: <code>C-CONTRAST-001</code>, <code>C-CONTRAST-004</code></li>
+</ul>
+<li><strong>First declared font appears unavailable; likely rendering sans-serif</strong> — rule <code>font-fallback</code>, scenario <code>baseline</code>, verification: approximation</li>
+<ul>
+<li>Why: Declared: Gabarito, sans-serif. Detection compares rendered widths and is an estimate. Fallback fonts change apparent size and wrapping.</li>
+<li>Suggested action: Load the intended font or choose a stack whose fallbacks have similar proportions.</li>
+<li>Evidence: <code>C-SIZE-001</code>, <code>C-FONT-004</code></li>
+</ul>
+<li><strong>Content forces horizontal page scrolling</strong> — rule <code>zoom-200</code>, WCAG 1.4.4 (AA), scenario <code>zoom-200</code>, verification: approximation</li>
+<ul>
+<li>Region: <code>body &gt; footer &gt; div &gt; div:nth-of-type(2) &gt; div &gt; div</code></li>
+<li>Why: This element extends 5px beyond the viewport, so reading requires scrolling in two directions. (Approximation scenario.)</li>
+<li>Suggested action: Remove fixed widths/min-widths and white-space: nowrap; use max-width: 100% and overflow-wrap: anywhere for long strings.</li>
+<li>Evidence: <code>C-WCAG-003</code></li>
+</ul>
+</ul>
+<h3>Heuristic deviation (not a WCAG failure) (1)</h3>
+<ul>
+<li><strong>Line height 1.75 is outside 1.4–1.7</strong> — rule <code>line-height-range</code>, scenario <code>baseline</code>, verification: computed-from-rendered-styles</li>
+<ul>
+<li>Region: <code>#postContent &gt; article &gt; p:nth-of-type(1)</code></li>
+<li>Why: Ratio of measured baseline distance to font size. This is a starting range, not a requirement. No reliable quantitative improvement established.</li>
+<li>Suggested action: Very open spacing increases vertical travel; consider 1.5–1.7 unless readers chose it.</li>
+<li>Evidence: <code>C-BASE-002</code>, <code>C-LH-001</code>, <code>C-LH-002</code>, <code>C-LH-003</code></li>
+</ul>
+</ul>
+<h3>Experiment idea (1)</h3>
+<ul>
+<li><strong>Compare a short list of text faces at matched apparent size</strong> — rule <code>experiment-font</code>, scenario <code>baseline</code>, verification: not-tested</li>
+<ul>
+<li>Why: No typeface is established as universally fastest; individual results vary. For superiority of any named font: No reliable quantitative improvement established.</li>
+<li>Evidence: <code>C-FONT-001</code>, <code>C-FONT-004</code>, <code>C-SIZE-001</code>, <code>C-METH-002</code></li>
+</ul>
+</ul>
+<h3>Pass (4)</h3>
+<ul>
+<li><strong>3 measured text colour pair(s) meet 1.4.3 AA</strong> — rule <code>contrast-aa</code>, WCAG 1.4.3 (AA), scenario <code>baseline</code>, verification: computed-from-rendered-styles</li>
+<ul>
+<li>Why: Computed from rendered styles for the sampled text in the region. Unresolved samples are reported separately.</li>
+<li>Evidence: <code>C-CONTRAST-001</code>, <code>C-CONTRAST-004</code></li>
+</ul>
+<li><strong>Median 40 characters per line on a 390px viewport</strong> — rule <code>cpl-range</code>, scenario <code>baseline</code>, verification: computed-from-rendered-styles</li>
+<ul>
+<li>Why: Phones should keep a useful text size and use the available width rather than force a desktop line length (10th–90th percentile 34–45, 176 lines).</li>
+<li>Evidence: <code>C-CPL-007</code></li>
+</ul>
+<li><strong>No content loss detected under WCAG 1.4.12 text spacing</strong> — rule <code>text-spacing</code>, WCAG 1.4.12 (AA), scenario <code>text-spacing</code>, verification: automated-browser-test</li>
+<ul>
+<li>Why: Checked hidden text, spilled text and horizontal scrolling after applying line-height 1.5, paragraph spacing 2em, letter spacing 0.12em and word spacing 0.16em (document and open shadow roots). Loss of functionality other than hidden text (e.g. broken interactions) is not detected automatically.</li>
+<li>Evidence: <code>C-WCAG-001</code></li>
+</ul>
+<li><strong>No content loss detected under 320 CSS px reflow</strong> — rule <code>reflow</code>, WCAG 1.4.10 (AA), scenario <code>reflow-320</code>, verification: automated-browser-test</li>
+<ul>
+<li>Why: Checked hidden text, spilled text and horizontal scrolling after rendering at a 320×256 CSS px viewport. Loss of functionality other than hidden text (e.g. broken interactions) is not detected automatically.</li>
+<li>Evidence: <code>C-WCAG-002</code></li>
+</ul>
+</ul>
+<h2>Coverage</h2>
+<p><strong>Performed:</strong></p>
+<ul>
+<li>Rendered line lengths, computed typography, contrast of sampled text, clipping at baseline</li>
+<li>WCAG 1.4.12 text-spacing overrides in a real browser</li>
+<li>WCAG 1.4.10 reflow at 320×256 CSS px in a real browser</li>
+<li>200% page zoom (approximation) — approximation</li>
+</ul>
+<p><strong>Not performed:</strong></p>
+<ul>
+<li>Assistive technology (screen readers, voice control) — Not automated by this tool.</li>
+<li>Keyboard operability and focus visibility of page controls — Not automated for arbitrary pages; Readability Lab's own controls are tested separately.</li>
+<li>Browser text-only zoom — Automation cannot set the user text-size preference; page zoom is approximated instead.</li>
+<li>Apparent size (x-height at viewing distance), display luminance, ambient light, glare — Cannot be inferred from page styles.</li>
+<li>Reading speed, comprehension, comfort — Require experiments with readers; no score is computed.</li>
+<li>Complete WCAG conformance — Only the checks listed under 'performed' were run.</li>
+</ul>
+<h2>Uncertainty</h2>
+<ul>
+<li>37 observation(s) are unknown and were not treated as passing.</li>
+<li>4 observation(s) are estimates (e.g. font availability).</li>
+<li>Nominal font size is reported; apparent size depends on the font's x-height and viewing distance, which are not measured.</li>
+</ul>
+<h2>Evidence consulted</h2>
+<ul>
+<li><code>C-CONTRAST-001</code> r1 (normative) — WCAG 1.4.3 Contrast (Minimum), AA: 4.5:1 text, 3:1 large text</li>
+<li><code>C-CONTRAST-004</code> r1 (normative) — Large-scale text is 18pt (≈24px) or 14pt bold (≈18.66px); 18px body text is not large</li>
+<li><code>C-CPL-007</code> r1 (heuristic) — Phones: keep text size and use the available width</li>
+<li><code>C-BASE-002</code> r1 (heuristic) — Initial exploration ranges: 50–75 CPL, 16–22px, line height 1.4–1.7</li>
+<li><code>C-LH-001</code> r1 (empirical) — Rello, Pielot &amp; Marcos 2016: line spacing did not change fixation duration</li>
+<li><code>C-LH-002</code> r1 (empirical) — Chiu &amp; Drieghe 2023: wider line spacing shortens first fixations but worsens return sweeps</li>
+<li><code>C-LH-003</code> r1 (hypothesis) — 1.5→1.6 (or 1.4→1.6) line height improving comprehension or speed is not established — No reliable quantitative improvement established.</li>
+<li><code>C-SIZE-001</code> r1 (empirical) — Legge &amp; Bigelow 2011: apparent size (x-height angle) governs fluent reading</li>
+<li><code>C-FONT-004</code> r1 (hypothesis) — No universally fastest typeface; named-shortlist superiority not established — No reliable quantitative improvement established.</li>
+<li><code>C-WCAG-001</code> r1 (normative) — WCAG 1.4.12 Text Spacing (AA): tolerate 1.5 / 2 / 0.12 / 0.16 overrides</li>
+<li><code>C-WCAG-002</code> r1 (normative) — WCAG 1.4.10 Reflow (AA): usable at 320 CSS px without two-direction scrolling</li>
+<li><code>C-WCAG-003</code> r1 (normative) — WCAG 1.4.4 Resize Text (AA): up to 200% without assistive technology</li>
+<li><code>C-FONT-001</code> r1 (empirical) — Wallace et al. 2022: the fastest font differs between individuals</li>
+<li><code>C-METH-002</code> r1 (heuristic) — Within-participant, counterbalanced testing with fresh passages and held-out confirmation</li>
+</ul></main></body></html>
