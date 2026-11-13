@@ -1,0 +1,40 @@
+{
+  "name": "@emrecamasuvi/readability-lab-inspector",
+  "version": "0.1.0",
+  "description": "In-page measurement engine: rendered line lengths, computed typography, contrast, clipping and reflow observations.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      },
+      "./iife": "./dist/inspector.iife.js"
+    },
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "node ../../scripts/build-lib.mjs src/index.ts && node build-iife.mjs && node ../../scripts/emit-types.mjs && node ../../scripts/licenses.mjs dist zod",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@emrecamasuvi/readability-lab-core": "workspace:*"
+  },
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emrecamasuvi/readability-lab.git",
+    "directory": "packages/inspector"
+  },
+  "homepage": "https://github.com/emrecamasuvi/readability-lab#readme",
+  "bugs": "https://github.com/emrecamasuvi/readability-lab/issues",
+  "author": "Readability Lab contributors"
+}
