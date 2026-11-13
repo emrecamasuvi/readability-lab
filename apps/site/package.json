@@ -1,0 +1,19 @@
+{
+  "name": "@emrecamasuvi/readability-lab-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Project website (single self-contained page).",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "node ../../scripts/serve.mjs dist 4330"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emrecamasuvi/readability-lab.git",
+    "directory": "apps/site"
+  },
+  "homepage": "https://github.com/emrecamasuvi/readability-lab#readme",
+  "bugs": "https://github.com/emrecamasuvi/readability-lab/issues"
+}

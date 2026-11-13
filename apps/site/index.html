@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Readability Lab is an open-source toolkit that measures how text actually renders, separates accessibility failures from design heuristics, and ties every recommendation to evidence.">
+<title>Readability Lab — every line, measured</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23141310'/%3E%3Cpath d='M7 10h18M7 16h12M7 22h15' stroke='%23efe9dc' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M23 14l4 4-4 4' stroke='%23ff7b5c' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<!-- Original text written for Readability Lab. License: CC BY 4.0. Self-contained: no external requests. -->
+<style>
+:root {
+  color-scheme: dark;
+  accent-color: var(--hi);
+  --carbon: #0e0d0b;        /* page: warm black */
+  --carbon-2: #161512;      /* raised */
+  --carbon-3: #1e1c18;      /* cards */
+  --rule: #2e2b25;          /* hairlines */
+  --rule-2: #45403a;
+  --paper: #efe9dc;         /* text: 16.0:1 */
+  --dim: #b4ab9c;           /* secondary: 8.4:1 */
+  --pencil: #ff8a6b;        /* editor's red pencil: 7.3:1 */
+  --pencil-deep: #d0441c;
+  --hi: #d6f26b;            /* highlighter (measurements): 14:1 */
+  --hi-ink: #1a1f05;
+  --card-paper: #f3ecdc;    /* index cards */
+  --card-ink: #231d14;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  --serif: "Iowan Old Style", Charter, "Bitstream Charter", Georgia, Cambria, "Times New Roman", serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--carbon); color: var(--paper); font: 17px/1.6 var(--sans); }
+a { color: var(--paper); text-decoration-color: var(--pencil); text-underline-offset: 4px; text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--hi); outline-offset: 3px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip { position: absolute; left: -9999px; } .skip:focus { left: 16px; top: 12px; z-index: 99; background: var(--hi); color: var(--hi-ink); padding: 6px 12px; }
+.wrap { width: min(1200px, 100% - 32px); margin-inline: auto; }
+.mono { font-family: var(--mono); }
+.label { font: 600 12px/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+.label b { color: var(--pencil); font-weight: 600; }
+h1, h2, h3 { margin: 0; font-weight: 500; overflow-wrap: break-word; }
+h2 { font: 400 clamp(34px, 5.4vw, 64px)/1.04 var(--serif); letter-spacing: -0.02em; }
+h2 i { color: var(--pencil); }
+p { margin: 0; }
+.dim { color: var(--dim); }
+button { font: inherit; color: inherit; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ---------- top bar ---------- */
+.top { border-bottom: 1px solid var(--rule); }
+.top .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 28px; min-height: 64px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 600 16px var(--sans); }
+.top nav { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-inline-start: auto; }
+.top nav a { text-decoration: none; color: var(--dim); font-size: 15px; }
+.top nav a:hover { color: var(--paper); }
+.chipbtn { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--rule-2); background: transparent; border-radius: 6px; padding: 7px 12px; font: 600 13px var(--mono); cursor: pointer; color: var(--paper); }
+.chipbtn kbd { font: 600 11px var(--mono); border: 1px solid var(--rule-2); border-radius: 4px; padding: 1px 5px; color: var(--dim); }
+.chipbtn[aria-pressed="true"] { background: var(--hi); color: var(--hi-ink); border-color: var(--hi); }
+.chipbtn[aria-pressed="true"] kbd { color: var(--hi-ink); border-color: var(--hi-ink); }
+
+/* ---------- hero ---------- */
+.hero { position: relative; padding: 56px 0 24px; }
+.hero .meta { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.title-wrap { position: relative; margin: 30px 0 10px; }
+.hero h1 { font: 400 clamp(44px, 12.5vw, 176px)/1.02 var(--serif); letter-spacing: -0.035em; position: relative; z-index: 1; }
+.hero h1 .sel { position: relative; color: var(--pencil); }
+.hero h1 .sel::before { content: ""; position: absolute; inset: 0.08em -0.06em 0.02em; border: 1.5px solid var(--hi); pointer-events: none; }
+.hero h1 .sel .h { position: absolute; width: 9px; height: 9px; background: var(--carbon); border: 1.5px solid var(--hi); }
+.hero h1 .sel .h.tl { left: -0.06em; top: 0.08em; transform: translate(-50%, -50%); }
+.hero h1 .sel .h.tr { right: -0.06em; top: 0.08em; transform: translate(50%, -50%); }
+.hero h1 .sel .h.bl { left: -0.06em; bottom: 0.02em; transform: translate(-50%, 50%); }
+.hero h1 .sel .h.br { right: -0.06em; bottom: 0.02em; transform: translate(50%, 50%); }
+.hero h1 .sel .tag { position: absolute; left: calc(100% + 0.5em); top: 55%; font: 600 12px/1 var(--mono); letter-spacing: 0; background: var(--hi); color: var(--hi-ink); padding: 4px 6px; white-space: nowrap; }
+.hero h1 .sel .tag::before { content: ""; position: absolute; right: 100%; top: 50%; width: 0.35em; border-top: 1.5px solid var(--hi); }
+@media (max-width: 1100px) { .hero h1 .sel .tag { display: none; } }
+.anatomy { position: absolute; inset: 0; pointer-events: none; }
+.anatomy .g { position: absolute; left: -16px; right: -16px; height: 20px; border-top: 1px dashed rgba(255,138,107,.45); }
+.anatomy .g span { position: absolute; right: 0; top: 3px; font: 11px var(--mono); color: var(--pencil); background: var(--carbon); padding: 0 4px; }
+@media (max-width: 900px) { .anatomy .g { left: 0; right: 0; } .anatomy .g span { font-size: 10px; } }
+@media (max-width: 700px) { .anatomy .g span { display: none; } .top .chipbtn { display: none; } }
+.lede { max-width: 33em; font-size: clamp(18px, 2vw, 21px); color: var(--dim); margin-top: 34px; }
+.lede b { color: var(--paper); font-weight: 600; }
+
+/* specimen: drag the column */
+.bench { margin-top: 44px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); gap: 0; border: 1px solid var(--rule); background: var(--carbon-2); }
+@media (max-width: 860px) { .bench { grid-template-columns: minmax(0, 1fr); } }
+.bench .stage { position: relative; padding: 28px 28px 28px 74px; border-inline-end: 1px solid var(--rule); min-width: 0; }
+@media (max-width: 860px) { .bench .stage { border-inline-end: 0; border-bottom: 1px solid var(--rule); padding: 22px 16px 22px 58px; } }
+.bench .stage .label { position: absolute; left: 74px; top: 10px; }
+@media (max-width: 860px) { .bench .stage .label { position: static; display: block; margin-bottom: 10px; } }
+.column { position: relative; max-width: 30em; font: 18px/1.5 var(--serif); color: var(--paper); margin-top: 8px; }
+.column p + p { margin-top: .75em; }
+.gutter { position: absolute; left: -62px; top: 0; bottom: 0; width: 52px; pointer-events: none; }
+@media (max-width: 860px) { .gutter { left: -50px; width: 42px; } }
+.gutter .band { position: absolute; top: 0; bottom: 0; background: rgba(214,242,107,.10); border-inline: 1px solid rgba(214,242,107,.35); }
+.gutter .bar { position: absolute; right: 0; height: 0; border-top: 3px solid var(--hi); transition: width .18s, top .18s; }
+.gutter .bar.out { border-top-color: var(--pencil); }
+.handle { position: absolute; top: 0; bottom: 0; width: 26px; margin-left: 4px; cursor: ew-resize; display: grid; place-items: center; touch-action: pan-y; }
+.handle::before { content: ""; position: absolute; top: 0; bottom: 0; left: 12px; border-left: 1.5px dashed var(--hi); }
+.handle span { position: relative; width: 22px; height: 44px; border-radius: 6px; background: var(--hi); color: var(--hi-ink); display: grid; place-items: center; font: 700 12px var(--mono); box-shadow: 0 0 0 4px var(--carbon-2); }
+
+.dials { padding: 22px 22px 18px; display: grid; gap: 18px; align-content: start; }
+.dial .n { font: 400 clamp(54px, 7vw, 76px)/0.9 var(--serif); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.dial .n small { font: 600 13px var(--mono); letter-spacing: 0; color: var(--dim); margin-left: 6px; }
+.dial .u { font: 12px var(--mono); color: var(--dim); margin-top: 6px; }
+.dial.cpl .n { color: var(--hi); }
+.dial .verdict { display: inline-block; margin-top: 8px; font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .06em; padding: 2px 7px; border: 1px solid currentColor; border-radius: 4px; }
+.tiny-ctrls { display: grid; gap: 10px; border-top: 1px solid var(--rule); padding-top: 14px; }
+.tiny-ctrls label { display: grid; grid-template-columns: 5.5em 1fr 3.4em; gap: 8px; align-items: center; font: 12px var(--mono); color: var(--dim); }
+.tiny-ctrls input { accent-color: var(--hi); width: 100%; min-height: 24px; }
+.tiny-ctrls output { color: var(--paper); text-align: end; }
+.bench-note { grid-column: 1 / -1; border-top: 1px solid var(--rule); padding: 12px 18px; font: 12.5px/1.5 var(--mono); color: var(--dim); }
+
+/* ---------- self-test strip ---------- */
+.selftest { margin-top: 64px; border-block: 1px solid var(--rule); background: repeating-linear-gradient(90deg, transparent 0 79px, rgba(255,255,255,.025) 79px 80px); }
+.selftest .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); }
+@media (max-width: 900px) { .selftest .wrap { grid-template-columns: minmax(0, 1fr); } }
+.selftest .cell { padding: 30px 24px; border-inline-start: 1px solid var(--rule); background: var(--carbon); }
+.selftest .cell:first-child { border-inline-start: 0; padding-inline-start: 0; }
+@media (max-width: 900px) { .selftest .cell { border-inline-start: 0; border-top: 1px solid var(--rule); padding-inline: 0; } .selftest .cell:first-child { border-top: 0; } }
+.selftest h2 { font-size: clamp(30px, 3.8vw, 44px); }
+.selftest p { color: var(--dim); margin-top: 12px; }
+.bigbtn { margin-top: 18px; display: inline-flex; align-items: center; gap: 12px; border: 1.5px solid var(--paper); background: transparent; border-radius: 999px; padding: 12px 20px; font: 600 15px var(--sans); cursor: pointer; }
+.bigbtn:hover { background: var(--paper); color: var(--carbon); }
+.bigbtn[aria-pressed="true"] { background: var(--hi); color: var(--hi-ink); border-color: var(--hi); }
+.bigbtn kbd { font: 600 12px var(--mono); border: 1px solid currentColor; border-radius: 4px; padding: 0 5px; opacity: .8; }
+.result { margin-top: 14px; font: 13px/1.5 var(--mono); color: var(--hi); min-height: 3em; }
+
+/* ---------- section scaffolding ---------- */
+section.s { padding: 120px 0 0; }
+.shead { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 24px; margin-bottom: 44px; align-items: baseline; }
+@media (max-width: 760px) { .shead { grid-template-columns: minmax(0, 1fr); gap: 10px; } }
+.shead p.lead { margin-top: 18px; color: var(--dim); font-size: 19px; max-width: 40em; }
+
+/* proof marks (finding kinds) */
+.marks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); border-top: 1px solid var(--rule); border-inline-start: 1px solid var(--rule); }
+.mark { border-inline-end: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 24px 22px 26px; display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; }
+.mark svg { width: 56px; height: 56px; }
+@media (max-width: 420px) { .mark { grid-template-columns: minmax(0, 1fr); } }
+.slug p, .slug .step, .spec-row p, .delta .what, .caveat, .label { overflow-wrap: anywhere; }
+.mark h3 { font: 500 20px/1.25 var(--serif); }
+.mark p { color: var(--dim); font-size: 16px; margin-top: 6px; }
+.mark .k { overflow-wrap: anywhere; font: 600 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
+.marks-note { margin-top: 16px; font: 13px var(--mono); color: var(--dim); }
+
+/* index cards */
+.evidence { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+@media (max-width: 900px) { .evidence { grid-template-columns: minmax(0, 1fr); } }
+.cards { position: relative; min-height: 430px; max-width: 520px; width: 100%; margin-inline: auto; padding-bottom: 60px; }
+.icard { position: absolute; inset: 0 0 auto 0; min-height: 330px; background: var(--card-paper); color: var(--card-ink); border-radius: 4px; padding: 26px 28px 22px; box-shadow: 0 18px 50px rgba(0,0,0,.5); transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+/* Ruled lines only in the empty lower part of the card, never under text. */
+.icard::after { content: ""; position: absolute; left: 0; right: 0; bottom: 40px; height: 64px; background: repeating-linear-gradient(transparent 0 31px, rgba(60,110,170,.22) 31px 32px); pointer-events: none; }
+.icard::before { content: ""; position: absolute; left: 0; right: 0; top: 62px; border-top: 1.5px solid rgba(200,60,40,.45); }
+.icard .hole { position: absolute; left: 50%; bottom: 14px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: var(--carbon); }
+.icard .cid { font: 600 12px var(--mono); color: #463c2c; display: flex; justify-content: space-between; gap: 10px; }
+.icard h3 { font: 600 24px/1.2 var(--serif); margin-top: 22px; }
+.icard p { font: 16px/1.6 var(--serif); margin-top: 12px; color: #3b3224; }
+.icard.c3 { transform: rotate(-7deg) translate(-26px, 28px); }
+.icard.c2 { transform: rotate(4deg) translate(22px, 14px); }
+.icard.c1 { position: relative; transform: rotate(-1deg); padding-bottom: 120px; }
+.cards:hover .icard.c3 { transform: rotate(-12deg) translate(-70px, 70px); }
+.cards:hover .icard.c2 { transform: rotate(9deg) translate(70px, 50px); }
+#evidence { overflow-x: clip; }
+@media (max-width: 600px) {
+  .icard.c3 { transform: rotate(-5deg) translate(-6px, 26px); } .icard.c2 { transform: rotate(3deg) translate(6px, 12px); }
+  .cards:hover .icard.c3 { transform: rotate(-7deg) translate(-10px, 40px); }
+  .cards:hover .icard.c2 { transform: rotate(5deg) translate(10px, 26px); }
+}
+.stamp { position: absolute; right: 18px; bottom: 56px; transform: rotate(-8deg); border: 3px double #9c2a14; color: #85230f; font: 800 13px/1.15 var(--mono); text-transform: uppercase; letter-spacing: .04em; padding: 8px 10px; max-width: 250px; text-align: center; background: var(--card-paper); }
+.evidence ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.evidence li { padding: 16px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 2.4em minmax(0, 1fr); gap: 10px; color: var(--dim); }
+.evidence li .no { font: 12px var(--mono); color: var(--pencil); padding-top: 4px; }
+.evidence li b { color: var(--paper); font-weight: 600; }
+.tally { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 26px; }
+.tally div { font: 400 48px/1 var(--serif); }
+.tally small { display: block; font: 12px var(--mono); color: var(--dim); margin-top: 6px; }
+
+/* before / after wipe */
+.wipe { position: relative; border: 1px solid var(--rule-2); background: #fff; overflow: hidden; aspect-ratio: 1280 / 760; touch-action: pan-y; cursor: ew-resize; -webkit-user-select: none; user-select: none; }
+.wipe img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; pointer-events: none; -webkit-user-drag: none; }
+.wipe .after { clip-path: inset(0 0 0 var(--cut, 50%)); }
+.mt-14 { margin-top: 14px; } .mt-26 { margin-top: 26px; } .mw-26 { max-width: 26em; }
+.wipe .line { position: absolute; top: 0; bottom: 0; left: var(--cut, 50%); width: 0; border-left: 2px solid var(--pencil-deep); pointer-events: none; }
+.wipe .line::after { content: "⟷"; position: absolute; top: 50%; left: 0; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; background: var(--pencil-deep); color: #fff; display: grid; place-items: center; font: 700 18px var(--sans); }
+.wipe .tagl, .wipe .tagr { position: absolute; bottom: 10px; font: 700 12px var(--mono); padding: 4px 8px; background: var(--carbon); color: var(--paper); }
+.wipe .tagl { left: 10px; } .wipe .tagr { right: 10px; background: var(--hi); color: var(--hi-ink); }
+.wipe-ctrl { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; margin-top: 12px; font: 12px var(--mono); color: var(--dim); }
+.wipe-ctrl input { accent-color: var(--pencil); width: 100%; }
+.deltas { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); border-top: 1px solid var(--rule); border-inline-start: 1px solid var(--rule); }
+.delta { padding: 18px 18px 20px; border-inline-end: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.delta .from { font: 400 26px var(--serif); color: var(--dim); text-decoration: line-through; text-decoration-color: var(--pencil); text-decoration-thickness: 2px; }
+.delta .to { font: 400 44px/1.05 var(--serif); color: var(--hi); }
+.delta .what { font: 12px var(--mono); color: var(--dim); margin-top: 8px; }
+.caveat { margin-top: 14px; font: 13px/1.6 var(--mono); color: var(--dim); max-width: 70em; }
+
+/* specimen list (surfaces) */
+.specimen { border-top: 1px solid var(--rule); }
+.spec-row { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, .9fr); gap: 24px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--rule); position: relative; }
+@media (max-width: 900px) { .spec-row { grid-template-columns: minmax(0, 1fr); gap: 8px; } }
+.spec-row h3 { font: 400 clamp(34px, 5vw, 60px)/1 var(--serif); letter-spacing: -0.02em; transition: color .2s, letter-spacing .3s; }
+.spec-row:hover h3 { color: var(--hi); letter-spacing: -0.005em; }
+.spec-row p { color: var(--dim); font-size: 16px; }
+.spec-row code { font: 13px var(--mono); color: var(--pencil); overflow-wrap: anywhere; }
+.spec-row .who { font: 11px var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--dim); display: block; margin-bottom: 6px; }
+
+/* refusals */
+.refusals { list-style: none; margin: 0; padding: 0; }
+.refusals li { border-bottom: 1px solid var(--rule); padding: 22px 0; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px; align-items: center; }
+@media (max-width: 860px) { .refusals li { grid-template-columns: minmax(0, 1fr); gap: 6px; } }
+.refusals .no { font: 400 clamp(30px, 4.6vw, 56px)/1.05 var(--serif); letter-spacing: -0.02em; position: relative; display: inline-block; }
+/* The strike is a line drawn over the words (like a real strikethrough), not a background behind them. */
+.refusals .no::after { content: ""; position: absolute; left: -0.05em; right: -0.05em; top: 56%; height: 0; border-top: 4px solid var(--pencil); transform-origin: left center; transition: transform .9s cubic-bezier(.6,0,.2,1); }
+.refusals li.pending .no::after { transform: scaleX(0); }
+.refusals p { color: var(--dim); font-size: 16px; }
+
+/* start */
+.galley { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 0; border-top: 1px solid var(--rule); border-inline-start: 1px solid var(--rule); }
+.slug { border-inline-end: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 20px; display: grid; gap: 12px; align-content: start; }
+.slug .step { font: 600 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--pencil); }
+.slug code { display: block; font: 14px var(--mono); background: var(--carbon-2); border: 1px solid var(--rule); padding: 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.slug .copy { display: flex; align-items: center; gap: 10px; }
+.slug .copy-button { min-inline-size: 24px; min-block-size: 28px; border: 1px solid var(--rule-2); background: transparent; border-radius: 6px; padding: 5px 10px; font: 12px var(--mono); cursor: pointer; color: var(--dim); }
+.slug .copy-button:hover { color: var(--paper); border-color: var(--dim); }
+.slug .copy-button[data-copied] { color: var(--hi); border-color: var(--hi); }
+.slug .copy-button[data-failed] { color: var(--pencil); border-color: var(--pencil); }
+.slug .tip { font: 12px var(--mono); color: var(--hi); opacity: 0; transition: opacity .2s; }
+.slug .copy-button[data-failed] + .tip { color: var(--pencil); }
+.slug .copy-button:is([data-copied], [data-failed]) + .tip { opacity: 1; }
+.slug p { font-size: 14px; color: var(--dim); }
+
+/* status */
+.matrix { width: 100%; border-collapse: collapse; font-size: 15px; }
+.matrix th, .matrix td { text-align: start; padding: 14px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.matrix thead th { font: 600 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+.matrix td:last-child { color: var(--dim); }
+.st { font: 700 11px var(--mono); text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
+.st.ok { color: var(--hi); } .st.part { color: #f5c56b; } .st.plan { color: var(--dim); }
+.table-scroll { overflow-x: auto; }
+
+/* faq as margin notes */
+.faq { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.faq details { border-bottom: 1px solid var(--rule); }
+.faq summary { cursor: pointer; list-style: none; padding: 20px 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; font: 400 clamp(20px, 2.4vw, 26px)/1.25 var(--serif); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 400 28px/1 var(--mono); color: var(--pencil); }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { padding: 0 0 22px; color: var(--dim); max-width: 46em; }
+
+/* giant footer word */
+.colophon { margin-top: 140px; border-top: 1px solid var(--rule); padding: 40px 0 48px; }
+.giant { position: relative; font: 400 clamp(64px, 17vw, 260px)/0.85 var(--serif); letter-spacing: -0.05em; color: transparent; -webkit-text-stroke: 1.5px var(--rule-2); user-select: none; white-space: nowrap; overflow: hidden; }
+.giant span { color: var(--paper); -webkit-text-stroke: 0; }
+.fcols { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 40px; font-size: 14px; color: var(--dim); }
+@media (max-width: 760px) { .fcols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .fcols { grid-template-columns: minmax(0, 1fr); } }
+.fcols .fh { margin: 0 0 10px; font: 600 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--paper); }
+.fcols ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.fcols a { color: var(--dim); text-decoration: none; } .fcols a:hover { color: var(--paper); text-decoration: underline; }
+.legal { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font: 12px var(--mono); color: var(--dim); }
+
+/* ---------- user preferences ---------- */
+@media (prefers-contrast: more) {
+  :root { --dim: #ddd5c6; --rule: #5a544b; --rule-2: #8a8275; }
+  .gutter .band { border-color: var(--hi); }
+}
+@media (forced-colors: active) {
+  :focus-visible { outline-color: Highlight; }
+  .chipbtn, .bigbtn, .slug .copy-button, .hud { border: 1px solid ButtonText; }
+  .chipbtn[aria-pressed="true"], .bigbtn[aria-pressed="true"] { forced-color-adjust: none; background: Highlight; color: HighlightText; border-color: Highlight; }
+  .hero h1 .sel::before, .hero h1 .sel .h, .handle::before, .anatomy .g { border-color: CanvasText; }
+  .gutter .bar { border-top-color: CanvasText; } .gutter .bar.out { border-top-color: Highlight; }
+  .refusals .no::after { border-top-color: CanvasText; }
+  .wipe .line { border-left-color: Highlight; }
+  .handle span, .wipe .line::after { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+  #xray .ln { border-color: CanvasText; } #xray .n, #xray .cr { forced-color-adjust: none; background: Canvas; color: CanvasText; border: 1px solid CanvasText; }
+  .giant { -webkit-text-stroke-color: CanvasText; }
+}
+/* Below-the-fold sections skip rendering until needed; sizes are remembered once rendered. */
+section.s, .colophon { content-visibility: auto; contain-intrinsic-size: auto none auto 760px; }
+
+/* ---------- X-ray overlay + HUD ---------- */
+#xray { position: absolute; left: 0; top: 0; pointer-events: none; z-index: 60; }
+#xray .ln { position: absolute; border: 1px solid rgba(214,242,107,.55); background: rgba(214,242,107,.06); }
+#xray .ln.out { border-color: rgba(255,138,107,.7); background: rgba(255,138,107,.07); }
+#xray .ln.final { border-style: dashed; opacity: .55; }
+#xray .n { position: absolute; font: 700 10px/1 var(--mono); background: var(--hi); color: var(--hi-ink); padding: 2px 3px; transform: translate(4px, -1px); white-space: nowrap; }
+#xray .n.out { background: var(--pencil); color: #2a0d05; }
+#xray .cr { position: absolute; font: 700 10px/1 var(--mono); background: var(--paper); color: var(--carbon); padding: 2px 4px; transform: translateY(-100%); white-space: nowrap; }
+#xray .cr.low { background: var(--pencil); color: #2a0d05; }
+.hud { position: fixed; left: 16px; bottom: 16px; z-index: 70; max-width: min(560px, calc(100% - 32px)); background: var(--carbon-3); border: 1px solid var(--rule-2); border-left: 4px solid var(--hi); padding: 12px 14px; font: 12.5px/1.55 var(--mono); color: var(--paper); box-shadow: 0 20px 50px rgba(0,0,0,.55); display: none; }
+.hud.on { display: block; }
+.hud b { color: var(--hi); font-weight: 700; }
+.hud .x { float: right; border: 0; background: transparent; color: var(--dim); cursor: pointer; font: 700 16px var(--mono); min-width: 28px; min-height: 28px; margin: -6px -8px 0 8px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="xray" aria-hidden="true"></div>
+<div class="hud" id="hud" role="status" aria-live="polite"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Readability Lab home">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1e1c18" stroke="#45403a"/><path d="M7 10h18M7 16h12M7 22h15" stroke="#efe9dc" stroke-width="2.5" stroke-linecap="round"/><path d="M23 14l4 4-4 4" stroke="#ff8a6b" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+      Readability Lab
+    </a>
+    <nav aria-label="Main">
+      <a href="#proof">Findings</a><a href="#evidence">Evidence</a><a href="#real-page">Real page</a><a href="#tools">Tools</a><a href="#start">Start</a>
+    </nav>
+    <button class="chipbtn" type="button" data-xray-toggle aria-pressed="false">X-ray this page</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="meta">
+        <span class="label"><b>●</b> Open source · Apache-2.0</span>
+        <span class="label">v0.1 · runs on your machine</span>
+        <span class="label">evidence registry 2026.11.0</span>
+      </div>
+      <div class="title-wrap" id="title-wrap">
+        <div class="anatomy" id="anatomy" aria-hidden="true"></div>
+        <h1 id="hero-title">Every line, <span class="sel">measured<span class="tag" id="sel-tag" aria-hidden="true">h1 · measuring…</span><i class="h tl" aria-hidden="true"></i><i class="h tr" aria-hidden="true"></i><i class="h bl" aria-hidden="true"></i><i class="h br" aria-hidden="true"></i></span>.</h1>
+      </div>
+      <p class="lede"><b>Readability Lab</b> is an open-source toolkit that reads your page the way a browser draws it. It counts characters on each rendered line, keeps accessibility failures apart from design heuristics, and links every recommendation to evidence you can check.</p>
+
+      <div class="bench" role="group" aria-labelledby="bench-label">
+        <div class="stage">
+          <span class="label" id="bench-label">Drag the column · every rendered line is charted in the margin</span>
+          <div class="column" id="column">
+            <div class="gutter" id="gutter" aria-hidden="true"><div class="band" id="band"></div></div>
+            <p>Most of what we read now arrives in a rectangle of light. The rectangle changes size from one moment to the next: a phone held in one hand on a train, a laptop on a kitchen table, a large monitor at work.</p>
+            <p>A line that is too short sends the eye back to the margin so often that a sentence loses its rhythm. A line that is too long makes the return journey harder. Between the two lies a wide middle ground, and nobody has found a single best point inside it.</p>
+            <div class="handle" id="handle" aria-hidden="true"><span>⇔</span></div>
+          </div>
+        </div>
+        <div class="dials">
+          <div class="dial cpl"><div class="n"><span id="d-cpl">—</span><small>CPL</small></div><div class="u">median characters per full line</div><span class="verdict" id="d-verdict">measuring</span></div>
+          <div class="dial"><div class="n"><span id="d-lines">—</span><small>lines</small></div><div class="u">rendered, paragraph-final excluded</div></div>
+          <div class="tiny-ctrls">
+            <label for="t-width">width <input id="t-width" type="range" min="12" max="40" step="0.5" value="30" aria-describedby="bench-label"><output for="t-width" id="o-width">30em</output></label>
+            <label for="t-size">size <input id="t-size" type="range" min="14" max="26" step="1" value="18"><output for="t-size" id="o-size">18px</output></label>
+            <label for="t-lh">leading <input id="t-lh" type="range" min="1.2" max="2" step="0.05" value="1.5"><output for="t-lh" id="o-lh">1.50</output></label>
+          </div>
+        </div>
+        <p class="bench-note">Counted from the browser's line boxes, not from width ÷ font size. 50–75 is a starting range from Latin-script research — not an optimum, not a rule. Bars in red fall outside it.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="selftest" aria-label="This page tests itself">
+    <div class="wrap">
+      <div class="cell">
+        <span class="label"><b>●</b> Live, on this page</span>
+        <h2 class="mt-14">This page proofreads <i>itself</i>.</h2>
+        <p>Two switches run the same kind of checks the toolkit runs on yours, right here in your browser. Nothing is sent anywhere.</p>
+      </div>
+      <div class="cell">
+        <span class="label">Measure</span>
+        <p>Outline every rendered line on the page, count its characters, and badge each block's text contrast.</p>
+        <button class="bigbtn" type="button" data-xray-toggle aria-pressed="false">X-ray this page</button>
+        <p class="result" id="xray-result" aria-live="polite"></p>
+      </div>
+      <div class="cell">
+        <span class="label">Stress</span>
+        <p>Apply the WCAG 1.4.12 spacing overrides to everything — line height 1.5, paragraph spacing 2×, letter spacing 0.12, word spacing 0.16 — and look for text that gets cut off.</p>
+        <button class="bigbtn" type="button" id="stress" aria-pressed="false">Stress-test spacing</button>
+        <p class="result" id="stress-result" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+
+  <section class="s" id="proof" aria-labelledby="proof-title">
+    <div class="wrap">
+      <div class="shead">
+        <span class="label">01 · Findings</span>
+        <div>
+          <h2 id="proof-title">Six proof marks. <i>Never</i> blurred.</h2>
+          <p class="lead">A line longer than a guideline is a design choice, not a compliance failure. Every finding carries exactly one mark — and only a check that actually ran can fail your build.</p>
+        </div>
+      </div>
+      <div class="marks">
+        <div class="mark"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="22" fill="none" stroke="#ff8a6b" stroke-width="3"/><path d="M19 19l18 18M37 19 19 37" stroke="#ff8a6b" stroke-width="3" stroke-linecap="round"/></svg><div><span class="k">accessibility-failure</span><h3>A check ran, and failed.</h3><p>Contrast below 4.5:1, text lost under spacing overrides, two-direction scrolling at 320px.</p></div></div>
+        <div class="mark"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M8 46c10-2 30-2 40 0" stroke="#f5c56b" stroke-width="3" fill="none" stroke-linecap="round"/><text x="28" y="36" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#f5c56b">?</text></svg><div><span class="k">needs-review</span><h3>We couldn't be sure.</h3><p>A gradient behind text, an overlay, an approximation. Unknown is never a pass.</p></div></div>
+        <div class="mark"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M6 30h44" stroke="#d6f26b" stroke-width="3" stroke-dasharray="4 5" stroke-linecap="round"/><path d="M40 20l10 10-10 10" stroke="#d6f26b" stroke-width="3" fill="none" stroke-linecap="round"/></svg><div><span class="k">heuristic-deviation</span><h3>Outside a starting range.</h3><p>135 characters per line, 15px text. Worth a look — not a WCAG failure.</p></div></div>
+        <div class="mark"><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="10" y="12" width="36" height="32" rx="3" fill="none" stroke="#b4ab9c" stroke-width="3"/><path d="M10 12l36 32" stroke="#b4ab9c" stroke-width="3"/></svg><div><span class="k">unsupported-check</span><h3>Out of reach.</h3><p>Canvas text, cross-origin frames, closed components, scripts the research doesn't cover.</p></div></div>
+        <div class="mark"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M14 40c4-14 12-22 28-26" stroke="#b4ab9c" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="14" cy="40" r="4" fill="#b4ab9c"/><circle cx="42" cy="14" r="4" fill="none" stroke="#b4ab9c" stroke-width="3"/></svg><div><span class="k">experiment-idea · preference</span><h3>Worth testing with readers.</h3><p>1.5 vs 1.6 line height, a font shortlist. Proposed as experiments, never as fixes.</p></div></div>
+        <div class="mark"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M12 30l10 10 22-24" stroke="#d6f26b" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span class="k">pass</span><h3>Completed, and listed.</h3><p>Only for checks that actually finished — every report says what was not tested.</p></div></div>
+      </div>
+      <p class="marks-note">Default CI policy fails only on accessibility-failure. Exceptions need a reason and a review date.</p>
+    </div>
+  </section>
+
+  <section class="s" id="evidence" aria-labelledby="ev-title">
+    <div class="wrap evidence">
+      <div>
+        <span class="label">02 · Evidence</span>
+        <h2 id="ev-title" class="mt-14">Every recommendation keeps its <i>receipt</i>.</h2>
+        <div class="tally">
+          <div>69<small>claims</small></div>
+          <div>40<small>sources</small></div>
+          <div>38<small>checked against originals</small></div>
+          <div>11<small>known gaps, published</small></div>
+        </div>
+        <ul class="mt-26">
+          <li><span class="no">a.</span><span><b>Outcomes stay apart.</b> Speed, comprehension, recognition, comfort, preference and eye movements are never merged into one score.</span></li>
+          <li><span class="no">b.</span><span><b>Missing numbers stay missing</b> — with the reason they're missing.</span></li>
+          <li><span class="no">c.</span><span><b>Contradictions are linked,</b> not averaged away.</span></li>
+          <li><span class="no">d.</span><span><b>Revise a claim</b> and every rule, preset and recipe that cites it is flagged.</span></li>
+        </ul>
+      </div>
+      <div class="cards">
+        <div class="icard c3" aria-hidden="true"><span class="hole"></span></div>
+        <div class="icard c2" aria-hidden="true"><span class="hole"></span></div>
+        <article class="icard c1">
+          <div class="cid"><span>C-LH-003 · rev 1</span><span>hypothesis</span></div>
+          <h3>Is 1.6 line height better than 1.5?</h3>
+          <p>Moderate spacing is sensible. No study isolates a gain from this exact change.</p>
+          <span class="stamp">No reliable quantitative improvement established.</span>
+          <span class="hole"></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="real-page" aria-labelledby="real-page-title">
+    <div class="wrap">
+      <div class="shead">
+        <span class="label">03 · Real page</span>
+        <div>
+          <h2 id="real-page-title">A published article, re‑set. <i>Drag</i> to see.</h2>
+          <p class="lead">We ran <code>rlab check</code> on <a href="https://tip.org.tr/raporlar-belgeler/habas-toplu-isci-katliami-duzenin-aynasidir" lang="tr" hreflang="tr">a live article on tip.org.tr</a>, applied the Balanced recipe to the article region only, and re-ran the same checks. The rest of the page is untouched.</p>
+        </div>
+      </div>
+      <div class="wipe" id="wipe">
+        <picture>
+          <source type="image/webp" srcset="assets/tip-before-640.webp 640w, assets/tip-before-1280.webp 1280w" sizes="(max-width: 1232px) calc(100vw - 32px), 1200px">
+          <img src="assets/tip-before-1280.jpg" srcset="assets/tip-before-640.jpg 640w, assets/tip-before-1280.jpg 1280w" sizes="(max-width: 1232px) calc(100vw - 32px), 1200px" alt="Article as published: Turkish body text in lines about 110 characters long, set across the full card width" width="1280" height="760" draggable="false" loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source type="image/webp" srcset="assets/tip-after-640.webp 640w, assets/tip-after-1280.webp 1280w" sizes="(max-width: 1232px) calc(100vw - 32px), 1200px">
+          <img class="after" src="assets/tip-after-1280.jpg" srcset="assets/tip-after-640.jpg 640w, assets/tip-after-1280.jpg 1280w" sizes="(max-width: 1232px) calc(100vw - 32px), 1200px" alt="Same article with the recipe: a centred column of larger text, about 65 characters per line" width="1280" height="760" draggable="false" loading="lazy" decoding="async">
+        </picture>
+        <span class="line" aria-hidden="true"></span>
+        <span class="tagl">before</span><span class="tagr">after</span>
+      </div>
+      <div class="wipe-ctrl"><span>before</span><input id="wipe-r" type="range" min="0" max="100" value="50" aria-label="Before/after divider" aria-valuetext="half before, half after"><span>after</span></div>
+      <div class="deltas">
+        <div class="delta"><div class="from">111</div><div class="to">64.5</div><div class="what">median characters per line · desktop</div></div>
+        <div class="delta"><div class="from">16.3px</div><div class="to">18px</div><div class="what">body text size</div></div>
+        <div class="delta"><div class="from">1.75</div><div class="to">1.5</div><div class="what">line height</div></div>
+        <div class="delta"><div class="from">2</div><div class="to">0</div><div class="what">heuristic deviations · desktop</div></div>
+      </div>
+      <p class="caveat">Region <code>#postContent &gt; article</code>, Chromium 158 at 1280×800 and 390×844, captured 12 November 2026, same checks before and after. These are layout measurements: no speed or comprehension change is implied. The costs show too. The article got taller (3613 → 5065px). On a phone the column already fills the width, so the larger text drops lines from 40 to 36 characters. One needs-review item stays in both runs: the declared font, Gabarito, did not load, so the text renders in a fallback. Reports and the recipe are in <code>examples/real-page/</code>.</p>
+    </div>
+  </section>
+
+  <section class="s" id="tools" aria-labelledby="tools-title">
+    <div class="wrap">
+      <div class="shead">
+        <span class="label">04 · Specimen</span>
+        <div><h2 id="tools-title">One engine, <i>every</i> surface.</h2><p class="lead">Same profile format, same measurements, same rules — so the extension, the workbench, CI and your agent always agree.</p></div>
+      </div>
+      <div class="specimen">
+        <div class="spec-row"><h3>Extension</h3><p><span class="who">for readers</span>Adjust any article or open a calm reader view. Presets as starting points, per-site choices, shortcuts, compare, exact reset.</p><code>Chromium · Firefox build</code></div>
+        <div class="spec-row"><h3>Workbench</h3><p><span class="who">for designers</span>Same text, side by side, on desktop, tablet, phone and enlarged. Blind fonts, apparent-size matching, token export.</p><code>#/compare · #/atlas · #/explore</code></div>
+        <div class="spec-row"><h3>rlab</h3><p><span class="who">for developers</span>Inspect local dev pages or live URLs, gate pull requests on a policy, keep JSON, Markdown and screenshots.</p><code>rlab check &lt;url&gt; --policy policy.json</code></div>
+        <div class="spec-row"><h3>Controls</h3><p><span class="who">for publishers</span>A keyboard-friendly reading panel and headless API. Your defaults, their choices — access needs protected.</p><code>&lt;rl-reading-controls&gt;</code></div>
+        <div class="spec-row"><h3>MCP + skill</h3><p><span class="who">for agents</span>Seven tools over the same engine and a skill that measures, changes, re-checks and reports what it didn't test.</p><code>rl_inspect · rl_compare · rl_claims</code></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" aria-labelledby="no-title">
+    <div class="wrap">
+      <div class="shead">
+        <span class="label">05 · Refusals</span>
+        <div><h2 id="no-title">Useful because it <i>doesn't</i> overclaim.</h2></div>
+      </div>
+      <ul class="refusals">
+        <li><span class="no">A readability score</span><p>One number hides the trade-offs. You get measurements, findings and their evidence.</p></li>
+        <li><span class="no">The best preset</span><p>Balanced, Larger Text and Compact are labelled as starting choices. No universal optimum has been established.</p></li>
+        <li><span class="no">“Reads 20% faster”</span><p>Nothing promises speed, comprehension or less eye strain. A test fails the build if such a claim appears. <!-- no-percent-claims-allow: quoted as a refusal --></p></li>
+        <li><span class="no">Guessing about you</span><p>Viewing distance, glare, brightness and visual needs are never inferred from page styles.</p></li>
+        <li><span class="no">Latin rules everywhere</span><p>Line-length ranges come from Latin-script research and are not applied to Japanese, Arabic or other scripts.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="s" id="start" aria-labelledby="start-title">
+    <div class="wrap">
+      <div class="shead">
+        <span class="label">06 · Galley</span>
+        <div><h2 id="start-title">Set it in <i>three</i> commands.</h2><p class="lead">Node 20+ and pnpm 10. Free, Apache-2.0, no account, no telemetry. Run each command on its own.</p></div>
+      </div>
+      <div class="galley">
+        <div class="slug"><span class="step">Step 1 · install</span><code id="cmd-install">pnpm install</code><span class="copy"><button type="button" class="copy-button" command="--copy" commandfor="cmd-install">Copy<span class="sr"> command: pnpm install</span></button><span class="tip" role="status"></span></span></div>
+        <div class="slug"><span class="step">Step 2 · browser</span><code id="cmd-browser">npx playwright install chromium</code><span class="copy"><button type="button" class="copy-button" command="--copy" commandfor="cmd-browser">Copy<span class="sr"> command: npx playwright install chromium</span></button><span class="tip" role="status"></span></span></div>
+        <div class="slug"><span class="step">Step 3 · build</span><code id="cmd-build">pnpm build</code><span class="copy"><button type="button" class="copy-button" command="--copy" commandfor="cmd-build">Copy<span class="sr"> command: pnpm build</span></button><span class="tip" role="status"></span></span></div>
+        <div class="slug"><span class="step">Then · inspect</span><code id="cmd-inspect">node packages/cli/bin/rlab.mjs check fixtures/broken-clipping.html --out reports/demo</code><span class="copy"><button type="button" class="copy-button" command="--copy" commandfor="cmd-inspect">Copy<span class="sr"> command: node packages/cli/bin/rlab.mjs check fixtures/broken-clipping.html --out reports/demo</span></button><span class="tip" role="status"></span></span><p>Exits with code 1 on purpose: that fixture is broken. Open <span class="mono">reports/demo/report.md</span>.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" aria-labelledby="status-title">
+    <div class="wrap">
+      <div class="shead">
+        <span class="label">07 · Status</span>
+        <div><h2 id="status-title">What's <i>verified</i> today.</h2><p class="lead">46 browser tests and 25 unit tests pass in this release.</p></div>
+      </div>
+      <div class="table-scroll" tabindex="0" role="region" aria-labelledby="status-caption">
+        <table class="matrix">
+          <caption id="status-caption" class="sr">Verification status of each surface in this release</caption>
+          <thead><tr><th scope="col">Surface</th><th scope="col">Status</th><th scope="col">How we know</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">CLI &amp; inspector</th><td><span class="st ok">Tested</span></td><td>Chromium 158; real WCAG 1.4.12 and 1.4.10 scenarios; exact counts on ground-truth fixtures.</td></tr>
+            <tr><th scope="row">Extension · Chromium</th><td><span class="st ok">Tested</span></td><td>Save, reuse, exact restore, modal reader view, privacy checks.</td></tr>
+            <tr><th scope="row">Extension · Firefox</th><td><span class="st part">Builds</span></td><td>Passes web-ext lint with 0 errors; not yet exercised at runtime.</td></tr>
+            <tr><th scope="row">Workbench &amp; controls</th><td><span class="st ok">Tested</span></td><td>Exports reproduce in the CLI within ±2 CPL; axe-core finds no A/AA violations in the controls.</td></tr>
+            <tr><th scope="row">MCP server</th><td><span class="st ok">Tested</span></td><td>Exercised with the official MCP SDK client.</td></tr>
+            <tr><th scope="row">Safari · Figma plugin</th><td><span class="st plan">Planned</span></td><td>On the roadmap with guided reading experiments.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="shead"><span class="label">08 · Margin notes</span><div><h2 id="faq-title">Asked, <i>answered</i> plainly.</h2></div></div>
+      <div class="faq">
+        <details><summary>Is 65 characters per line the right answer?</summary><p>It is a defensible starting point inside a 50–75 range, not a proven optimum. Some studies found longer lines faster; others favoured intermediate widths for comprehension or preference. The tools show your measured distribution and let you decide.</p></details>
+        <details><summary>Does passing these checks mean my site is accessible?</summary><p>No — it means the listed checks passed. Every report names what was not tested, including screen readers, keyboard use of your own controls and text-only zoom.</p></details>
+        <details><summary>Will the extension send my reading anywhere?</summary><p>No. It processes everything in the page and stores settings locally. Shared profiles contain settings only, never the sites you visit, and reader view makes no new network requests.</p></details>
+        <details><summary>What about dyslexia fonts or dark mode?</summary><p>Specialist fonts have not consistently outperformed conventional ones, and light versus dark depends on the reader. Readability Lab offers choices and protects your access needs instead of prescribing one answer.</p></details>
+        <details><summary>What did the X-ray on this page just do?</summary><p>It measured the rendered line boxes of every text block on this page and computed WCAG contrast from the computed colours — a simplified version of the inspector, run in your browser. The full inspector also resolves overlays and backgrounds and reports what it could not measure.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <div class="wrap">
+    <div class="giant" aria-hidden="true"><span>Read</span>ability</div>
+    <div class="fcols">
+      <div><p class="mw-26">An open-source toolkit grounded in digital-reading research. Set in the reader's own system fonts. “Readability Lab” is a working name.</p></div>
+      <div><h2 class="fh">Product</h2><ul><li><a href="#tools">Extension</a></li><li><a href="#tools">Workbench</a></li><li><a href="#tools">rlab CLI</a></li><li><a href="#tools">Controls</a></li></ul></div>
+      <div><h2 class="fh">Evidence</h2><ul><li><a href="#evidence">Registry</a></li><li><a href="#proof">Findings</a></li><li><a href="#real-page">Real page</a></li></ul></div>
+      <div><h2 class="fh">Try</h2><ul><li><button class="chipbtn" type="button" data-xray-toggle aria-pressed="false">X-ray</button></li><li><a href="#start">Get started</a></li></ul></div>
+    </div>
+    <div class="legal"><span>Code Apache-2.0 · Evidence &amp; docs CC BY 4.0</span><span>This page makes no external requests.</span></div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const seg = "Segmenter" in Intl ? new Intl.Segmenter("en", { granularity: "word" }) : null;
+  const words = (text) => seg ? Array.from(seg.segment(text), (s) => ({ s: s.segment, i: s.index })) : (() => { const out = []; const re = /\s+|\S+/g; let m; while ((m = re.exec(text))) out.push({ s: m[0], i: m.index }); return out; })();
+  const graphemes = (s) => Array.from(s).length;
+
+  /* Rendered lines of one element: [{n, left, right, top, bottom}] (simplified inspector method). */
+  function linesOf(el) {
+    const out = [];
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, { acceptNode: (t) => (t.parentElement?.closest("[aria-hidden='true'], script, style, button.handle, .gutter") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT) });
+    const r = document.createRange();
+    let cur = null, prev = null, t;
+    while ((t = walker.nextNode())) {
+      for (const { s, i } of words(t.data)) {
+        r.setStart(t, i); r.setEnd(t, i + s.length);
+        const rect = Array.from(r.getClientRects()).find((x) => x.width > 0.5);
+        if (!rect) continue;
+        const space = /^\s+$/.test(s);
+        const overlap = prev ? Math.max(0, Math.min(prev.bottom, rect.bottom) - Math.max(prev.top, rect.top)) / Math.max(1, Math.min(prev.height, rect.height)) : 1;
+        if (!cur || (!space && overlap < 0.5)) { cur = { parts: [] }; out.push(cur); }
+        cur.parts.push({ n: space ? 1 : graphemes(s), space, rect });
+        if (!space) prev = rect;
+      }
+    }
+    return out.map((l) => {
+      while (l.parts.at(-1)?.space) l.parts.pop();
+      while (l.parts[0]?.space) l.parts.shift();
+      const g = l.parts.filter((p) => !p.space);
+      if (!g.length) return null;
+      return { n: l.parts.reduce((a, p) => a + p.n, 0), left: Math.min(...g.map((p) => p.rect.left)), right: Math.max(...g.map((p) => p.rect.right)), top: Math.min(...g.map((p) => p.rect.top)), bottom: Math.max(...g.map((p) => p.rect.bottom)) };
+    }).filter(Boolean);
+  }
+  const median = (a) => { if (!a.length) return null; const s = [...a].sort((x, y) => x - y); return s[Math.floor(s.length / 2)]; };
+
+  /* ---------- hero: type anatomy guides ---------- */
+  function anatomy() {
+    const h1 = document.getElementById("hero-title");
+    const host = document.getElementById("anatomy");
+    const wrap = document.getElementById("title-wrap");
+    host.textContent = "";
+    const cs = getComputedStyle(h1);
+    const fs = parseFloat(cs.fontSize);
+    const c = document.createElement("canvas").getContext("2d");
+    c.font = `${cs.fontWeight} ${fs}px ${cs.fontFamily}`;
+    const x = c.measureText("x").actualBoundingBoxAscent;
+    const cap = c.measureText("H").actualBoundingBoxAscent;
+    // Baseline of the first line: from a zero-height inline marker.
+    const probe = document.createElement("span");
+    probe.style.cssText = "display:inline-block;width:0;height:0;vertical-align:baseline";
+    h1.prepend(probe);
+    const base = probe.getBoundingClientRect().top - wrap.getBoundingClientRect().top;
+    probe.remove();
+    for (const [y, name] of [[base, "baseline"], [base - x, `x-height ${Math.round(x)}px`], [base - cap, "cap height"]]) {
+      const g = document.createElement("div");
+      g.className = "g"; g.style.top = `${y}px`;
+      const s = document.createElement("span"); s.textContent = name; g.append(s);
+      host.append(g);
+    }
+    document.getElementById("sel-tag").textContent = `h1 · ${Math.round(fs)}px · x-height ${(x / fs).toFixed(2)}`;
+  }
+
+  /* ---------- hero: draggable column with margin chart ---------- */
+  const column = document.getElementById("column");
+  const gutter = document.getElementById("gutter");
+  const band = document.getElementById("band");
+  const handle = document.getElementById("handle");
+  const width = document.getElementById("t-width");
+  const MAXBAR = 120; // characters represented by a full-width bar
+  // Layout is read first and written once per frame, so measuring never forces extra reflows.
+  function bench() {
+    // --- read ---
+    const colRect = column.getBoundingClientRect();
+    const gw = gutter.getBoundingClientRect().width;
+    const parentW = column.parentElement.getBoundingClientRect().width;
+    const rows = [];
+    for (const p of column.querySelectorAll("p")) {
+      const ls = linesOf(p);
+      ls.forEach((l, i) => rows.push({ n: l.n, mid: (l.top + l.bottom) / 2 - colRect.top, final: i === ls.length - 1 }));
+    }
+    // --- compute ---
+    const full = rows.filter((r) => !r.final).map((r) => r.n);
+    const med = median(full);
+    // --- write ---
+    const frag = document.createDocumentFragment();
+    for (const r of rows) {
+      const bar = document.createElement("div");
+      bar.className = "bar" + (!r.final && (r.n < 50 || r.n > 75) ? " out" : "");
+      bar.style.cssText = `top:${r.mid - 1.5}px;width:${Math.min(1, r.n / MAXBAR) * gw}px${r.final ? ";opacity:.35" : ""}`;
+      frag.append(bar);
+    }
+    gutter.querySelectorAll(".bar").forEach((x) => x.remove());
+    gutter.append(frag);
+    band.style.right = `${(50 / MAXBAR) * gw}px`;
+    band.style.left = `${gw - (75 / MAXBAR) * gw}px`;
+    document.getElementById("d-cpl").textContent = med ?? "—";
+    document.getElementById("d-lines").textContent = full.length;
+    const v = document.getElementById("d-verdict");
+    if (med === null) { v.textContent = "no full lines"; v.style.color = ""; }
+    else if (med < 50 || med > 75) { v.textContent = "outside 50–75 · heuristic only"; v.style.color = "var(--pencil)"; }
+    else { v.textContent = "inside starting range"; v.style.color = "var(--hi)"; }
+    handle.style.left = `${Math.min(colRect.width, parentW)}px`;
+    width.setAttribute("aria-valuetext", `${width.value} em wide, median ${med ?? "unknown"} characters per line`);
+  }
+  let benchQueued = false;
+  const queueBench = () => { if (benchQueued) return; benchQueued = true; requestAnimationFrame(() => { benchQueued = false; bench(); }); };
+  function setWidth(em) {
+    width.value = String(Math.max(12, Math.min(40, em)));
+    column.style.maxWidth = `${width.value}em`;
+    document.getElementById("o-width").textContent = `${width.value}em`;
+    queueBench();
+  }
+  width.addEventListener("input", () => setWidth(Number(width.value)));
+  // Pointer dragging on the decorative handle mirrors the native range input (keyboard and AT use the input).
+  let dragging = false;
+  handle.addEventListener("pointerdown", (e) => { dragging = true; handle.setPointerCapture(e.pointerId); });
+  handle.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    const left = column.getBoundingClientRect().left;
+    const fs = parseFloat(getComputedStyle(column).fontSize);
+    setWidth(Math.round(((e.clientX - left) / fs) * 2) / 2);
+  });
+  handle.addEventListener("pointerup", () => (dragging = false));
+  handle.addEventListener("pointercancel", () => (dragging = false));
+  const size = document.getElementById("t-size"), lh = document.getElementById("t-lh");
+  const tweak = () => {
+    column.style.fontSize = `${size.value}px`; column.style.lineHeight = lh.value;
+    document.getElementById("o-size").textContent = `${size.value}px`;
+    document.getElementById("o-lh").textContent = Number(lh.value).toFixed(2);
+    queueBench();
+  };
+  size.addEventListener("input", tweak); lh.addEventListener("input", tweak);
+
+  /* ---------- contrast (WCAG 2.x) ---------- */
+  const ctx = document.createElement("canvas").getContext("2d", { willReadFrequently: true });
+  ctx.canvas.width = ctx.canvas.height = 1;
+  function rgba(css) { ctx.clearRect(0, 0, 1, 1); ctx.fillStyle = "rgba(0,0,0,0)"; ctx.fillStyle = css; ctx.fillRect(0, 0, 1, 1); const d = ctx.getImageData(0, 0, 1, 1).data; return [d[0], d[1], d[2], d[3] / 255]; }
+  const lum = ([r, g, b]) => { const f = (v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
+  function bgOf(el) {
+    for (let e = el; e; e = e.parentElement) {
+      const cs = getComputedStyle(e);
+      if (cs.backgroundImage !== "none") return null;
+      const c = rgba(cs.backgroundColor);
+      if (c[3] > 0.99) return c;
+    }
+    return rgba(getComputedStyle(document.body).backgroundColor);
+  }
+  function contrast(el) {
+    const bg = bgOf(el); if (!bg) return null;
+    const fg = rgba(getComputedStyle(el).color);
+    const a = fg[3]; const mixed = [0, 1, 2].map((i) => fg[i] * a + bg[i] * (1 - a));
+    const l1 = lum(mixed), l2 = lum(bg);
+    return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+  }
+
+  /* ---------- X-ray ---------- */
+  const layer = document.getElementById("xray");
+  const hud = document.getElementById("hud");
+  const toggles = Array.from(document.querySelectorAll("[data-xray-toggle]"));
+  let xrayOn = false;
+  // Build HUD content from nodes (no HTML strings), so the page can enforce Trusted Types.
+  function hudSet(parts, closable) {
+    const nodes = parts.map((p) => {
+      if (typeof p === "string") return document.createTextNode(p);
+      const [tag, cls] = p[0].split(".");
+      const el = document.createElement(tag);
+      if (cls) el.className = cls;
+      el.textContent = p[1];
+      return el;
+    });
+    if (closable) {
+      const x = document.createElement("button");
+      x.type = "button"; x.className = "x"; x.setAttribute("aria-label", "Close X-ray"); x.textContent = "×";
+      x.addEventListener("click", () => setXray(false));
+      nodes.unshift(x);
+    }
+    hud.replaceChildren(...nodes);
+  }
+  const yieldToMain = () => ("scheduler" in window && "yield" in scheduler ? scheduler.yield() : new Promise((r) => setTimeout(r, 0)));
+  let xrayRun = 0;
+  // Measure in slices (yielding between them) and paint the overlay once at the end.
+  async function xray() {
+    const run = ++xrayRun;
+    const blocks = Array.from(document.querySelectorAll("main p, main h1, main h2, main h3, main li, main summary, main td, main th, footer p, .icard.c1 p"))
+      .filter((b) => b.checkVisibility?.() ?? b.offsetParent !== null)
+      .filter((b) => !b.closest("[aria-hidden='true'], details:not([open]) > p, .hud"))
+      .slice(0, 260);
+    const items = []; const full = []; const ratios = [];
+    let total = 0;
+    for (let i = 0; i < blocks.length; i++) {
+      if (i % 25 === 24) { await yieldToMain(); if (run !== xrayRun || !xrayOn) return; }
+      const sx = scrollX, sy = scrollY;
+      const b = blocks[i];
+      const ls = linesOf(b);
+      ls.forEach((l, k) => {
+        const final = k === ls.length - 1 && ls.length > 1;
+        const out = !final && ls.length > 1 && (l.n < 50 || l.n > 75);
+        items.push({ t: "ln", cls: "ln" + (out ? " out" : "") + (final ? " final" : ""), css: `left:${l.left + sx - 2}px;top:${l.top + sy}px;width:${l.right - l.left + 4}px;height:${l.bottom - l.top}px` });
+        items.push({ t: "n", cls: "n" + (out ? " out" : ""), text: l.n, css: `left:${l.right + sx}px;top:${l.top + sy}px` });
+        total++;
+        if (ls.length > 1 && !final) full.push(l.n);
+      });
+      const cr = ls.length ? contrast(b) : null;
+      if (cr) {
+        ratios.push(cr);
+        items.push({ t: "cr", cls: "cr" + (cr < 7 ? " low" : ""), text: `${cr.toFixed(1)}:1`, css: `left:${ls[0].left + sx}px;top:${ls[0].top + sy - 2}px` });
+      }
+    }
+    const docW = document.documentElement.scrollWidth, docH = document.documentElement.scrollHeight;
+    const frag = document.createDocumentFragment();
+    for (const it of items) {
+      const el = document.createElement(it.t === "ln" ? "div" : "span");
+      el.className = it.cls; el.style.cssText = it.css;
+      if (it.text !== undefined) el.textContent = it.text;
+      frag.append(el);
+    }
+    layer.replaceChildren(frag);
+    layer.style.width = `${docW}px`; layer.style.height = `${docH}px`;
+    const lowest = ratios.length ? Math.min(...ratios) : null;
+    hudSet([["b", "X-RAY"], ` · ${total} rendered lines in ${blocks.length} blocks · median `, ["b", String(median(full) ?? "—")], " chars per multi-line line · lowest text contrast ", ["b", lowest ? lowest.toFixed(2) + ":1" : "—"], ". Line lengths outside 50–75 are marked red as a heuristic, not a failure. ", ["span.dim", "Esc to exit."]], true);
+    document.getElementById("xray-result").textContent = `${total} lines measured · lowest contrast ${lowest ? lowest.toFixed(2) + ":1" : "—"}`;
+  }
+  function setXray(on) {
+    xrayOn = on;
+    toggles.forEach((t) => t.setAttribute("aria-pressed", String(on)));
+    if (on) { hudSet([["b", "X-RAY"], " · measuring…"], false); hud.classList.add("on"); xray(); }
+    else { xrayRun++; layer.textContent = ""; hud.classList.remove("on"); }
+  }
+  toggles.forEach((t) => t.addEventListener("click", () => setXray(!xrayOn)));
+
+  /* ---------- stress test: WCAG 1.4.12 ---------- */
+  const stressBtn = document.getElementById("stress");
+  let stressStyle = null;
+  function clippedText() {
+    // Elements that hide their own overflowing text (overflow hidden/clip with text inside).
+    let n = 0, checked = 0;
+    for (const el of document.querySelectorAll("main *, footer *")) {
+      if (!el.firstChild || el.closest("[aria-hidden='true']")) continue;
+      const cs = getComputedStyle(el);
+      // Screen-reader-only text is hidden on purpose, not lost (same rule as the inspector).
+      if (cs.clipPath === "inset(50%)" || (cs.position === "absolute" && el.clientWidth <= 1 && el.clientHeight <= 1)) continue;
+      const clips = /hidden|clip/.test(cs.overflowX + cs.overflowY) || cs.textOverflow === "ellipsis";
+      if (!clips || !(el.textContent || "").trim()) continue;
+      checked++;
+      if (el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1) {
+        // ignore deliberate decoration containers without readable text overflow
+        if (!el.classList.contains("giant") && !el.classList.contains("wipe")) n++;
+      }
+    }
+    return { n, checked };
+  }
+  function setStress(on) {
+    stressBtn.setAttribute("aria-pressed", String(on));
+    if (on) {
+      // A constructable stylesheet: CSSOM, so the page's strict CSP (no inline <style>) allows it.
+      stressStyle = new CSSStyleSheet();
+      stressStyle.replaceSync("*:not(#rl-a#rl-b#rl-c){line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p:not(#rl-a#rl-b#rl-c){margin-bottom:2em!important}");
+      document.adoptedStyleSheets = [...document.adoptedStyleSheets, stressStyle];
+      requestAnimationFrame(() => {
+        const { n, checked } = clippedText();
+        document.getElementById("stress-result").textContent = n === 0 ? `Spacing applied page-wide · 0 of ${checked} clipping containers cut off text · press the button again to undo` : `${n} container(s) cut off text — we have work to do`;
+        anatomy(); queueBench(); if (xrayOn) xray();
+      });
+    } else {
+      document.adoptedStyleSheets = document.adoptedStyleSheets.filter((x) => x !== stressStyle); stressStyle = null;
+      document.getElementById("stress-result").textContent = "";
+      requestAnimationFrame(() => { anatomy(); queueBench(); if (xrayOn) xray(); });
+    }
+  }
+  stressBtn.addEventListener("click", () => setStress(stressBtn.getAttribute("aria-pressed") !== "true"));
+
+  // No single-character shortcuts (WCAG 2.1.4): the buttons are the controls; Esc closes the X-ray.
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && xrayOn) setXray(false); });
+
+  /* ---------- before/after wipe ---------- */
+  const wipe = document.getElementById("wipe"), wr = document.getElementById("wipe-r");
+  // The divider follows the pointer at sub-pixel precision; the range input keeps whole-percent keyboard steps.
+  const setCut = (v) => {
+    const pct = Math.round(v);
+    wipe.style.setProperty("--cut", `${v}%`);
+    wr.value = pct;
+    wr.setAttribute("aria-valuetext", `${pct}% shows before, ${100 - pct}% shows after`);
+  };
+  wr.addEventListener("input", () => setCut(Number(wr.value)));
+  let wipeX = null;
+  wipe.addEventListener("pointerdown", (e) => {
+    if (e.button !== 0) return;
+    // Without this the browser starts a native image drag, which cancels the pointer stream mid-gesture.
+    e.preventDefault();
+    wipe.setPointerCapture(e.pointerId);
+    move(e);
+  });
+  wipe.addEventListener("pointermove", (e) => { if (wipe.hasPointerCapture(e.pointerId)) move(e); });
+  wipe.addEventListener("dragstart", (e) => e.preventDefault());
+  function move(e) {
+    const first = wipeX === null; wipeX = e.clientX;
+    // Coalesce to one update per frame, measuring then, so a resize or scroll mid-drag cannot leave a stale position.
+    if (first) requestAnimationFrame(() => {
+      const r = wipe.getBoundingClientRect();
+      setCut(Math.max(0, Math.min(100, ((wipeX - r.left) / r.width) * 100)));
+      wipeX = null;
+    });
+  }
+
+  /* ---------- refusals: strike through as they scroll in ---------- */
+  const items = Array.from(document.querySelectorAll(".refusals li"));
+  if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    items.forEach((li) => li.classList.add("pending"));
+    const io = new IntersectionObserver((es) => es.forEach((en) => { if (en.isIntersecting) { en.target.classList.remove("pending"); io.unobserve(en.target); } }), { threshold: 0.7 });
+    items.forEach((li) => io.observe(li));
+  }
+
+  /* ---------- copy buttons (Invoker Commands with a click fallback) ---------- */
+  const copyTimers = new WeakMap();
+  let lastMessage = "";
+  function report(button, ok) {
+    const tip = button.nextElementSibling; // role="status" bubble, outside the button
+    clearTimeout(copyTimers.get(button));
+    button.removeAttribute("data-copied"); button.removeAttribute("data-failed");
+    let message = ok ? "Copied" : "Copy failed — select the text and copy it";
+    if (message === lastMessage) message += "\u00A0"; // VoiceOver skips identical repeats
+    lastMessage = message;
+    tip.textContent = "";
+    button.setAttribute(ok ? "data-copied" : "data-failed", "");
+    requestAnimationFrame(() => (tip.textContent = message));
+    copyTimers.set(button, setTimeout(() => { button.removeAttribute("data-copied"); button.removeAttribute("data-failed"); tip.textContent = ""; }, 2000));
+  }
+  async function copy(button, target) {
+    const text = target.innerText.trim();
+    if (!text) return;
+    try { await navigator.clipboard.writeText(text); report(button, true); } catch { report(button, false); }
+  }
+  if ("CommandEvent" in window) {
+    // `command` events do not bubble: listen in the capture phase.
+    document.addEventListener("command", (e) => { if (e.command === "--copy") copy(e.source, e.target); }, true);
+  } else {
+    document.addEventListener("click", (e) => {
+      const button = e.target.closest?.('button[command="--copy"]');
+      const target = button && document.getElementById(button.getAttribute("commandfor"));
+      if (target) copy(button, target);
+    });
+  }
+
+  const relayout = () => { anatomy(); queueBench(); if (xrayOn) xray(); };
+  let t; addEventListener("resize", () => { clearTimeout(t); t = setTimeout(relayout, 120); });
+  (document.fonts?.ready ?? Promise.resolve()).then(relayout);
+  relayout();
+})();
+</script>
+</body>
+</html>
