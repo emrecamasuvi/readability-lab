@@ -1,0 +1,19 @@
+{
+  "format": "readability-lab/policy",
+  "formatVersion": 1,
+  "conformanceTarget": "AA",
+  "failOn": ["accessibility-failure"],
+  "warnOn": ["needs-review", "unsupported-check"],
+  "ranges": { "cpl": [50, 75], "fontSizePx": [16, 22], "lineHeight": [1.4, 1.7], "paragraphGapEm": [0.5, 1.0] },
+  "contrastTarget": 7,
+  "exceptions": [
+    {
+      "ruleId": "reflow",
+      "selector": ".api-table",
+      "reason": "Reference table needs two-dimensional layout; it scrolls inside its own container.",
+      "approvedBy": "docs-team",
+      "reviewBy": "2027-05-01"
+    }
+  ],
+  "disabledRules": []
+}

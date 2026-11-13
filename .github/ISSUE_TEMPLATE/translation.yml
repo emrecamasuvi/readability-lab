@@ -1,0 +1,12 @@
+name: Translation
+description: Offer a translation of plain-language claim text or UI strings.
+labels: [translation]
+body:
+  - type: input
+    id: language
+    attributes: { label: Language (BCP 47 tag), description: "e.g. tr, ar, ja" }
+    validations: { required: true }
+  - type: textarea
+    id: text
+    attributes: { label: Translations, description: "Claim ID or string key, then the translation. Keep 'No reliable quantitative improvement established.' meaning exact." }
+    validations: { required: true }

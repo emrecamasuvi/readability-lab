@@ -1,0 +1,23 @@
+name: New study extraction
+description: Propose a study to add to the evidence registry (no code needed).
+labels: [evidence, extraction]
+body:
+  - type: input
+    id: citation
+    attributes: { label: Citation and DOI/URL }
+    validations: { required: true }
+  - type: textarea
+    id: design
+    attributes: { label: Study design, description: "Population, sample size, language/script, task, device, typography tested, comparator." }
+    validations: { required: true }
+  - type: textarea
+    id: outcomes
+    attributes: { label: Outcomes and estimates, description: "Keep reading speed, comprehension, recognition accuracy, comfort, preference and eye movements separate. Report CIs/p-values only if the paper reports them; write 'not reported' otherwise." }
+    validations: { required: true }
+  - type: textarea
+    id: limitations
+    attributes: { label: Limitations and conflicts, description: "Small samples, short passages, units, which existing claims it supports or contradicts." }
+  - type: dropdown
+    id: access
+    attributes: { label: What did you read?, options: [Full text, Abstract only] }
+    validations: { required: true }

@@ -1,0 +1,16 @@
+name: Rendering fixture
+description: Contribute a realistic page (or describe one) that the inspector should handle.
+labels: [fixture]
+body:
+  - type: textarea
+    id: html
+    attributes: { label: HTML/CSS, description: "Minimal page or a link. Use text you wrote or that is openly licensed; state the license." }
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes: { label: Expected measurement or finding, description: "e.g. 'lines should be 41 and 38 characters', 'this gradient background must be needs-review'." }
+    validations: { required: true }
+  - type: input
+    id: license
+    attributes: { label: License of the text }
+    validations: { required: true }

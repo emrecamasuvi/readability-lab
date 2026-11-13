@@ -1,0 +1,12 @@
+name: Contradicting evidence
+description: Point out evidence that conflicts with a claim or recommendation.
+labels: [evidence, conflict]
+body:
+  - type: input
+    id: claim
+    attributes: { label: Claim ID(s) affected }
+    validations: { required: true }
+  - type: textarea
+    id: details
+    attributes: { label: Conflicting finding, description: "Source, locator, outcome measured and conditions." }
+    validations: { required: true }

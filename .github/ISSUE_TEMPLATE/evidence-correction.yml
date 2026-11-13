@@ -1,0 +1,22 @@
+name: Evidence correction
+description: Report an error in a claim or source (wrong number, missing limitation, broken link, misclassified kind).
+labels: [evidence, correction]
+body:
+  - type: input
+    id: claim
+    attributes: { label: Claim or source ID, description: "e.g. C-LH-003 or S-rello-2016" }
+    validations: { required: true }
+  - type: textarea
+    id: problem
+    attributes: { label: What is wrong, description: Quote the registry text you think is incorrect. }
+    validations: { required: true }
+  - type: textarea
+    id: evidence
+    attributes: { label: Evidence, description: "Original source, page/table/section locator, and what it says. Please do not paste long copyrighted passages; a locator and short quote is enough." }
+    validations: { required: true }
+  - type: dropdown
+    id: access
+    attributes: { label: What did you check?, options: [Full text, Abstract only, Secondary source] }
+    validations: { required: true }
+  - type: markdown
+    attributes: { value: "Maintainers review corrections against the original before changing a claim. Changes bump the claim revision and record history; recipes that reference the claim will be flagged as stale." }

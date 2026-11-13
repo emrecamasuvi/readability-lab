@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.output/
+coverage/
+test-results/
+playwright-report/
+*.log
+.DS_Store
+/artifacts/
+apps/extension/web-ext-artifacts/
+/reports/
+.env
+.env.*
+!.env.example
+*.zip
+*.tgz
+examples/real-page/frames/

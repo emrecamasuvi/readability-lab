@@ -1,0 +1,16 @@
+Readability Lab
+Copyright 2026 Readability Lab contributors
+
+This product includes or depends on third-party software:
+
+- Mozilla Readability (@mozilla/readability) — Apache License 2.0 — bundled in the browser extension.
+- DOMPurify — Apache License 2.0 or Mozilla Public License 2.0 — bundled in the extension and workbench.
+  Its build embeds regenerator-runtime, Copyright (c) 2014-present Facebook, Inc. — MIT License.
+- Zod — MIT License — bundled in core-based builds.
+- Preact — MIT License — bundled in the workbench.
+- marked — MIT License — bundled in the workbench. Includes Markdown, Copyright (c) 2004 John Gruber — BSD-style licence.
+- Playwright — Apache License 2.0 — runtime dependency of the CLI and MCP server (not bundled).
+- @modelcontextprotocol/sdk — MIT License — runtime dependency of the MCP server (not bundled).
+- axe-core — Mozilla Public License 2.0 — optional dependency of the CLI (cross-check) and used in tests; not bundled.
+
+Built artifacts carry the full licence texts of what they bundle in THIRD-PARTY-LICENSES.txt.

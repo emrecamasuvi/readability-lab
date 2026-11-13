@@ -1,0 +1,37 @@
+{
+  "name": "readability-lab",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Make reading on the web adjustable, inspectable, and reproducible.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@10.29.3",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "start": "node scripts/start.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "vitest run",
+    "test:e2e": "pnpm -C apps/extension build:test && playwright test",
+    "typecheck": "pnpm -r run typecheck",
+    "schemas": "node scripts/export-schemas.mjs",
+    "evidence:check": "node scripts/check-evidence.mjs",
+    "verify": "pnpm build && pnpm typecheck && pnpm test && pnpm evidence:check && pnpm test:e2e"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "^5.1.0",
+    "zod": "^4.6.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emrecamasuvi/readability-lab.git"
+  },
+  "homepage": "https://github.com/emrecamasuvi/readability-lab#readme",
+  "bugs": "https://github.com/emrecamasuvi/readability-lab/issues"
+}
