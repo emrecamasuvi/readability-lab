@@ -37,7 +37,7 @@ main { max-width: 36em; margin: 24px auto; padding: 0 16px; }
 </main>
 <script>
 customElements.define("shadow-card", class extends HTMLElement {
-  constructor() { super(); const r = this.attachShadow({ mode: "open" }); r.innerHTML = '<div style="height:2.2em;overflow:hidden;border:1px solid #999"><p style="margin:0">Open shadow root text that needs more room when spacing is increased for reading.</p></div>'; }
+  constructor() { super(); const r = this.attachShadow({ mode: "open" }); r.innerHTML = '<style>p{margin:0}</style><div style="height:2.6em;overflow:hidden;border:1px solid #999"><p>Open shadow root text.</p><p>It needs more room when spaced.</p></div>'; }
 });
 </script>
 </body>
