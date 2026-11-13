@@ -1,0 +1,49 @@
+{
+  "name": "@emrecamasuvi/readability-lab-cli",
+  "version": "0.1.0",
+  "description": "Inspect, compare and verify reading presentation on real pages (rlab CLI + Playwright library).",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": {
+    "rlab": "./bin/rlab.mjs"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "scripts": {
+    "build": "node build.mjs && node ../../scripts/emit-types.mjs && node ../../scripts/licenses.mjs dist zod",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "playwright": "1.65.0",
+    "zod": "^4.6.7"
+  },
+  "optionalDependencies": {
+    "axe-core": "^4.14.0"
+  },
+  "devDependencies": {
+    "@emrecamasuvi/readability-lab-core": "workspace:*",
+    "@emrecamasuvi/readability-lab-inspector": "workspace:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emrecamasuvi/readability-lab.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/emrecamasuvi/readability-lab#readme",
+  "bugs": "https://github.com/emrecamasuvi/readability-lab/issues",
+  "author": "Readability Lab contributors"
+}
