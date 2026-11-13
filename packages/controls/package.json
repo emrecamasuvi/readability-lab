@@ -1,5 +1,5 @@
 {
-  "name": "@emrecamasuvi/readability-lab-controls",
+  "name": "@camasuvi/readability-lab-controls",
   "version": "0.1.0",
   "description": "Embeddable reading-settings web component and headless API using the portable Readability Lab profile format.",
   "license": "Apache-2.0",
@@ -25,8 +25,8 @@
     "typecheck": "tsc -p tsconfig.json"
   },
   "devDependencies": {
-    "@emrecamasuvi/readability-lab-core": "workspace:*",
-    "@emrecamasuvi/readability-lab-inspector": "workspace:*"
+    "@camasuvi/readability-lab-core": "workspace:*",
+    "@camasuvi/readability-lab-inspector": "workspace:*"
   },
   "repository": {
     "type": "git",

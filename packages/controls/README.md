@@ -1,4 +1,4 @@
-# @emrecamasuvi/readability-lab-controls
+# @camasuvi/readability-lab-controls
 
 Reading settings for publishers, using the portable Readability Lab profile.
 
@@ -6,7 +6,7 @@ Reading settings for publishers, using the portable Readability Lab profile.
 
 ```html
 <rl-reading-controls target="#story" recipe-src="/recipe.json" storage-key="my-site:reading"></rl-reading-controls>
-<script type="module" src="@emrecamasuvi/readability-lab-controls/dist/reading-controls.js"></script>
+<script type="module" src="@camasuvi/readability-lab-controls/dist/reading-controls.js"></script>
 <!-- or classic script: dist/reading-controls.iife.js -->
 ```
 
@@ -18,7 +18,7 @@ Reading settings for publishers, using the portable Readability Lab profile.
 ## Headless API
 
 ```ts
-import { createReadingPreferences } from "@emrecamasuvi/readability-lab-controls";
+import { createReadingPreferences } from "@camasuvi/readability-lab-controls";
 const prefs = createReadingPreferences({ target: "#story", recipe });
 prefs.subscribe(({ resolution }) => render(resolution.settings));
 prefs.set({ fontSizePx: 20 });

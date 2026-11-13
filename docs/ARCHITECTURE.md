@@ -3,16 +3,16 @@
 ## Overview
 
 ```
-evidence/registry.json ──► @emrecamasuvi/readability-lab-core ◄── schemas/*.json (generated)
+evidence/registry.json ──► @camasuvi/readability-lab-core ◄── schemas/*.json (generated)
                               │  formats · contrast · presets · resolution · CSS/tokens
                               │  rules · reports · comparison · experiments
                               ▼
-                    @emrecamasuvi/readability-lab-inspector  (runs inside a page)
+                    @camasuvi/readability-lab-inspector  (runs inside a page)
                      │            │              │              │
-          @emrecamasuvi/readability-lab-cli  workbench   extension   @emrecamasuvi/readability-lab-controls
+          @camasuvi/readability-lab-cli  workbench   extension   @camasuvi/readability-lab-controls
           (Playwright)          (iframes)   (content     (publisher pages)
                 │                            script)
-          @emrecamasuvi/readability-lab-mcp ── skills/readability-lab (agents)
+          @camasuvi/readability-lab-mcp ── skills/readability-lab (agents)
 ```
 
 Every interface uses the same core and inspector, so they agree about:

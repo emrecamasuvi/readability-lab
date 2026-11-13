@@ -1,7 +1,7 @@
 import { isProbablyReaderable, Readability } from "@mozilla/readability";
 import DOMPurify from "dompurify";
-import { getPreset, THEMES, type TypographySettings } from "@emrecamasuvi/readability-lab-core";
-import { applySettings } from "@emrecamasuvi/readability-lab-inspector";
+import { getPreset, THEMES, type TypographySettings } from "@camasuvi/readability-lab-core";
+import { applySettings } from "@camasuvi/readability-lab-inspector";
 
 const HOST_ID = "rl-reader-host";
 let previousFocus: Element | null = null;

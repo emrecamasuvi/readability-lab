@@ -29,8 +29,8 @@ import {
   VERSION,
   type ClaimKind,
   type OutcomeDomain,
-} from "@emrecamasuvi/readability-lab-core";
-import { ALL_SCENARIOS, inspectUrl, parseViewport, type ScenarioKind } from "@emrecamasuvi/readability-lab-cli";
+} from "@camasuvi/readability-lab-core";
+import { ALL_SCENARIOS, inspectUrl, parseViewport, type ScenarioKind } from "@camasuvi/readability-lab-cli";
 
 const text = (t: string) => ({ content: [{ type: "text" as const, text: t }] });
 

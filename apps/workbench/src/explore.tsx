@@ -1,4 +1,4 @@
-import { FONT_STACKS, preferencePairs, summarizePreferences, type ExperimentCondition, type PreferenceSession } from "@emrecamasuvi/readability-lab-core";
+import { FONT_STACKS, preferencePairs, summarizePreferences, type ExperimentCondition, type PreferenceSession } from "@camasuvi/readability-lab-core";
 import { useMemo, useState } from "preact/hooks";
 import { download } from "./exports.js";
 
@@ -113,7 +113,7 @@ export function Explore() {
             Measuring speed or comprehension needs <strong>fresh passages</strong> for every condition, a counterbalanced order, comprehension questions, comfort ratings, recorded interruptions, and confirmation on held-out passages in a later session. A single fast trial is not a personal optimum, and results do not apply to other people.
           </p>
           <p>
-            The data model and analysis (Latin-square scheduling, held-out confirmation, an explicit “inconclusive” outcome) are in <code>@emrecamasuvi/readability-lab-core</code>. The guided reading interface is planned for a later release and needs a set of licensed passages with questions; see the roadmap.
+            The data model and analysis (Latin-square scheduling, held-out confirmation, an explicit “inconclusive” outcome) are in <code>@camasuvi/readability-lab-core</code>. The guided reading interface is planned for a later release and needs a set of licensed passages with questions; see the roadmap.
           </p>
           <p class="hint">Results would stay in this browser unless you export them.</p>
         </section>

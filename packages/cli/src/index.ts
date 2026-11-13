@@ -15,7 +15,7 @@ import {
   type RuleException,
   type Scenario,
   type TypographySettings,
-} from "@emrecamasuvi/readability-lab-core";
+} from "@camasuvi/readability-lab-core";
 import type { Browser, BrowserContext, Page } from "playwright";
 
 declare const __RL_INSPECTOR_SOURCE__: string | undefined;
@@ -25,7 +25,7 @@ export function inspectorSource(): string {
   if (typeof __RL_INSPECTOR_SOURCE__ === "string") return __RL_INSPECTOR_SOURCE__;
   const here = dirname(fileURLToPath(import.meta.url));
   const p = resolve(here, "../../inspector/dist/inspector.iife.js");
-  if (!existsSync(p)) throw new Error(`Inspector bundle not found at ${p}. Run \`pnpm --filter @emrecamasuvi/readability-lab-inspector build\`.`);
+  if (!existsSync(p)) throw new Error(`Inspector bundle not found at ${p}. Run \`pnpm --filter @camasuvi/readability-lab-inspector build\`.`);
   return readFileSync(p, "utf8");
 }
 
@@ -96,7 +96,7 @@ export async function inspectPage(page: Page, opts: InspectPageOptions = {}): Pr
   // Bounded: a font request that never finishes must not hang the run. The report's fonts status says "loading" then.
   await page.evaluate((ms) => Promise.race([document.fonts?.ready.then(() => undefined), new Promise<void>((r) => setTimeout(r, ms))]), FONT_WAIT_MS).catch(() => undefined);
   return page.evaluate((o: InspectPageOptions) => {
-    const api = (globalThis as unknown as { ReadabilityLabInspector: typeof import("@emrecamasuvi/readability-lab-inspector") }).ReadabilityLabInspector;
+    const api = (globalThis as unknown as { ReadabilityLabInspector: typeof import("@camasuvi/readability-lab-inspector") }).ReadabilityLabInspector;
     const reg = api.findRegion(document, o.selector ?? null);
     const base = { scenarioId: o.scenarioId, privacy: o.privacy, exceptionSelectors: o.exceptionSelectors, pageOverflow: o.pageOverflow };
     // A missing explicit region is an error: never apply settings to, or measure, something else.

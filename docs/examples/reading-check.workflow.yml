@@ -1,5 +1,5 @@
 # Example: copy into your project's .github/workflows/ and adapt the build/serve steps and pages.
-# Note: @emrecamasuvi/readability-lab-cli is not yet published to npm (v0.1 is source-only); until then, vendor
+# Note: @camasuvi/readability-lab-cli is not yet published to npm (v0.1 is source-only); until then, vendor
 # this repository and call node <path>/packages/cli/bin/rlab.mjs instead of npx.
 name: Reading check
 on: [pull_request]
@@ -20,7 +20,7 @@ jobs:
           status=0
           for page in /docs/getting-started /docs/exporting; do
             name=$(echo "$page" | tr '/' '_')
-            npx @emrecamasuvi/readability-lab-cli check "http://localhost:4173$page" --selector "main .prose" \
+            npx @camasuvi/readability-lab-cli check "http://localhost:4173$page" --selector "main .prose" \
               --policy readability-lab.policy.json --scenarios all --screenshots --out "reports/$name" || status=$?
             cat "reports/$name/report.md" >> "$GITHUB_STEP_SUMMARY"
           done

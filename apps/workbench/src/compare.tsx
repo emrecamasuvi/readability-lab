@@ -1,4 +1,4 @@
-import { decodeSettings, encodeSettings, getPreset, summarizePreferences, type PreferenceSession, type TypographySettings } from "@emrecamasuvi/readability-lab-core";
+import { decodeSettings, encodeSettings, getPreset, summarizePreferences, type PreferenceSession, type TypographySettings } from "@camasuvi/readability-lab-core";
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { fontLabel, SettingsEditor, type PaneConfig } from "./editor.js";
 import { buildRecipe, cliCommand, download, exportAll } from "./exports.js";

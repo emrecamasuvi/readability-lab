@@ -1,4 +1,4 @@
-import { FONT_STACKS, PRESETS, THEMES, type TypographySettings } from "@emrecamasuvi/readability-lab-core";
+import { FONT_STACKS, PRESETS, THEMES, type TypographySettings } from "@camasuvi/readability-lab-core";
 
 export interface PaneConfig {
   /** "original" shows the page as published; "recipe" applies settings. */

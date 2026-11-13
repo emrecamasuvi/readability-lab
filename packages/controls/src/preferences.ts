@@ -11,8 +11,8 @@ import {
   type Resolution,
   type SettingField,
   type TypographySettings,
-} from "@emrecamasuvi/readability-lab-core";
-import { applySettings, clearSettings, type FitResult } from "@emrecamasuvi/readability-lab-inspector";
+} from "@camasuvi/readability-lab-core";
+import { applySettings, clearSettings, type FitResult } from "@camasuvi/readability-lab-inspector";
 
 export const DEFAULT_STORAGE_KEY = "readability-lab:profile";
 /** Window event other tools (e.g. the browser extension) can dispatch with a profile in `detail`. */

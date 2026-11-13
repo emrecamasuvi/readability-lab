@@ -1,5 +1,5 @@
-import { evaluate, getPreset, resolvePresentation, type Profile, type TypographySettings } from "@emrecamasuvi/readability-lab-core";
-import { applySettings, clearSettings, findRegion, inspect, selectorFor } from "@emrecamasuvi/readability-lab-inspector";
+import { evaluate, getPreset, resolvePresentation, type Profile, type TypographySettings } from "@camasuvi/readability-lab-core";
+import { applySettings, clearSettings, findRegion, inspect, selectorFor } from "@camasuvi/readability-lab-inspector";
 import { openReader, closeReader, isReaderOpen } from "./reader.js";
 import { startPicker, stopPicker } from "./picker.js";
 import { ext, getAutoHosts, hostOf, loadOptions, loadProfile, PROFILE_EVENT_NAME, saveProfile, type InspectSummary, type Msg, type PageStatus } from "./shared.js";

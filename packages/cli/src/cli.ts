@@ -24,7 +24,7 @@ import {
   VERSION,
   designSpec,
   type ClaimKind,
-} from "@emrecamasuvi/readability-lab-core";
+} from "@camasuvi/readability-lab-core";
 import { ALL_SCENARIOS, BROWSERS, UsageError, inspectUrl, loadJson, parseViewport, type ScenarioKind } from "./index.js";
 
 const HELP = `rlab ${VERSION} — Readability Lab command line

@@ -1,4 +1,4 @@
-import { dependentsOfClaim, getClaim, getRegistry, getSource, NRQI, QUESTIONS, searchClaims, type Claim, type ClaimKind, type OutcomeDomain } from "@emrecamasuvi/readability-lab-core";
+import { dependentsOfClaim, getClaim, getRegistry, getSource, NRQI, QUESTIONS, searchClaims, type Claim, type ClaimKind, type OutcomeDomain } from "@camasuvi/readability-lab-core";
 import { useEffect, useMemo, useState } from "preact/hooks";
 
 const KIND_TEXT: Record<ClaimKind, string> = {

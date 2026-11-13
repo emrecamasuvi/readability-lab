@@ -1,4 +1,4 @@
-import { FONT_STACKS, PRESETS, Recipe, THEMES, type SettingField, type TypographySettings } from "@emrecamasuvi/readability-lab-core";
+import { FONT_STACKS, PRESETS, Recipe, THEMES, type SettingField, type TypographySettings } from "@camasuvi/readability-lab-core";
 import { createReadingPreferences, type PreferencesState, type ReadingPreferences } from "./preferences.js";
 
 const FONT_OPTIONS: { id: string; label: string; stack: string | null }[] = [

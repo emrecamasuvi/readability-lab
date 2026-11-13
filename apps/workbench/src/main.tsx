@@ -1,6 +1,6 @@
 import { render } from "preact";
 import { useEffect, useState } from "preact/hooks";
-import { getRegistry, VERSION } from "@emrecamasuvi/readability-lab-core";
+import { getRegistry, VERSION } from "@camasuvi/readability-lab-core";
 import { Atlas } from "./atlas.js";
 import { Compare } from "./compare.js";
 import { Explore } from "./explore.js";

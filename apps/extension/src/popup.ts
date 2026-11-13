@@ -14,7 +14,7 @@ import {
   type FindingKind,
   type Profile,
   type TypographySettings,
-} from "@emrecamasuvi/readability-lab-core";
+} from "@camasuvi/readability-lab-core";
 import { AUTO_HOSTS_KEY, ext, getAutoHosts, hostOf, loadOptions, loadProfile, saveProfile, type InspectSummary, type PageStatus } from "./shared.js";
 import { activeTab, send } from "./tabs.js";
 

@@ -1,4 +1,4 @@
-import { FIELD_LABELS, SETTING_FIELDS, type SettingField } from "@emrecamasuvi/readability-lab-core";
+import { FIELD_LABELS, SETTING_FIELDS, type SettingField } from "@camasuvi/readability-lab-core";
 import { AUTO_HOSTS_KEY, ext, getAutoHosts, loadOptions, loadProfile, saveOptions, saveProfile } from "./shared.js";
 
 const $ = (id: string) => document.getElementById(id)!;

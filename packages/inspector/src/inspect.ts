@@ -1,4 +1,4 @@
-import { METRICS, relativeLuminance, summarize, type ElementRef, type Observation } from "@emrecamasuvi/readability-lab-core";
+import { METRICS, relativeLuminance, summarize, type ElementRef, type Observation } from "@camasuvi/readability-lab-core";
 import { box, selectorFor, textSample } from "./dom.js";
 import { CONTRAST_METHOD, normalizeColor, sampleContrast } from "./contrast.js";
 import { FONT_METHOD, firstAvailable } from "./fonts.js";

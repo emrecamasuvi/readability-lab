@@ -12,7 +12,7 @@ You improve how a page reads using **measurements from a real browser** and the 
 Use either interface; both run the same engine locally (no content leaves the machine).
 
 - **MCP** (if the `readability-lab` server is connected): `rl_inspect`, `rl_check`, `rl_compare`, `rl_claims`, `rl_claim`, `rl_recipe`, `rl_rules`.
-- **CLI**: `rlab inspect|check|compare|recipe|claims|claim` (`node packages/cli/bin/rlab.mjs` inside this repo, or `npx @emrecamasuvi/readability-lab-cli` once published). Run `rlab --help` for options.
+- **CLI**: `rlab inspect|check|compare|recipe|claims|claim` (`node packages/cli/bin/rlab.mjs` inside this repo, or `npx @camasuvi/readability-lab-cli` once published). Run `rlab --help` for options.
 
 ## Workflow
 

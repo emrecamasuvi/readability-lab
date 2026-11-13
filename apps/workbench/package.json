@@ -1,5 +1,5 @@
 {
-  "name": "@emrecamasuvi/readability-lab-workbench",
+  "name": "@camasuvi/readability-lab-workbench",
   "version": "0.1.0",
   "private": true,
   "description": "Live typography workbench and evidence atlas.",
@@ -17,9 +17,9 @@
     "preact": "^10.29.8"
   },
   "devDependencies": {
-    "@emrecamasuvi/readability-lab-controls": "workspace:*",
-    "@emrecamasuvi/readability-lab-core": "workspace:*",
-    "@emrecamasuvi/readability-lab-inspector": "workspace:*",
+    "@camasuvi/readability-lab-controls": "workspace:*",
+    "@camasuvi/readability-lab-core": "workspace:*",
+    "@camasuvi/readability-lab-inspector": "workspace:*",
     "vite": "^6.4.6"
   },
   "repository": {

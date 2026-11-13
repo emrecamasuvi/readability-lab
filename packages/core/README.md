@@ -1,4 +1,4 @@
-# @emrecamasuvi/readability-lab-core
+# @camasuvi/readability-lab-core
 
 DOM-free foundation shared by every Readability Lab interface.
 
@@ -14,7 +14,7 @@ DOM-free foundation shared by every Readability Lab interface.
 - **Experiments:** `planExploration`, `planConfirmation`, `analyzePerformance` (defaults to "inconclusive"), `preferencePairs`, `summarizePreferences`.
 
 ```ts
-import { createProfile, resolvePresentation, toCss } from "@emrecamasuvi/readability-lab-core";
+import { createProfile, resolvePresentation, toCss } from "@camasuvi/readability-lab-core";
 const profile = createProfile({ settings: { fontSizePx: 20 }, needs: ["fontSizePx"] });
 const { settings } = resolvePresentation({ recipe, profile, viewportWidth: 390 });
 const css = toCss(settings, { scope: "article", charsPerCh: recipe.calibration?.charsPerCh ?? null });

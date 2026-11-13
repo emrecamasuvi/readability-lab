@@ -1,4 +1,4 @@
-import { resolvePresentation, getPreset } from "@emrecamasuvi/readability-lab-core";
+import { resolvePresentation, getPreset } from "@camasuvi/readability-lab-core";
 import { AUTO_HOSTS_KEY, ext, getAutoHosts, hostOf, loadProfile } from "./shared.js";
 import { send } from "./tabs.js";
 

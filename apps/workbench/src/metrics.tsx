@@ -1,4 +1,4 @@
-import { evaluate, KIND_LABELS, METRICS, type Distribution, type Finding, type Observation } from "@emrecamasuvi/readability-lab-core";
+import { evaluate, KIND_LABELS, METRICS, type Distribution, type Finding, type Observation } from "@camasuvi/readability-lab-core";
 import type { PaneMeasurement } from "./frame.js";
 
 const get = (obs: Observation[], m: string) => obs.find((o) => o.metric === m && o.scenarioId === "baseline");

@@ -22,6 +22,6 @@ Pairs were also checked in Clearleft's [This hue shall pass](https://thishueshal
 | `#555555` | `#525252` | Light muted: exactly 7.0:1 on panel; margin added | 0.450 → 0.440 |
 | `#f28b82` | `#fa9289` | Dark fail on panel: 6.7:1 | 0.745 → 0.767 |
 
-Reader themes (`THEMES` in `@emrecamasuvi/readability-lab-core`) are covered by the core unit tests: text ≥ 7:1 and links ≥ 4.5:1. The light-theme link now uses `#014abb`.
+Reader themes (`THEMES` in `@camasuvi/readability-lab-core`) are covered by the core unit tests: text ≥ 7:1 and links ≥ 4.5:1. The light-theme link now uses `#014abb`.
 
 Fixtures in `fixtures/` imitate third-party pages and keep their own colors on purpose.

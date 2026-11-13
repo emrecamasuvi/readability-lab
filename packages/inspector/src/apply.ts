@@ -1,4 +1,4 @@
-import { toCss, type TypographySettings } from "@emrecamasuvi/readability-lab-core";
+import { toCss, type TypographySettings } from "@camasuvi/readability-lab-core";
 import { selectorFor } from "./dom.js";
 import { measureLines } from "./lines.js";
 

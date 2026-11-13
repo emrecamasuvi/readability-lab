@@ -1,5 +1,5 @@
 {
-  "name": "@emrecamasuvi/readability-lab-cli",
+  "name": "@camasuvi/readability-lab-cli",
   "version": "0.1.0",
   "description": "Inspect, compare and verify reading presentation on real pages (rlab CLI + Playwright library).",
   "license": "Apache-2.0",
@@ -35,8 +35,8 @@
     "axe-core": "^4.14.0"
   },
   "devDependencies": {
-    "@emrecamasuvi/readability-lab-core": "workspace:*",
-    "@emrecamasuvi/readability-lab-inspector": "workspace:*"
+    "@camasuvi/readability-lab-core": "workspace:*",
+    "@camasuvi/readability-lab-inspector": "workspace:*"
   },
   "repository": {
     "type": "git",

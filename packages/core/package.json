@@ -1,5 +1,5 @@
 {
-  "name": "@emrecamasuvi/readability-lab-core",
+  "name": "@camasuvi/readability-lab-core",
   "version": "0.1.0",
   "description": "Shared, DOM-free models for Readability Lab: evidence registry, observations, recipes, profiles, rules and reports.",
   "license": "Apache-2.0",

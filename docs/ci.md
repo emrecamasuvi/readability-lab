@@ -30,11 +30,11 @@ To compare a branch with its base, run the same command on both builds with the 
 ## Playwright tests
 
 ```ts
-import { inspectPage } from "@emrecamasuvi/readability-lab-cli";
+import { inspectPage } from "@camasuvi/readability-lab-cli";
 test("docs prose has no reading accessibility failures", async ({ page }) => {
   await page.goto("/docs/getting-started");
   const { observations } = await inspectPage(page, { selector: "main .prose" });
-  // …or build a full report with buildReport/gate from @emrecamasuvi/readability-lab-core
+  // …or build a full report with buildReport/gate from @camasuvi/readability-lab-core
 });
 ```
 

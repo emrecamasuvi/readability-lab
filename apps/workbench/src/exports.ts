@@ -8,7 +8,7 @@ import {
   SETTING_FIELDS,
   type Recipe,
   type TypographySettings,
-} from "@emrecamasuvi/readability-lab-core";
+} from "@camasuvi/readability-lab-core";
 import type { PaneMeasurement } from "./frame.js";
 
 export function browserLabel(): string {

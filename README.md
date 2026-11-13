@@ -89,7 +89,7 @@ Exit codes: `0` ok, `1` policy failure (`check`), `2` usage error, `3` page coul
 ```html
 <article id="story">…</article>
 <rl-reading-controls target="#story" recipe-src="/reading-recipe.json"></rl-reading-controls>
-<script type="module" src="/node_modules/@emrecamasuvi/readability-lab-controls/dist/reading-controls.js"></script>
+<script type="module" src="/node_modules/@camasuvi/readability-lab-controls/dist/reading-controls.js"></script>
 ```
 
 For the headless API, see [`packages/controls/README.md`](packages/controls/README.md). For a live demo, see [`packages/controls/demo/index.html`](packages/controls/demo/index.html).

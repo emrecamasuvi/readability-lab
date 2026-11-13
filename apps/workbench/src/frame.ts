@@ -1,5 +1,5 @@
-import type { Observation, TypographySettings } from "@emrecamasuvi/readability-lab-core";
-import type * as Inspector from "@emrecamasuvi/readability-lab-inspector";
+import type { Observation, TypographySettings } from "@camasuvi/readability-lab-core";
+import type * as Inspector from "@camasuvi/readability-lab-inspector";
 import inspectorUrl from "../../../packages/inspector/dist/inspector.iife.js?url";
 
 type Api = typeof Inspector;

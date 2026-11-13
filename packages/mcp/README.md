@@ -1,4 +1,4 @@
-# @emrecamasuvi/readability-lab-mcp
+# @camasuvi/readability-lab-mcp
 
 Stdio MCP server. Tools: `rl_inspect`, `rl_check`, `rl_compare`, `rl_claims`, `rl_claim`, `rl_recipe`, `rl_rules`. Everything runs locally with Playwright.
 

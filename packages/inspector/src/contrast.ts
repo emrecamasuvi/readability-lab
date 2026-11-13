@@ -1,4 +1,4 @@
-import { composite, contrastRatio, isLargeText, toHex, type Rgba } from "@emrecamasuvi/readability-lab-core";
+import { composite, contrastRatio, isLargeText, toHex, type Rgba } from "@camasuvi/readability-lab-core";
 import { isHiddenInTree, isRendered, isVisuallyHidden, textNodes } from "./dom.js";
 
 export const CONTRAST_METHOD = "computed-colors-ancestor-composite@1";

@@ -1,9 +1,9 @@
-# @emrecamasuvi/readability-lab-inspector
+# @camasuvi/readability-lab-inspector
 
 Runs inside a page (content script, iframe, Playwright, devtools) and returns `Observation[]` using the shared metric names. See `docs/measurement-method.md`.
 
 ```ts
-import { inspect, inspectWithTextSpacing, applySettings, findRegion } from "@emrecamasuvi/readability-lab-inspector";
+import { inspect, inspectWithTextSpacing, applySettings, findRegion } from "@camasuvi/readability-lab-inspector";
 const { observations, region } = inspect({ selector: "article" });
 ```
 

@@ -1,11 +1,11 @@
-import { createProfile, importProfile, type Observation, type Profile, type TypographySettings } from "@emrecamasuvi/readability-lab-core";
+import { createProfile, importProfile, type Observation, type Profile, type TypographySettings } from "@camasuvi/readability-lab-core";
 
 /** `browser` (Firefox) and `chrome` share the promise-based MV3 APIs we use. */
 export const ext: typeof chrome = (globalThis as unknown as { browser?: typeof chrome }).browser ?? chrome;
 
 const PROFILE_KEY = "profile";
 export const AUTO_HOSTS_KEY = "autoHosts";
-/** Same event name as @emrecamasuvi/readability-lab-controls PROFILE_EVENT. */
+/** Same event name as @camasuvi/readability-lab-controls PROFILE_EVENT. */
 export const PROFILE_EVENT_NAME = "readability-lab:profile";
 const OPTIONS_KEY = "options";
 
